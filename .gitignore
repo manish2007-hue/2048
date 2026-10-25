@@ -21,3 +21,7 @@ yarn-error.log*
 test_*.js
 check_*.js
 validate_*.js
+
+# Cloudflare Wrangler
+.wrangler/
+

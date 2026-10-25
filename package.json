@@ -1,0 +1,21 @@
+{
+  "name": "play-2048-online",
+  "version": "1.0.0",
+  "description": "Play 2048 Online Free with real leaderboard, player stats dashboard, responsive mobile controls, and complete SEO strategy guide.",
+  "scripts": {
+    "deploy": "wrangler pages deploy . --project-name=play-2048-online --branch=main",
+    "preview": "wrangler pages dev ."
+  },
+  "keywords": [
+    "2048",
+    "play-2048",
+    "2048-game",
+    "leaderboard",
+    "puzzle-game"
+  ],
+  "author": "manish2007-hue",
+  "license": "MIT",
+  "devDependencies": {
+    "wrangler": "^4.152.0"
+  }
+}
