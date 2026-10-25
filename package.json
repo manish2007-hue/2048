@@ -3,8 +3,8 @@
   "version": "1.0.0",
   "description": "Play 2048 Online Free with real leaderboard, player stats dashboard, responsive mobile controls, and complete SEO strategy guide.",
   "scripts": {
-    "deploy": "wrangler pages deploy . --project-name=play-2048-online --branch=main",
-    "preview": "wrangler pages dev ."
+    "deploy": "npx wrangler pages deploy . --project-name=play-2048-online --branch=main",
+    "preview": "npx wrangler pages dev ."
   },
   "keywords": [
     "2048",
