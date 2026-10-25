@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
+  <title>404 — Page Not Found | 2048 Online</title>
+  <meta name="description" content="Oops! The page you are looking for does not exist on our 4x4 grid. Return to 2048 Online to resume playing." />
+  <meta name="robots" content="noindex, follow" />
+
+  <!-- Fonts & Tailwind -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com/3.4.17"></script>
+  <style>
+    * {
+      box-sizing: border-box;
+      -webkit-tap-highlight-color: transparent;
+    }
+    body {
+      font-family: 'Inter', system-ui, -apple-system, sans-serif;
+      background: radial-gradient(circle at 50% 30%, #463e39 0%, #25201d 100%);
+      color: #f9f6f2;
+      min-height: 100vh;
+      min-height: 100dvh;
+    }
+    @keyframes floatTile {
+      0%, 100% { transform: translateY(0px) rotate(0deg); }
+      50% { transform: translateY(-8px) rotate(-1deg); }
+    }
+    .floating-tile {
+      animation: floatTile 3s ease-in-out infinite;
+    }
+  </style>
+</head>
+<body class="flex flex-col justify-between">
+
+  <!-- Top Navigation Header -->
+  <header class="w-full bg-[#241e1b]/90 backdrop-blur-md border-b border-[#bbada0]/20 px-4 sm:px-6 py-3 sticky top-0 z-30">
+    <div class="max-w-3xl mx-auto flex items-center justify-between">
+      <a href="2048_play_2048_online.html" class="flex items-center gap-2 group">
+        <div class="w-8 h-8 rounded-lg bg-[#edc22e] flex items-center justify-center font-black text-sm text-[#3c3a32] shadow group-hover:scale-105 transition-transform">
+          2048
+        </div>
+        <span class="font-black text-base tracking-tight text-white group-hover:text-[#edc22e] transition-colors">2048 Online</span>
+      </a>
+
+      <a href="2048_play_2048_online.html" class="px-3.5 py-1.5 rounded-xl bg-[#8f7a66] hover:bg-[#9f8b77] text-white font-extrabold text-xs uppercase tracking-wider transition-all shadow flex items-center gap-1.5">
+        <span>←</span>
+        <span>Play Game</span>
+      </a>
+    </div>
+  </header>
+
+  <!-- Main Error Content -->
+  <main class="flex-1 w-full max-w-xl mx-auto px-4 py-12 flex flex-col items-center justify-center text-center space-y-6">
+
+    <!-- Playful 2048 Tile Graphic for 404 -->
+    <div class="flex items-center justify-center gap-2 sm:gap-3 floating-tile">
+      <!-- Tile 4 -->
+      <div class="w-20 h-20 sm:w-24 sm:h-24 rounded-2xl bg-[#ede0c8] text-[#776e65] flex items-center justify-center font-black text-3xl sm:text-4xl shadow-xl border-2 border-[#bbada0]/30">
+        4
+      </div>
+      <!-- Tile 0 (Golden Tile Motif) -->
+      <div class="w-20 h-20 sm:w-24 sm:h-24 rounded-2xl bg-[#edc22e] text-white flex items-center justify-center font-black text-3xl sm:text-4xl shadow-xl border-2 border-[#bbada0]/30 ring-4 ring-[#edc22e]/30">
+        0
+      </div>
+      <!-- Tile 4 -->
+      <div class="w-20 h-20 sm:w-24 sm:h-24 rounded-2xl bg-[#ede0c8] text-[#776e65] flex items-center justify-center font-black text-3xl sm:text-4xl shadow-xl border-2 border-[#bbada0]/30">
+        4
+      </div>
+    </div>
+
+    <!-- Error Text & Context -->
+    <div class="space-y-2">
+      <div class="inline-block px-3 py-1 rounded-full bg-red-500/20 border border-red-500/30 text-red-300 font-extrabold text-xs uppercase tracking-wider">
+        Error 404 • Page Not Found
+      </div>
+      <h1 class="text-2xl sm:text-3xl font-black text-white tracking-tight">
+        Tile Not Found on the Grid!
+      </h1>
+      <p class="text-xs sm:text-sm text-[#cdc1b4] max-w-md mx-auto leading-relaxed">
+        The link you followed may have slid off the 4×4 board, or the page address might be incorrect. Don't worry—your high scores and saved match records are safe.
+      </p>
+    </div>
+
+    <!-- Primary Action Buttons -->
+    <div class="flex flex-col sm:flex-row items-center gap-3 w-full max-w-sm pt-2">
+      <a href="2048_play_2048_online.html" class="w-full sm:flex-1 py-3 px-4 rounded-xl bg-[#edc22e] hover:bg-[#e5b822] text-[#3c3a32] font-black text-xs sm:text-sm uppercase tracking-wider shadow-lg transition-transform active:scale-95 flex items-center justify-center gap-2">
+        <span>🎮</span>
+        <span>Back to 2048 Game</span>
+      </a>
+      <button onclick="window.history.back()" type="button" class="w-full sm:flex-1 py-3 px-4 rounded-xl bg-[#443c37] hover:bg-[#524943] text-white font-black text-xs sm:text-sm uppercase tracking-wider transition-all active:scale-95">
+        ← Previous Page
+      </button>
+    </div>
+
+    <!-- Helpful Quick Links Box -->
+    <div class="w-full max-w-md bg-[#27211e] border border-[#bbada0]/20 rounded-2xl p-4 text-left space-y-2.5">
+      <div class="text-[11px] font-extrabold uppercase tracking-wider text-[#cdc1b4]">Helpful Navigation Links</div>
+      <div class="grid grid-cols-2 gap-2 text-xs">
+        <a href="2048_play_2048_online.html#tab-view-leaderboard" class="p-2 rounded-lg bg-[#1e1916] hover:bg-[#352e2a] text-[#ede0c8] hover:text-[#edc22e] font-semibold transition-colors flex items-center gap-1.5">
+          <span>🏆</span>
+          <span>Leaderboard</span>
+        </a>
+        <a href="2048_play_2048_online.html#about-2048-guide" class="p-2 rounded-lg bg-[#1e1916] hover:bg-[#352e2a] text-[#ede0c8] hover:text-[#edc22e] font-semibold transition-colors flex items-center gap-1.5">
+          <span>📖</span>
+          <span>Strategy Guide</span>
+        </a>
+        <a href="about-us.html" class="p-2 rounded-lg bg-[#1e1916] hover:bg-[#352e2a] text-[#ede0c8] hover:text-[#edc22e] font-semibold transition-colors flex items-center gap-1.5">
+          <span>ℹ️</span>
+          <span>About 2048</span>
+        </a>
+        <a href="contact-us.html" class="p-2 rounded-lg bg-[#1e1916] hover:bg-[#352e2a] text-[#ede0c8] hover:text-[#edc22e] font-semibold transition-colors flex items-center gap-1.5">
+          <span>✉️</span>
+          <span>Contact Support</span>
+        </a>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- Site Footer -->
+  <footer class="w-full bg-[#1e1916] border-t border-[#bbada0]/20 py-6 px-4">
+    <div class="max-w-3xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-[#cdc1b4]">
+      <div>© 2026 2048 Online. All rights reserved.</div>
+      <div class="flex items-center gap-3">
+        <a href="about-us.html" class="hover:text-[#edc22e] transition-colors">About Us</a>
+        <span>•</span>
+        <a href="privacy-policy.html" class="hover:text-[#edc22e] transition-colors">Privacy Policy</a>
+        <span>•</span>
+        <a href="terms.html" class="hover:text-[#edc22e] transition-colors">Terms</a>
+        <span>•</span>
+        <a href="contact-us.html" class="hover:text-[#edc22e] transition-colors">Contact</a>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
