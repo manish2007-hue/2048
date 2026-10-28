@@ -4,6 +4,11 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
   <title>Play 2048 Online Free — Official 2048 Game &amp; Live Leaderboard</title>
+  <!-- Favicon & App Icons -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64' width='64' height='64'%3E%3Crect width='64' height='64' rx='14' fill='%23bbada0'/%3E%3Crect x='6' y='6' width='24' height='24' rx='5' fill='%23eee4da'/%3E%3Ctext x='18' y='23.5' font-family='sans-serif' font-weight='900' font-size='16' fill='%23776e65' text-anchor='middle'%3E2%3C/text%3E%3Crect x='34' y='6' width='24' height='24' rx='5' fill='%23ede0c8'/%3E%3Ctext x='46' y='23.5' font-family='sans-serif' font-weight='900' font-size='16' fill='%23776e65' text-anchor='middle'%3E4%3C/text%3E%3Crect x='6' y='34' width='24' height='24' rx='5' fill='%23f2b179'/%3E%3Ctext x='18' y='51.5' font-family='sans-serif' font-weight='900' font-size='16' fill='%23ffffff' text-anchor='middle'%3E8%3C/text%3E%3Crect x='34' y='34' width='24' height='24' rx='5' fill='%23edc22e'/%3E%3Ctext x='46' y='50' font-family='sans-serif' font-weight='900' font-size='10.5' fill='%23ffffff' text-anchor='middle'%3E2048%3C/text%3E%3C/svg%3E" />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <link rel="alternate icon" href="/favicon.ico" />
+  <link rel="apple-touch-icon" href="/favicon.svg" />
   
   <!-- On-Page SEO Meta Tags -->
   <meta name="description" content="Play the official 2048 puzzle game online for free. Features real player leaderboards, personal career stats, mobile touch controls, undo moves, and proven strategy guides." />
@@ -462,10 +467,10 @@
           </div>
 
           <div class="flex items-center gap-2 w-full max-w-[260px]">
-            <button id="keep-going-btn" type="button" class="hidden flex-1 py-2 rounded-lg bg-[#8f7a66] hover:bg-[#9f8b77] text-white font-black text-xs uppercase tracking-wider shadow transition-all active:scale-95">
+            <button id="keep-going-btn" onclick="window.handleKeepGoingClick && window.handleKeepGoingClick(event)" type="button" class="hidden flex-1 py-2 rounded-lg bg-[#8f7a66] hover:bg-[#9f8b77] text-white font-black text-xs uppercase tracking-wider shadow transition-all active:scale-95 cursor-pointer">
               Keep Going
             </button>
-            <button id="play-again-btn" type="button" class="flex-1 py-2 rounded-lg bg-[#edc22e] hover:bg-[#e5b822] text-[#3c3a32] font-black text-xs uppercase tracking-wider shadow transition-all active:scale-95">
+            <button id="play-again-btn" onclick="window.handlePlayAgainClick && window.handlePlayAgainClick(event)" type="button" class="flex-1 py-2 rounded-lg bg-[#edc22e] hover:bg-[#e5b822] text-[#3c3a32] font-black text-xs uppercase tracking-wider shadow transition-all active:scale-95 cursor-pointer">
               Play Again
             </button>
           </div>
@@ -1762,9 +1767,11 @@
           const data = await res.json();
           if (data.success && Array.isArray(data.runs)) {
             renderLeaderboardRows(data.runs);
-            if (data.topOverall) {
-              const quickLbEl = document.getElementById('quick-lb-text');
+            const quickLbEl = document.getElementById('quick-lb-text');
+            if (data.topOverall && data.topOverall.highScore > 0) {
               quickLbEl.textContent = 'Rank #1: ' + data.topOverall.name + ' (' + data.topOverall.highScore.toLocaleString() + ' pts, ' + data.topOverall.highestTile + ' tile)';
+            } else {
+              quickLbEl.textContent = 'No recorded games yet — Play & set Rank #1!';
             }
             return true;
           }
@@ -2226,6 +2233,9 @@
       const playAgainBtn = document.getElementById('play-again-btn');
       const keepGoingBtn = document.getElementById('keep-going-btn');
       const reviewModal = document.getElementById('match-review-modal');
+
+      window.handlePlayAgainClick = function(e) { handlePlayAgain(e); };
+      window.handleKeepGoingClick = function(e) { handleKeepGoing(e); };
 
       function handlePlayAgain(e) {
         if (e) {
