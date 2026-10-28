@@ -1,4 +1,4 @@
-# robots.txt for 2048 Online (https://play2048online.com/)
+# robots.txt for 2048 Online (https://online2048game.io/)
 # Optimized for Googlebot, Bingbot, and modern web crawlers
 
 User-agent: *
@@ -26,4 +26,4 @@ User-agent: YandexBot
 Allow: /
 
 # Sitemap Location
-Sitemap: https://play2048online.com/sitemap.xml
+Sitemap: https://online2048game.io/sitemap.xml
