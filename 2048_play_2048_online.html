@@ -930,13 +930,17 @@
   <div id="username-modal" class="hidden absolute inset-0 bg-black/75 backdrop-blur-sm flex items-center justify-center p-4 z-40">
     <div class="bg-[#332c28] border border-[#bbada0]/40 rounded-2xl max-w-sm w-full p-4 space-y-3 shadow-2xl">
       <div class="flex items-center justify-between">
-        <h3 class="text-sm font-black text-white">Player Profile</h3>
+        <h3 class="text-sm font-black text-white flex items-center gap-1.5"><span>👤</span> Player Login &amp; Device Sync</h3>
         <button id="close-user-modal-btn" type="button" class="text-[#cdc1b4] hover:text-white text-base font-bold">✕</button>
       </div>
 
-      <p class="text-xs text-[#cdc1b4]">
-        Choose your name for the real leaderboard and match records:
+      <p class="text-xs text-[#cdc1b4] leading-relaxed">
+        Log in with your nickname. Every game you play on this device is permanently recorded under your name in the database.
       </p>
+      <div class="bg-[#241e1b] rounded-lg p-2 text-[11px] text-[#edc22e] flex items-center justify-between border border-[#bbada0]/20">
+        <span>Device ID: <code class="font-mono text-[#f9f6f2]">${deviceId.slice(0, 16)}...</code></span>
+        <span class="text-emerald-400 font-bold">Linked ✓</span>
+      </div>
 
       <form id="profile-name-form" class="space-y-3">
         <input id="profile-name-input" type="text" maxlength="16" placeholder="Enter player name" class="w-full bg-[#241e1b] border border-[#bbada0]/40 rounded-lg px-3 py-2 text-sm font-bold text-white focus:outline-none focus:border-[#edc22e]" required />
@@ -945,7 +949,7 @@
             🎲 Random
           </button>
           <button type="submit" class="flex-1 py-2 rounded-lg bg-[#edc22e] hover:bg-[#e5b822] text-[#3c3a32] font-black text-xs uppercase tracking-wider">
-            Save Name
+            Login / Sync Device
           </button>
         </div>
       </form>
@@ -1051,7 +1055,9 @@
       const STORAGE_KEYS = {
         PROFILE: '2048_player_profile',
         SETTINGS: '2048_player_settings',
-        RECORDS: '2048_verified_records_v1'
+        RECORDS: '2048_verified_records_v1',
+        DEVICE_ID: '2048_persistent_device_id',
+        ACTIVE_SESSION: '2048_active_board_session'
       };
 
       const RANDOM_NAMES = [
@@ -1060,8 +1066,16 @@
         'LogicAce', 'TileSurfer', 'BoardWizard', 'SpeedMerger', 'ZoomyBeak'
       ];
 
+      // Persistent Unique Device Identifier for this hardware/browser
+      let deviceId = localStorage.getItem(STORAGE_KEYS.DEVICE_ID);
+      if (!deviceId) {
+        deviceId = 'dev_' + Date.now().toString(36) + '_' + Math.random().toString(36).slice(2, 9);
+        localStorage.setItem(STORAGE_KEYS.DEVICE_ID, deviceId);
+      }
+
       let profile = {
         name: RANDOM_NAMES[Math.floor(Math.random() * RANDOM_NAMES.length)] + Math.floor(10 + Math.random() * 89),
+        deviceId: deviceId,
         createdAt: Date.now(),
         highScore: 0,
         highestTile: 2,
@@ -1528,6 +1542,7 @@
           spawnRandomTile();
           syncTilesDOM();
           updateHUD();
+          saveActiveSession();
 
           if (!hasWon2048 && bestTile >= 2048 && !keepPlaying) {
             hasWon2048 = true;
@@ -1550,7 +1565,68 @@
         return moved;
       }
 
+            // =========================================================================
+      // 8.5 ACTIVE IN-PROGRESS SESSION AUTO-SAVE (RESUME ON SAME DEVICE)
+      // =========================================================================
+      function saveActiveSession() {
+        if (isGameOver) {
+          localStorage.removeItem(STORAGE_KEYS.ACTIVE_SESSION);
+          return;
+        }
+        try {
+          const session = {
+            gridValues: grid.map(row => row.map(cell => cell ? cell.val : 0)),
+            score,
+            moves,
+            bestTile,
+            undosLeft,
+            gameStartTime,
+            hasWon2048,
+            timestamp: Date.now()
+          };
+          localStorage.setItem(STORAGE_KEYS.ACTIVE_SESSION, JSON.stringify(session));
+        } catch (e) {}
+      }
+
+      function restoreActiveSession() {
+        try {
+          const raw = localStorage.getItem(STORAGE_KEYS.ACTIVE_SESSION);
+          if (!raw) return false;
+          const session = JSON.parse(raw);
+          if (!session || !session.gridValues || session.moves === 0) return false;
+
+          tileLayerEl.innerHTML = '';
+          grid = [
+            [null, null, null, null],
+            [null, null, null, null],
+            [null, null, null, null],
+            [null, null, null, null]
+          ];
+          for (let r = 0; r < 4; r++) {
+            for (let c = 0; c < 4; c++) {
+              const val = session.gridValues[r][c];
+              if (val > 0) {
+                grid[r][c] = { id: nextTileId++, val, r, c, isNew: false, isMerged: false };
+              }
+            }
+          }
+          score = session.score || 0;
+          moves = session.moves || 0;
+          bestTile = session.bestTile || getHighestTile();
+          undosLeft = typeof session.undosLeft === 'number' ? session.undosLeft : 3;
+          gameStartTime = session.gameStartTime || Date.now();
+          hasWon2048 = !!session.hasWon2048;
+
+          syncTilesDOM();
+          updateHUD();
+          return true;
+        } catch (e) {
+          return false;
+        }
+      }
+
       function initGame() {
+        localStorage.removeItem(STORAGE_KEYS.ACTIVE_SESSION);
         grid = [
           [null, null, null, null],
           [null, null, null, null],
@@ -1583,7 +1659,7 @@
       async function syncPlayerWithDB(name) {
         if (!name) return;
         try {
-          const res = await fetch('/api/player?name=' + encodeURIComponent(name));
+          const res = await fetch('/api/player?name=' + encodeURIComponent(name) + '&deviceId=' + encodeURIComponent(deviceId));
           if (!res.ok) return;
           const data = await res.json();
           if (data.found && data.player) {
@@ -1619,11 +1695,11 @@
             renderDashboard();
             renderLeaderboard();
           } else {
-            // Register player in Cloudflare D1
+            // Register / login player and bind device in Cloudflare D1
             fetch('/api/player', {
               method: 'POST',
               headers: { 'Content-Type': 'application/json' },
-              body: JSON.stringify({ name: name })
+              body: JSON.stringify({ name: name, deviceId: deviceId })
             }).catch(() => {});
           }
         } catch (e) {
@@ -1638,6 +1714,7 @@
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({
               playerName: record.playerName,
+              deviceId: deviceId,
               score: record.score,
               highestTile: record.highestTile,
               moves: record.moves,
@@ -1668,7 +1745,7 @@
 
       async function fetchLeaderboardFromDB() {
         try {
-          const url = '/api/leaderboard?filter=' + encodeURIComponent(activeLbFilter) + '&name=' + encodeURIComponent(profile.name);
+          const url = '/api/leaderboard?filter=' + encodeURIComponent(activeLbFilter) + '&name=' + encodeURIComponent(profile.name) + '&deviceId=' + encodeURIComponent(deviceId);
           const res = await fetch(url);
           if (!res.ok) return false;
           const data = await res.json();
@@ -2247,7 +2324,9 @@
         updateHUD();
         renderLeaderboard();
         renderDashboard();
-        initGame();
+        if (!restoreActiveSession()) {
+          initGame();
+        }
         handleHash();
         syncPlayerWithDB(profile.name);
       });

@@ -31,13 +31,28 @@ export async function onRequest(context) {
     const url = new URL(request.url);
     const filter = url.searchParams.get("filter") || "all";
     const playerName = (url.searchParams.get("name") || "").trim();
+    const deviceId = (url.searchParams.get("deviceId") || "").trim();
 
     let query = "";
     let params = [];
 
-    if (filter === "mine" && playerName) {
-      query = "SELECT * FROM game_records WHERE LOWER(player_name) = LOWER(?) ORDER BY score DESC, highest_tile DESC LIMIT 50";
-      params = [playerName];
+    if (filter === "mine") {
+      if (playerName && deviceId) {
+        query = `
+          SELECT * FROM game_records 
+          WHERE LOWER(player_name) = LOWER(?) OR (device_id = ? AND device_id IS NOT NULL)
+          ORDER BY score DESC, highest_tile DESC LIMIT 50
+        `;
+        params = [playerName, deviceId];
+      } else if (playerName) {
+        query = "SELECT * FROM game_records WHERE LOWER(player_name) = LOWER(?) ORDER BY score DESC, highest_tile DESC LIMIT 50";
+        params = [playerName];
+      } else if (deviceId) {
+        query = "SELECT * FROM game_records WHERE device_id = ? ORDER BY score DESC, highest_tile DESC LIMIT 50";
+        params = [deviceId];
+      } else {
+        query = "SELECT * FROM game_records ORDER BY score DESC, highest_tile DESC LIMIT 50";
+      }
     } else if (filter === "today") {
       const oneDayAgo = Date.now() - 24 * 60 * 60 * 1000;
       query = "SELECT * FROM game_records WHERE created_at >= ? ORDER BY score DESC, highest_tile DESC LIMIT 50";
@@ -53,6 +68,7 @@ export async function onRequest(context) {
     const runs = (results || []).map(r => ({
       id: r.id,
       playerName: r.player_name,
+      deviceId: r.device_id,
       score: r.score,
       highestTile: r.highest_tile,
       moves: r.moves,

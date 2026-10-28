@@ -30,6 +30,7 @@ export async function onRequest(context) {
   try {
     const data = await request.json();
     const playerName = (data.playerName || "Anonymous").trim().slice(0, 20);
+    const deviceId = (data.deviceId || "").trim().slice(0, 64);
     const score = Math.max(0, parseInt(data.score, 10) || 0);
     const highestTile = Math.max(2, parseInt(data.highestTile, 10) || 2);
     const moves = Math.max(0, parseInt(data.moves, 10) || 0);
@@ -43,17 +44,18 @@ export async function onRequest(context) {
       minute: "2-digit"
     });
 
-    // 1. Insert game record
+    // 1. Insert game record with device_id
     await db.prepare(`
-      INSERT INTO game_records (player_name, score, highest_tile, moves, duration_sec, did_win, created_at, date_str)
-      VALUES (?, ?, ?, ?, ?, ?, ?, ?)
-    `).bind(playerName, score, highestTile, moves, durationSec, didWin, now, dateStr).run();
+      INSERT INTO game_records (player_name, device_id, score, highest_tile, moves, duration_sec, did_win, created_at, date_str)
+      VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)
+    `).bind(playerName, deviceId || null, score, highestTile, moves, durationSec, didWin, now, dateStr).run();
 
     // 2. Atomically insert or update player's career statistics in D1
     await db.prepare(`
-      INSERT INTO players (name, high_score, highest_tile, games_played, wins_2048, total_score, total_moves, created_at, last_active)
-      VALUES (?1, ?2, ?3, 1, ?4, ?2, ?5, ?6, ?6)
+      INSERT INTO players (name, device_id, high_score, highest_tile, games_played, wins_2048, total_score, total_moves, created_at, last_active)
+      VALUES (?1, ?2, ?3, ?4, 1, ?5, ?3, ?6, ?7, ?7)
       ON CONFLICT(name) DO UPDATE SET
+        device_id = COALESCE(excluded.device_id, players.device_id),
         high_score = MAX(players.high_score, excluded.high_score),
         highest_tile = MAX(players.highest_tile, excluded.highest_tile),
         games_played = players.games_played + 1,
@@ -61,7 +63,7 @@ export async function onRequest(context) {
         total_score = players.total_score + excluded.total_score,
         total_moves = players.total_moves + excluded.total_moves,
         last_active = excluded.last_active
-    `).bind(playerName, score, highestTile, didWin, moves, now).run();
+    `).bind(playerName, deviceId || null, score, highestTile, didWin, moves, now).run();
 
     // 3. Retrieve updated player profile
     const updatedPlayer = await db.prepare(
@@ -72,6 +74,7 @@ export async function onRequest(context) {
       success: true,
       record: {
         playerName,
+        deviceId,
         score,
         highestTile,
         moves,
@@ -81,6 +84,7 @@ export async function onRequest(context) {
       },
       player: {
         name: updatedPlayer.name,
+        deviceId: updatedPlayer.device_id,
         highScore: updatedPlayer.high_score,
         highestTile: updatedPlayer.highest_tile,
         gamesPlayed: updatedPlayer.games_played,
