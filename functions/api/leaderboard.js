@@ -4,7 +4,7 @@ export async function onRequest(context) {
 
   const corsHeaders = {
     "Access-Control-Allow-Origin": "*",
-    "Access-Control-Allow-Methods": "GET, OPTIONS",
+    "Access-Control-Allow-Methods": "GET, DELETE, OPTIONS",
     "Access-Control-Allow-Headers": "Content-Type",
     "Content-Type": "application/json"
   };
@@ -13,16 +13,40 @@ export async function onRequest(context) {
     return new Response(null, { headers: corsHeaders });
   }
 
-  if (request.method !== "GET") {
-    return new Response(JSON.stringify({ error: "Method not allowed" }), {
-      status: 405,
+  if (!db) {
+    return new Response(JSON.stringify({ error: "Database binding unavailable" }), {
+      status: 500,
       headers: corsHeaders
     });
   }
 
-  if (!db) {
-    return new Response(JSON.stringify({ error: "Database binding unavailable" }), {
-      status: 500,
+  // DELETE: Clear rank board history
+  if (request.method === "DELETE") {
+    try {
+      const url = new URL(request.url);
+      const action = url.searchParams.get("action");
+      if (action === "clear_all") {
+        await db.prepare("DELETE FROM game_records").run();
+        await db.prepare("DELETE FROM players").run();
+        return new Response(JSON.stringify({ success: true, message: "All rank board history wiped clean" }), {
+          headers: corsHeaders
+        });
+      }
+      return new Response(JSON.stringify({ error: "Invalid action" }), {
+        status: 400,
+        headers: corsHeaders
+      });
+    } catch (err) {
+      return new Response(JSON.stringify({ error: err.message }), {
+        status: 500,
+        headers: corsHeaders
+      });
+    }
+  }
+
+  if (request.method !== "GET") {
+    return new Response(JSON.stringify({ error: "Method not allowed" }), {
+      status: 405,
       headers: corsHeaders
     });
   }
@@ -54,6 +78,7 @@ export async function onRequest(context) {
         query = "SELECT * FROM game_records ORDER BY score DESC, highest_tile DESC LIMIT 50";
       }
     } else if (filter === "today") {
+      // Past 24 hours / today filter
       const oneDayAgo = Date.now() - 24 * 60 * 60 * 1000;
       query = "SELECT * FROM game_records WHERE created_at >= ? ORDER BY score DESC, highest_tile DESC LIMIT 50";
       params = [oneDayAgo];

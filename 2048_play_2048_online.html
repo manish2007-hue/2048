@@ -209,6 +209,17 @@
     #board-container.is-dragging {
       cursor: grabbing;
     }
+    #match-review-modal {
+      pointer-events: auto !important;
+      cursor: default !important;
+      z-index: 50 !important;
+    }
+    #match-review-modal button {
+      pointer-events: auto !important;
+      cursor: pointer !important;
+      position: relative;
+      z-index: 60 !important;
+    }
 
     @media (min-width: 640px) {
       #board-container {
@@ -507,9 +518,9 @@
       <!-- Filters Row -->
       <div class="flex items-center justify-between gap-2">
         <div class="flex items-center gap-1 bg-[#221c19] p-1 rounded-lg">
-          <button id="lb-filter-all" type="button" class="px-3 py-1 rounded text-xs font-extrabold bg-[#8f7a66] text-white">All-Time</button>
-          <button id="lb-filter-today" type="button" class="px-3 py-1 rounded text-xs font-extrabold text-[#cdc1b4] hover:text-white">Today</button>
-          <button id="lb-filter-mine" type="button" class="px-3 py-1 rounded text-xs font-extrabold text-[#cdc1b4] hover:text-white">My Runs</button>
+          <button id="lb-filter-today" type="button" class="px-3 py-1.5 rounded-md text-xs font-black bg-[#edc22e] text-[#3c3a32] shadow-xs transition-all">⚡ Today (Day)</button>
+          <button id="lb-filter-all" type="button" class="px-3 py-1.5 rounded-md text-xs font-black text-[#cdc1b4] hover:text-white transition-all">🏆 All-Time</button>
+          <button id="lb-filter-mine" type="button" class="px-3 py-1.5 rounded-md text-xs font-bold text-[#cdc1b4] hover:text-white transition-all">👤 My Runs</button>
         </div>
         <button id="edit-profile-btn" type="button" class="text-xs font-bold text-[#edc22e] hover:underline flex items-center gap-1">
           <span>Edit Nickname</span> ✎
@@ -1094,7 +1105,7 @@
       };
 
       let matchRecords = [];
-      let activeLbFilter = 'all';
+      let activeLbFilter = 'today';
 
       function loadPersistentData() {
         try {
@@ -2092,6 +2103,9 @@
 
       // Pointer Events (Primary: Mouse Drag, Modern Touch, Stylus)
       boardContainer.addEventListener('pointerdown', evt => {
+        if (evt.target.closest('#match-review-modal') || evt.target.closest('button')) {
+          return;
+        }
         if (evt.button === 0 || evt.pointerType === 'touch') {
           startSwipe(evt.clientX, evt.clientY);
           try {
@@ -2128,6 +2142,9 @@
 
       // Touch Events Fallback (iOS WebKit / older mobile devices)
       boardContainer.addEventListener('touchstart', evt => {
+        if (evt.target.closest('#match-review-modal') || evt.target.closest('button')) {
+          return;
+        }
         if (evt.touches.length > 0) {
           startSwipe(evt.touches[0].clientX, evt.touches[0].clientY);
         }
@@ -2206,13 +2223,36 @@
         initGame();
       });
 
-      document.getElementById('play-again-btn').addEventListener('click', initGame);
+      const playAgainBtn = document.getElementById('play-again-btn');
+      const keepGoingBtn = document.getElementById('keep-going-btn');
+      const reviewModal = document.getElementById('match-review-modal');
 
-      document.getElementById('keep-going-btn').addEventListener('click', () => {
+      function handlePlayAgain(e) {
+        if (e) {
+          e.preventDefault();
+          e.stopPropagation();
+        }
+        reviewModal.classList.add('hidden');
+        initGame();
+      }
+
+      playAgainBtn.addEventListener('click', handlePlayAgain);
+      playAgainBtn.addEventListener('pointerdown', e => e.stopPropagation());
+      playAgainBtn.addEventListener('touchstart', e => e.stopPropagation(), { passive: false });
+
+      function handleKeepGoing(e) {
+        if (e) {
+          e.preventDefault();
+          e.stopPropagation();
+        }
         keepPlaying = true;
         isGameOver = false;
-        document.getElementById('match-review-modal').classList.add('hidden');
-      });
+        reviewModal.classList.add('hidden');
+      }
+
+      keepGoingBtn.addEventListener('click', handleKeepGoing);
+      keepGoingBtn.addEventListener('pointerdown', e => e.stopPropagation());
+      keepGoingBtn.addEventListener('touchstart', e => e.stopPropagation(), { passive: false });
 
       // =========================================================================
       // 14. PROFILE NAME & RESET MODALS
@@ -2259,10 +2299,26 @@
       document.getElementById('cancel-reset-btn').addEventListener('click', () => {
         resetModal.classList.add('hidden');
       });
-      document.getElementById('confirm-reset-btn').addEventListener('click', () => {
+      document.getElementById('confirm-reset-btn').addEventListener('click', async () => {
         matchRecords = [];
+        profile.highScore = 0;
+        profile.highestTile = 2;
+        profile.gamesPlayed = 0;
+        profile.wins2048 = 0;
+        profile.totalScore = 0;
+        profile.totalMoves = 0;
         savePersistentData();
+        localStorage.removeItem(STORAGE_KEYS.RECORDS);
+        localStorage.removeItem(STORAGE_KEYS.ACTIVE_SESSION);
         resetModal.classList.add('hidden');
+
+        // Wipe all rank board history in Cloudflare D1
+        try {
+          await fetch('/api/leaderboard?action=clear_all', { method: 'DELETE' });
+        } catch (e) {
+          console.warn('D1 history wipe error:', e);
+        }
+
         renderLeaderboard();
         renderDashboard();
         updateHUD();
@@ -2289,12 +2345,12 @@
 
       function setLbFilter(filter) {
         activeLbFilter = filter;
-        [lbFilterAll, lbFilterToday, lbFilterMine].forEach(btn => {
-          btn.className = 'px-3 py-1 rounded text-xs font-extrabold text-[#cdc1b4] hover:text-white';
+        [lbFilterToday, lbFilterAll, lbFilterMine].forEach(btn => {
+          btn.className = 'px-3 py-1.5 rounded-md text-xs font-bold text-[#cdc1b4] hover:text-white transition-all';
         });
-        if (filter === 'all') lbFilterAll.className = 'px-3 py-1 rounded text-xs font-extrabold bg-[#8f7a66] text-white';
-        if (filter === 'today') lbFilterToday.className = 'px-3 py-1 rounded text-xs font-extrabold bg-[#8f7a66] text-white';
-        if (filter === 'mine') lbFilterMine.className = 'px-3 py-1 rounded text-xs font-extrabold bg-[#8f7a66] text-white';
+        if (filter === 'today') lbFilterToday.className = 'px-3 py-1.5 rounded-md text-xs font-black bg-[#edc22e] text-[#3c3a32] shadow-xs';
+        if (filter === 'all') lbFilterAll.className = 'px-3 py-1.5 rounded-md text-xs font-black bg-[#edc22e] text-[#3c3a32] shadow-xs';
+        if (filter === 'mine') lbFilterMine.className = 'px-3 py-1.5 rounded-md text-xs font-black bg-[#8f7a66] text-white shadow-xs';
         renderLeaderboard();
       }
 
