@@ -1,0 +1,6 @@
+# Disable search engine indexing on Cloudflare Pages default domain and preview URLs
+https://play-2048-online.pages.dev/*
+  X-Robots-Tag: noindex
+
+https://*.play-2048-online.pages.dev/*
+  X-Robots-Tag: noindex
