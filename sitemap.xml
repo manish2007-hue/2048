@@ -6,7 +6,7 @@
 
   <!-- Home Page / Main 2048 Game, Leaderboard, Dashboard & Guide -->
   <url>
-    <loc>https://online2048game.io/</loc>
+    <loc>https://play2048online.site/</loc>
     <lastmod>2026-10-25</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
@@ -14,7 +14,7 @@
 
   <!-- About Us Page -->
   <url>
-    <loc>https://online2048game.io/about-us.html</loc>
+    <loc>https://play2048online.site/about-us.html</loc>
     <lastmod>2026-10-25</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
@@ -22,7 +22,7 @@
 
   <!-- Contact Us & Support Page -->
   <url>
-    <loc>https://online2048game.io/contact-us.html</loc>
+    <loc>https://play2048online.site/contact-us.html</loc>
     <lastmod>2026-10-25</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
@@ -30,7 +30,7 @@
 
   <!-- Privacy Policy Page -->
   <url>
-    <loc>https://online2048game.io/privacy-policy.html</loc>
+    <loc>https://play2048online.site/privacy-policy.html</loc>
     <lastmod>2026-10-25</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
@@ -38,7 +38,7 @@
 
   <!-- Terms & Conditions Page -->
   <url>
-    <loc>https://online2048game.io/terms.html</loc>
+    <loc>https://play2048online.site/terms.html</loc>
     <lastmod>2026-10-25</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
