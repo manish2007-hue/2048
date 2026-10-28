@@ -201,6 +201,13 @@
       padding: 8px;
       box-shadow: 0 16px 36px rgba(0, 0, 0, 0.45), inset 0 1px 0 rgba(255, 255, 255, 0.2);
       touch-action: none;
+      cursor: grab;
+      user-select: none;
+      -webkit-user-select: none;
+    }
+    #board-container:active,
+    #board-container.is-dragging {
+      cursor: grabbing;
     }
 
     @media (min-width: 640px) {
@@ -1782,39 +1789,121 @@
       document.getElementById('dpad-left').addEventListener('click', () => move('left'));
       document.getElementById('dpad-right').addEventListener('click', () => move('right'));
 
-      // Touch Swipes on Board
+      // =========================================================================
+      // 13. UNIFIED TOUCH & MOUSE SWIPE INPUT SYSTEM
+      // =========================================================================
       const boardContainer = document.getElementById('board-container');
-      let touchStartX = 0;
-      let touchStartY = 0;
-      let touchStartTime = 0;
+      let dragStartX = 0;
+      let dragStartY = 0;
+      let isDragging = false;
+      let hasSwiped = false;
+      const SWIPE_THRESHOLD = 20;
 
+      function startSwipe(x, y) {
+        if (isGameOver) return;
+        dragStartX = x;
+        dragStartY = y;
+        isDragging = true;
+        hasSwiped = false;
+        boardContainer.classList.add('is-dragging');
+      }
+
+      function processSwipeMove(x, y) {
+        if (!isDragging || hasSwiped || isGameOver) return;
+        const dx = x - dragStartX;
+        const dy = y - dragStartY;
+        const absX = Math.abs(dx);
+        const absY = Math.abs(dy);
+
+        if (Math.max(absX, absY) >= SWIPE_THRESHOLD) {
+          hasSwiped = true;
+          if (absX > absY) {
+            move(dx > 0 ? 'right' : 'left');
+          } else {
+            move(dy > 0 ? 'down' : 'up');
+          }
+        }
+      }
+
+      function endSwipe(x, y) {
+        if (!isDragging) return;
+        if (!hasSwiped && !isGameOver && typeof x === 'number' && typeof y === 'number') {
+          const dx = x - dragStartX;
+          const dy = y - dragStartY;
+          const absX = Math.abs(dx);
+          const absY = Math.abs(dy);
+          if (Math.max(absX, absY) >= 15) {
+            if (absX > absY) {
+              move(dx > 0 ? 'right' : 'left');
+            } else {
+              move(dy > 0 ? 'down' : 'up');
+            }
+          }
+        }
+        isDragging = false;
+        hasSwiped = false;
+        boardContainer.classList.remove('is-dragging');
+      }
+
+      // Pointer Events (Primary: Mouse Drag, Modern Touch, Stylus)
+      boardContainer.addEventListener('pointerdown', evt => {
+        if (evt.button === 0 || evt.pointerType === 'touch') {
+          startSwipe(evt.clientX, evt.clientY);
+          try {
+            boardContainer.setPointerCapture(evt.pointerId);
+          } catch (e) {}
+        }
+      });
+
+      boardContainer.addEventListener('pointermove', evt => {
+        processSwipeMove(evt.clientX, evt.clientY);
+      });
+
+      boardContainer.addEventListener('pointerup', evt => {
+        endSwipe(evt.clientX, evt.clientY);
+        try {
+          boardContainer.releasePointerCapture(evt.pointerId);
+        } catch (e) {}
+      });
+
+      boardContainer.addEventListener('pointercancel', evt => {
+        endSwipe();
+        try {
+          boardContainer.releasePointerCapture(evt.pointerId);
+        } catch (e) {}
+      });
+
+      // Window level pointer/mouse release safeguards
+      window.addEventListener('pointerup', evt => {
+        if (isDragging) endSwipe(evt.clientX, evt.clientY);
+      });
+      window.addEventListener('mouseup', evt => {
+        if (isDragging) endSwipe(evt.clientX, evt.clientY);
+      });
+
+      // Touch Events Fallback (iOS WebKit / older mobile devices)
       boardContainer.addEventListener('touchstart', evt => {
         if (evt.touches.length > 0) {
-          touchStartX = evt.touches[0].clientX;
-          touchStartY = evt.touches[0].clientY;
-          touchStartTime = Date.now();
+          startSwipe(evt.touches[0].clientX, evt.touches[0].clientY);
+        }
+      }, { passive: true });
+
+      boardContainer.addEventListener('touchmove', evt => {
+        if (evt.touches.length > 0) {
+          processSwipeMove(evt.touches[0].clientX, evt.touches[0].clientY);
         }
       }, { passive: true });
 
       boardContainer.addEventListener('touchend', evt => {
-        if (evt.changedTouches.length === 0) return;
-        const deltaX = evt.changedTouches[0].clientX - touchStartX;
-        const deltaY = evt.changedTouches[0].clientY - touchStartY;
-        const duration = Date.now() - touchStartTime;
-
-        if (duration > 650) return; // Ignore long presses
-
-        const absX = Math.abs(deltaX);
-        const absY = Math.abs(deltaY);
-        const minSwipeDistance = 24;
-
-        if (Math.max(absX, absY) > minSwipeDistance) {
-          if (absX > absY) {
-            move(deltaX > 0 ? 'right' : 'left');
-          } else {
-            move(deltaY > 0 ? 'down' : 'up');
-          }
+        if (evt.changedTouches.length > 0) {
+          endSwipe(evt.changedTouches[0].clientX, evt.changedTouches[0].clientY);
+        } else {
+          endSwipe();
         }
+      }, { passive: true });
+
+      boardContainer.addEventListener('touchcancel', () => {
+        endSwipe();
       }, { passive: true });
 
       // Keyboard Arrow & WASD Navigation
