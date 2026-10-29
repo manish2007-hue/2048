@@ -1601,7 +1601,20 @@
           filtered = filtered.filter(r => r.timestamp >= oneDayAgo);
         }
 
-        filtered.sort((a, b) => b.score - a.score);
+        if (activeLbFilter !== 'mine') {
+          // Keep only the highest scoring run per player
+          const bestByPlayer = new Map();
+          for (const run of filtered) {
+            const key = (run.playerName || '').toLowerCase();
+            const existing = bestByPlayer.get(key);
+            if (!existing || run.score > existing.score || (run.score === existing.score && (run.highestTile || 0) > (existing.highestTile || 0))) {
+              bestByPlayer.set(key, run);
+            }
+          }
+          filtered = Array.from(bestByPlayer.values());
+        }
+
+        filtered.sort((a, b) => b.score - a.score || (b.highestTile || 0) - (a.highestTile || 0));
 
         if (filtered.length === 0) {
           emptyState.classList.remove('hidden');

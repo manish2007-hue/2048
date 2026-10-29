@@ -62,13 +62,36 @@ export async function onRequest(context) {
         query = "SELECT * FROM game_records ORDER BY score DESC, highest_tile DESC LIMIT 50";
       }
     } else if (filter === "today") {
-      // Past 24 hours / today filter
+      // Past 24 hours / today filter: 1 highest score entry per unique player
       const oneDayAgo = Date.now() - 24 * 60 * 60 * 1000;
-      query = "SELECT * FROM game_records WHERE created_at >= ? ORDER BY score DESC, highest_tile DESC LIMIT 50";
+      query = `
+        WITH ranked AS (
+          SELECT *,
+                 ROW_NUMBER() OVER (
+                   PARTITION BY LOWER(player_name)
+                   ORDER BY score DESC, highest_tile DESC, moves ASC, created_at DESC
+                 ) AS rn
+          FROM game_records
+          WHERE created_at >= ?
+        )
+        SELECT * FROM ranked WHERE rn = 1
+        ORDER BY score DESC, highest_tile DESC, moves ASC LIMIT 50
+      `;
       params = [oneDayAgo];
     } else {
-      // Default: All-Time best game records
-      query = "SELECT * FROM game_records ORDER BY score DESC, highest_tile DESC LIMIT 50";
+      // Default: All-Time best records: 1 highest score entry per unique player
+      query = `
+        WITH ranked AS (
+          SELECT *,
+                 ROW_NUMBER() OVER (
+                   PARTITION BY LOWER(player_name)
+                   ORDER BY score DESC, highest_tile DESC, moves ASC, created_at DESC
+                 ) AS rn
+          FROM game_records
+        )
+        SELECT * FROM ranked WHERE rn = 1
+        ORDER BY score DESC, highest_tile DESC, moves ASC LIMIT 50
+      `;
     }
 
     const { results } = await db.prepare(query).bind(...params).all();
