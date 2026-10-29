@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
+                            http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd
+                            http://www.google.com/schemas/sitemap-image/1.1
+                            http://www.google.com/schemas/sitemap-image/1.1/sitemap-image.xsd">
+
+  <!-- Home Page: Main 2048 Online Game, Global Leaderboards & Full Strategy Guide -->
+  <url>
+    <loc>https://play2048online.site/</loc>
+    <lastmod>2026-10-29T12:00:00+00:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>1.0</priority>
+    <image:image>
+      <image:loc>https://play2048online.site/favicon.svg</image:loc>
+      <image:title>Play 2048 Online Free Game</image:title>
+      <image:caption>Authentic 2048 puzzle game with real-time global leaderboard and player statistics.</image:caption>
+    </image:image>
+  </url>
+
+  <!-- About Us Page -->
+  <url>
+    <loc>https://play2048online.site/about-us.html</loc>
+    <lastmod>2026-10-29T12:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Contact Us & Player Support Page -->
+  <url>
+    <loc>https://play2048online.site/contact-us.html</loc>
+    <lastmod>2026-10-29T12:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Privacy Policy Page -->
+  <url>
+    <loc>https://play2048online.site/privacy-policy.html</loc>
+    <lastmod>2026-10-29T12:00:00+00:00</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+
+  <!-- Terms & Conditions Page -->
+  <url>
+    <loc>https://play2048online.site/terms.html</loc>
+    <lastmod>2026-10-29T12:00:00+00:00</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+
+</urlset>

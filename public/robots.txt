@@ -1,0 +1,58 @@
+# robots.txt for 2048 Online (https://play2048online.site/)
+# Optimized for Googlebot, Bingbot, and modern web crawlers
+# Compliant with RFC 9309 and Google Search Central specifications
+
+User-agent: *
+Allow: /
+Allow: /favicon.svg
+Allow: /favicon.ico
+Disallow: /api/
+Disallow: /404.html
+Disallow: /500.html
+
+# Googlebot specific rules
+User-agent: Googlebot
+Allow: /
+Disallow: /api/
+Disallow: /404.html
+Disallow: /500.html
+
+# Googlebot Image Crawler
+User-agent: Googlebot-Image
+Allow: /
+Allow: /favicon.svg
+Allow: /favicon.ico
+
+# Bingbot
+User-agent: Bingbot
+Allow: /
+Disallow: /api/
+Disallow: /404.html
+Disallow: /500.html
+
+# Other search crawlers
+User-agent: Slurp
+Allow: /
+Disallow: /api/
+
+User-agent: DuckDuckBot
+Allow: /
+Disallow: /api/
+
+User-agent: Baiduspider
+Allow: /
+Disallow: /api/
+
+User-agent: YandexBot
+Allow: /
+Disallow: /api/
+
+User-agent: Applebot
+Allow: /
+Disallow: /api/
+
+# Host directive
+Host: https://play2048online.site
+
+# Sitemap location
+Sitemap: https://play2048online.site/sitemap.xml
