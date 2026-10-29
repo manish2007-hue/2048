@@ -602,7 +602,7 @@
       <!-- Actions -->
       <div class="flex items-center justify-between pt-2 border-t border-[#bbada0]/20 text-xs">
         <button id="clear-history-prompt-btn" type="button" class="text-[#cdc1b4] hover:text-red-400 font-bold transition-colors">
-          Reset History
+          Reset Device Data
         </button>
         <button id="export-json-btn" type="button" class="text-[#cdc1b4] hover:text-white font-bold transition-colors">
           📥 Export Stats JSON
@@ -975,17 +975,17 @@
   <!-- ==================== CONFIRM RESET MODAL ==================== -->
   <div id="confirm-reset-modal" class="hidden absolute inset-0 bg-black/75 backdrop-blur-sm flex items-center justify-center p-4 z-40">
     <div class="bg-[#332c28] border border-[#bbada0]/40 rounded-2xl max-w-sm w-full p-4 space-y-3 shadow-2xl text-center">
-      <div class="text-3xl">⚠️</div>
-      <h3 class="text-sm font-black text-white">Reset Real Statistics &amp; Records?</h3>
+      <div class="text-3xl">📱</div>
+      <h3 class="text-sm font-black text-white">Reset Local Device Data?</h3>
       <p class="text-xs text-[#cdc1b4]">
-        This will wipe all your recorded game history and high score stats from this browser. This action cannot be undone.
+        This will reset your local saved game session and personal stats on this device. Worldwide cloud leaderboard records will remain permanently saved.
       </p>
       <div class="flex items-center gap-2 pt-1">
         <button id="cancel-reset-btn" type="button" class="flex-1 py-2 rounded-lg bg-[#443c37] hover:bg-[#524943] text-xs font-bold text-[#ede0c8]">
           Cancel
         </button>
         <button id="confirm-reset-btn" type="button" class="flex-1 py-2 rounded-lg bg-red-600 hover:bg-red-700 text-white font-black text-xs uppercase tracking-wider">
-          Yes, Reset All
+          Reset Device Data
         </button>
       </div>
     </div>
@@ -2321,13 +2321,6 @@
         localStorage.removeItem(STORAGE_KEYS.RECORDS);
         localStorage.removeItem(STORAGE_KEYS.ACTIVE_SESSION);
         resetModal.classList.add('hidden');
-
-        // Wipe all rank board history in Cloudflare D1
-        try {
-          await fetch('/api/leaderboard?action=clear_all', { method: 'DELETE' });
-        } catch (e) {
-          console.warn('D1 history wipe error:', e);
-        }
 
         renderLeaderboard();
         renderDashboard();

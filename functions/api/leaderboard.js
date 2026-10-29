@@ -4,7 +4,7 @@ export async function onRequest(context) {
 
   const corsHeaders = {
     "Access-Control-Allow-Origin": "*",
-    "Access-Control-Allow-Methods": "GET, DELETE, OPTIONS",
+    "Access-Control-Allow-Methods": "GET, OPTIONS",
     "Access-Control-Allow-Headers": "Content-Type",
     "Content-Type": "application/json"
   };
@@ -20,28 +20,12 @@ export async function onRequest(context) {
     });
   }
 
-  // DELETE: Clear rank board history
+  // Global leaderboard is permanent for all players worldwide. Deletion is forbidden.
   if (request.method === "DELETE") {
-    try {
-      const url = new URL(request.url);
-      const action = url.searchParams.get("action");
-      if (action === "clear_all") {
-        await db.prepare("DELETE FROM game_records").run();
-        await db.prepare("DELETE FROM players").run();
-        return new Response(JSON.stringify({ success: true, message: "All rank board history wiped clean" }), {
-          headers: corsHeaders
-        });
-      }
-      return new Response(JSON.stringify({ error: "Invalid action" }), {
-        status: 400,
-        headers: corsHeaders
-      });
-    } catch (err) {
-      return new Response(JSON.stringify({ error: err.message }), {
-        status: 500,
-        headers: corsHeaders
-      });
-    }
+    return new Response(JSON.stringify({ error: "Forbidden: Global leaderboard records are permanent and cannot be deleted." }), {
+      status: 403,
+      headers: corsHeaders
+    });
   }
 
   if (request.method !== "GET") {
