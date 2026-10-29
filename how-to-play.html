@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-HC38D6BP1C"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-HC38D6BP1C');
+  </script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
+  <title>How to Play 2048 — Ultimate Strategy Guide, Rules &amp; Pro Tips</title>
+  
+  <!-- Favicon & App Icons -->
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <link rel="alternate icon" href="/favicon.ico" />
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+  <link rel="manifest" href="/manifest.webmanifest" />
+
+  <!-- On-Page SEO Meta Tags -->
+  <meta name="description" content="Learn how to play and win 2048 with the definitive Corner Anchor strategy guide. Master board monotonicity, cascading chains, space management, and FAQs." />
+  <meta name="keywords" content="how to play 2048, 2048 strategy, 2048 tips, 2048 rules, 2048 corner method, 2048 guide, beat 2048, 2048 high score, sliding puzzle strategy" />
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+  <meta name="author" content="2048 Online Strategy Team" />
+  <meta name="theme-color" content="#181a1d" />
+  <link rel="canonical" href="https://play2048online.site/how-to-play.html" />
+
+  <!-- Open Graph / Social Sharing -->
+  <meta property="og:type" content="article" />
+  <meta property="og:site_name" content="2048 Online" />
+  <meta property="og:title" content="How to Play 2048 — Ultimate Strategy Guide, Rules &amp; Pro Tips" />
+  <meta property="og:description" content="Master the Corner Anchor technique, monotonicity, probability calculations, and frequently asked questions for 2048." />
+  <meta property="og:url" content="https://play2048online.site/how-to-play.html" />
+  <meta property="og:image" content="https://play2048online.site/og-image-2048.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:locale" content="en_US" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="How to Play 2048 — Ultimate Strategy Guide, Rules &amp; Pro Tips" />
+  <meta name="twitter:description" content="The proven corner anchor method to reach the 2048 tile every single match." />
+  <meta name="twitter:image" content="https://play2048online.site/og-image-2048.png" />
+
+  <!-- BreadcrumbList Schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://play2048online.site/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "How to Play & Strategy Guide",
+        "item": "https://play2048online.site/how-to-play.html"
+      }
+    ]
+  }
+  </script>
+
+  <!-- HowTo Schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "HowTo",
+    "name": "How to Play and Win the 2048 Puzzle Game",
+    "description": "Step-by-step masterclass on applying the Corner Anchor Strategy to consistently reach the 2048 tile and beyond.",
+    "image": "https://play2048online.site/og-image-2048.png",
+    "totalTime": "PT15M",
+    "step": [
+      {
+        "@type": "HowToStep",
+        "name": "Understand Board Mechanics",
+        "text": "The game takes place on a 4x4 grid. Swipe in four directions (Up, Down, Left, Right). Identical tiles merge into doubled values when they collide."
+      },
+      {
+        "@type": "HowToStep",
+        "name": "Designate a Permanent Anchor Corner",
+        "text": "Select one corner of the board (e.g. bottom-right) as the permanent home for your highest-value tile. Never swipe in the opposite direction."
+      },
+      {
+        "@type": "HowToStep",
+        "name": "Maintain Strict Monotonicity",
+        "text": "Arrange tiles along the anchor row in strictly decreasing numerical order (e.g., 1024, 512, 256, 128) to enable smooth cascading merges."
+      },
+      {
+        "@type": "HowToStep",
+        "name": "Trigger Cascading Merges",
+        "text": "Build identical numbers directly adjacent to their partners and collapse columns downward to trigger chain reactions that free up empty board space."
+      },
+      {
+        "@type": "HowToStep",
+        "name": "Avoid Orphaned Low Tiles",
+        "text": "Never swipe Up if your anchor is in the bottom row. Keep high-value tiles anchored along the perimeter to prevent 2s and 4s from getting trapped underneath."
+      }
+    ]
+  }
+  </script>
+
+  <!-- FAQPage Schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "How do you play 2048?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "<p>Slide numbered tiles in four directions (Up, Down, Left, or Right) using arrow keys, WASD, mobile touch swipes, or the on-screen D-Pad. When two tiles with identical values collide, they combine into one doubled tile. Combine tiles strategically until you create the 2048 tile.</p>"
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What is the best strategy to win 2048?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "<p>The Corner Anchor Strategy is universally proven as the highest win-rate method: anchor your maximum tile into one corner (e.g. bottom-right) and build descending monotonic sequences across that row. Never swipe opposite your anchor wall.</p>"
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What is the highest possible score in 2048?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "<p>The theoretical maximum score on a standard 4x4 board is 3,932,156 points, achievable by creating a 131,072 tile. Reaching the initial 2048 tile generally yields between 20,000 and 28,000 points.</p>"
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Is 2048 a game of skill or luck?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "<p>While tile spawns carry randomized values (90% chance of a 2, 10% chance of a 4), structured positioning and disciplined board management dictate over 95% of results. Skilled players reach 2048 almost every game.</p>"
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can you continue after creating the 2048 tile?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "<p>Yes! Creating the 2048 tile unlocks an achievement badge and offers a 'Keep Going' option to push onward toward 4096, 8192, and beyond until the board fills.</p>"
+        }
+      }
+    ]
+  }
+  </script>
+
+  <!-- Fonts & Tailwind -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com/3.4.17"></script>
+  <style>
+    * {
+      box-sizing: border-box;
+      -webkit-tap-highlight-color: transparent;
+    }
+    body {
+      font-family: 'Inter', system-ui, -apple-system, sans-serif;
+      background: radial-gradient(circle at 50% 25%, #463e39 0%, #25201d 100%);
+      color: #f9f6f2;
+      min-height: 100vh;
+      min-height: 100dvh;
+    }
+    ::-webkit-scrollbar {
+      width: 6px;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #8f7a66;
+      border-radius: 4px;
+    }
+  </style>
+</head>
+<body class="flex flex-col justify-between">
+
+  <!-- Top Navigation Header -->
+  <header class="w-full bg-[#241e1b]/90 backdrop-blur-md border-b border-[#bbada0]/20 px-4 sm:px-6 py-3 sticky top-0 z-30">
+    <div class="max-w-3xl mx-auto flex items-center justify-between">
+      <a href="index.html" class="flex items-center gap-2 group">
+        <div class="w-8 h-8 rounded-lg bg-[#bbada0] p-1 grid grid-cols-2 grid-rows-2 gap-0.5 shadow group-hover:scale-105 transition-transform">
+          <div class="rounded-[2.5px] bg-[#eee4da] flex items-center justify-center font-black text-[8px] text-[#776e65] leading-none">2</div>
+          <div class="rounded-[2.5px] bg-[#ede0c8] flex items-center justify-center font-black text-[8px] text-[#776e65] leading-none">4</div>
+          <div class="rounded-[2.5px] bg-[#f2b179] flex items-center justify-center font-black text-[8px] text-white leading-none">8</div>
+          <div class="rounded-[2.5px] bg-[#edc22e] flex items-center justify-center font-black text-[8px] text-white leading-none">16</div>
+        </div>
+        <div class="font-black text-base tracking-tight flex items-center group-hover:opacity-90 transition-opacity">
+          <span class="text-[#f9f6f2]">2</span>
+          <span class="text-[#f2b179]">0</span>
+          <span class="text-[#f67c5f]">4</span>
+          <span class="text-[#edc22e]">8</span>
+          <span class="ml-1.5 text-xs px-1.5 py-0.5 rounded bg-[#edc22e]/20 text-[#edc22e] uppercase font-bold tracking-wider">Online</span>
+        </div>
+      </a>
+
+      <a href="index.html" class="px-3.5 py-1.5 rounded-xl bg-[#8f7a66] hover:bg-[#9f8b77] text-white font-extrabold text-xs uppercase tracking-wider transition-all shadow flex items-center gap-1.5">
+        <span>←</span>
+        <span>Play Game</span>
+      </a>
+    </div>
+  </header>
+
+  <!-- Main Content Container -->
+  <main class="flex-1 w-full max-w-3xl mx-auto px-4 sm:px-6 py-8 space-y-8">
+
+    <!-- Hero Header -->
+    <section class="space-y-3 text-center sm:text-left border-b border-[#bbada0]/20 pb-6">
+      <div class="inline-block px-3 py-1 rounded-full bg-[#edc22e]/20 border border-[#edc22e]/40 text-[#edc22e] font-extrabold text-xs uppercase tracking-wider">
+        Complete Tutorial &amp; Pro Tactics
+      </div>
+      <h1 class="text-3xl sm:text-4xl font-black text-white tracking-tight leading-tight">
+        How to Play 2048: The Definitive Strategy Guide &amp; Rules
+      </h1>
+      <p class="text-sm sm:text-base text-[#cdc1b4] leading-relaxed max-w-2xl">
+        Master the mathematics, positioning strategies, and corner anchoring methods needed to conquer the 2048 sliding number puzzle and consistently climb the leaderboard.
+      </p>
+    </section>
+
+    <!-- Strategy Content Article -->
+    <article class="space-y-6 text-[#ede0c8]">
+
+      <!-- Section 1 -->
+      <section class="space-y-2">
+        <h2 class="text-xl sm:text-2xl font-black text-[#edc22e] flex items-center gap-2">
+          <span>1.</span> The Fundamental Rules &amp; Mechanics
+        </h2>
+        <p class="text-sm leading-relaxed">
+          2048 is contested on a four-by-four square grid providing exactly sixteen cells. In each turn, the player chooses one of four cardinal movements: <strong>Up</strong>, <strong>Down</strong>, <strong>Left</strong>, or <strong>Right</strong>. Every tile on the board slides as far as possible in the specified vector until intercepted by another tile or the perimeter border.
+        </p>
+        <p class="text-sm leading-relaxed">
+          When two adjacent tiles bearing identical integer values collide during a slide, they merge into a single tile carrying double the value (e.g. 2+2=4, 4+4=8, 8+8=16). Each valid move initiates the generation of a new random tile in an open space: there is a <strong>90% probability</strong> of spawning a 2, and a <strong>10% probability</strong> of generating a 4. The match ends when all sixteen cells fill without any remaining adjacent identical pairs.
+        </p>
+      </section>
+
+      <!-- Section 2 -->
+      <section class="space-y-3">
+        <h2 class="text-xl sm:text-2xl font-black text-[#edc22e] flex items-center gap-2">
+          <span>2.</span> The Corner Anchor Strategy (The Pro Standard)
+        </h2>
+        <p class="text-sm leading-relaxed">
+          Novice players often swipe in circular or random directions, causing high-value numbers to drift into central squares where they block board movement. Grandmasters and algorithm designers rely on the <strong>Corner Anchor Principle</strong>:
+        </p>
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+          <div class="bg-[#27211e] border border-[#bbada0]/25 rounded-xl p-3.5 space-y-1">
+            <div class="font-bold text-white text-sm">Select One Anchor Corner</div>
+            <p class="text-xs text-[#cdc1b4]">Designate the bottom-right (or bottom-left) corner as the permanent home of your highest-value tile.</p>
+          </div>
+          <div class="bg-[#27211e] border border-[#bbada0]/25 rounded-xl p-3.5 space-y-1">
+            <div class="font-bold text-white text-sm">Enforce Strict Monotonicity</div>
+            <p class="text-xs text-[#cdc1b4]">Arrange subsequent tiles along the bottom row in strictly decreasing numerical order (e.g., 1024 → 512 → 256 → 128).</p>
+          </div>
+          <div class="bg-[#27211e] border border-[#bbada0]/25 rounded-xl p-3.5 space-y-1">
+            <div class="font-bold text-white text-sm">Lock the Primary Axis</div>
+            <p class="text-xs text-[#cdc1b4]">Only execute moves in three directions (Right, Down, and Left). Never swipe Up, as doing so pulls your anchor tile upward.</p>
+          </div>
+          <div class="bg-[#27211e] border border-[#bbada0]/25 rounded-xl p-3.5 space-y-1">
+            <div class="font-bold text-white text-sm">Maintain Filled Base Rows</div>
+            <p class="text-xs text-[#cdc1b4]">Always ensure the anchor row contains four filled tiles before sliding sideways so your primary piece cannot slip out of position.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Section 3 -->
+      <section class="space-y-2">
+        <h2 class="text-xl sm:text-2xl font-black text-[#edc22e] flex items-center gap-2">
+          <span>3.</span> Monotonic Chains &amp; Cascading Board Flow
+        </h2>
+        <p class="text-sm leading-relaxed">
+          A monotonic sequence is one in which tile values strictly decrease or maintain uniform direction from one end of a row or column to the other. In competitive 2048 play, creating a continuous serpentine chain (often called the snake pattern) guarantees that merges trigger cascading chain reactions that collapse multiple numbers in a single turn.
+        </p>
+        <p class="text-sm leading-relaxed">
+          For instance, if your bottom row is organized as <code class="text-[#edc22e]">[128 | 256 | 512 | 1024]</code>, building a <code class="text-[#edc22e]">128</code> tile on the row directly above it allows an immediate downward slide that ripples through all four columns simultaneously. This cascading compression frees up essential empty cells and prevents premature gridlock.
+        </p>
+      </section>
+
+      <!-- Section 4 -->
+      <section class="space-y-2">
+        <h2 class="text-xl sm:text-2xl font-black text-[#edc22e] flex items-center gap-2">
+          <span>4.</span> Space Management &amp; Avoiding Orphaned Tiles
+        </h2>
+        <p class="text-sm leading-relaxed">
+          The most lethal blunder in 2048 is creating an 'orphaned tile'—a low-value 2 or 4 trapped beneath higher numbers such as 256 or 512 along a border. Once a small number gets pinned behind a large anchor without adjacent matching values, clearing it requires complex maneuvers that often compromise your entire board structure.
+        </p>
+        <p class="text-sm leading-relaxed">
+          To prevent orphaned tiles, always prioritize merging loose small tiles in the upper quadrants before sliding in directions that shift your foundational anchor row. Keep at least two to four cells vacant across the upper rows to absorb newly spawned tiles without constraining your primary operational lanes.
+        </p>
+      </section>
+
+      <!-- Section 5: 10 FAQs -->
+      <section class="space-y-3 pt-2">
+        <h2 class="text-xl sm:text-2xl font-black text-[#edc22e] flex items-center gap-2">
+          <span>5.</span> Frequently Asked Questions (FAQ)
+        </h2>
+        <div class="space-y-2 text-sm">
+          <details class="group bg-[#28211e] border border-[#bbada0]/30 rounded-xl p-3.5">
+            <summary class="font-extrabold text-white cursor-pointer list-none flex justify-between items-center">
+              <span>How do you play 2048?</span>
+              <span class="text-[#edc22e] group-open:rotate-180 transition-transform">▼</span>
+            </summary>
+            <p class="mt-2 text-[#cdc1b4] leading-relaxed">
+              Slide numbered tiles across the 4x4 grid in four directions using keyboard arrow keys, WASD, mobile touch swipes, or the on-screen D-Pad. When two tiles with identical values collide, they merge into one tile of doubled value. The goal is to strategically combine tiles until reaching the 2048 tile.
+            </p>
+          </details>
+
+          <details class="group bg-[#28211e] border border-[#bbada0]/30 rounded-xl p-3.5">
+            <summary class="font-extrabold text-white cursor-pointer list-none flex justify-between items-center">
+              <span>What is the best strategy to win 2048?</span>
+              <span class="text-[#edc22e] group-open:rotate-180 transition-transform">▼</span>
+            </summary>
+            <p class="mt-2 text-[#cdc1b4] leading-relaxed">
+              The Corner Anchor Strategy is universally proven as the highest win-rate method: anchor your maximum tile into one corner (e.g. bottom-right) and build descending monotonic sequences across that row. Never swipe opposite your anchor wall (avoid swiping Up if anchored at bottom).
+            </p>
+          </details>
+
+          <details class="group bg-[#28211e] border border-[#bbada0]/30 rounded-xl p-3.5">
+            <summary class="font-extrabold text-white cursor-pointer list-none flex justify-between items-center">
+              <span>What is the highest possible score in 2048?</span>
+              <span class="text-[#edc22e] group-open:rotate-180 transition-transform">▼</span>
+            </summary>
+            <p class="mt-2 text-[#cdc1b4] leading-relaxed">
+              The theoretical maximum score on a standard 4x4 board is 3,932,156 points, achievable by creating a 131,072 tile. Reaching the initial 2048 tile generally yields between 20,000 and 28,000 points.
+            </p>
+          </details>
+
+          <details class="group bg-[#28211e] border border-[#bbada0]/30 rounded-xl p-3.5">
+            <summary class="font-extrabold text-white cursor-pointer list-none flex justify-between items-center">
+              <span>Is 2048 a game of skill or luck?</span>
+              <span class="text-[#edc22e] group-open:rotate-180 transition-transform">▼</span>
+            </summary>
+            <p class="mt-2 text-[#cdc1b4] leading-relaxed">
+              While tile spawns carry randomized values (90% chance of a 2, 10% chance of a 4), structured positioning and disciplined board management dictate over 95% of results. Skilled players reach 2048 almost every game.
+            </p>
+          </details>
+
+          <details class="group bg-[#28211e] border border-[#bbada0]/30 rounded-xl p-3.5">
+            <summary class="font-extrabold text-white cursor-pointer list-none flex justify-between items-center">
+              <span>Can you continue after creating the 2048 tile?</span>
+              <span class="text-[#edc22e] group-open:rotate-180 transition-transform">▼</span>
+            </summary>
+            <p class="mt-2 text-[#cdc1b4] leading-relaxed">
+              Yes! Creating the 2048 tile unlocks an achievement badge and offers a 'Keep Going' option to push onward toward 4096, 8192, and beyond until the board fills.
+            </p>
+          </details>
+
+          <details class="group bg-[#28211e] border border-[#bbada0]/30 rounded-xl p-3.5">
+            <summary class="font-extrabold text-white cursor-pointer list-none flex justify-between items-center">
+              <span>Are your leaderboard scores genuine?</span>
+              <span class="text-[#edc22e] group-open:rotate-180 transition-transform">▼</span>
+            </summary>
+            <p class="mt-2 text-[#cdc1b4] leading-relaxed">
+              Yes. Every score listed on our platform is recorded directly from verified game runs with accurate move timestamps and achieved tile markers—no fake bot records.
+            </p>
+          </details>
+
+          <details class="group bg-[#28211e] border border-[#bbada0]/30 rounded-xl p-3.5">
+            <summary class="font-extrabold text-white cursor-pointer list-none flex justify-between items-center">
+              <span>Who created the original 2048 game?</span>
+              <span class="text-[#edc22e] group-open:rotate-180 transition-transform">▼</span>
+            </summary>
+            <p class="mt-2 text-[#cdc1b4] leading-relaxed">
+              Gabriele Cirulli developed 2048 in March 2014 as an open-source project under the MIT license, inspired by the mobile puzzle games 1024 and Threes.
+            </p>
+          </details>
+
+          <details class="group bg-[#28211e] border border-[#bbada0]/30 rounded-xl p-3.5">
+            <summary class="font-extrabold text-white cursor-pointer list-none flex justify-between items-center">
+              <span>How does the Undo feature operate?</span>
+              <span class="text-[#edc22e] group-open:rotate-180 transition-transform">▼</span>
+            </summary>
+            <p class="mt-2 text-[#cdc1b4] leading-relaxed">
+              Each round grants up to 3 Undo moves. If you make an erroneous swipe that threatens your corner anchor, tapping Undo instantly reverts the board and score to the previous state.
+            </p>
+          </details>
+
+          <details class="group bg-[#28211e] border border-[#bbada0]/30 rounded-xl p-3.5">
+            <summary class="font-extrabold text-white cursor-pointer list-none flex justify-between items-center">
+              <span>Can I play offline without internet access?</span>
+              <span class="text-[#edc22e] group-open:rotate-180 transition-transform">▼</span>
+            </summary>
+            <p class="mt-2 text-[#cdc1b4] leading-relaxed">
+              Yes. The application executes completely client-side in your web browser. All scores, career statistics, and settings persist safely in your browser's local storage.
+            </p>
+          </details>
+
+          <details class="group bg-[#28211e] border border-[#bbada0]/30 rounded-xl p-3.5">
+            <summary class="font-extrabold text-white cursor-pointer list-none flex justify-between items-center">
+              <span>How is this version optimized for mobile devices?</span>
+              <span class="text-[#edc22e] group-open:rotate-180 transition-transform">▼</span>
+            </summary>
+            <p class="mt-2 text-[#cdc1b4] leading-relaxed">
+              Features include dynamic viewport height (100dvh) to avoid browser bar resizing, zero scroll jitter, touch event protection, synthesized Web Audio, and an optional on-screen D-Pad.
+            </p>
+          </details>
+        </div>
+      </section>
+
+    </article>
+
+    <!-- Call to Action Banner -->
+    <section class="text-center py-4 space-y-3">
+      <h3 class="text-xl font-black text-white">Put the Corner Strategy to the Test</h3>
+      <p class="text-xs sm:text-sm text-[#cdc1b4]">Jump into a fresh match and climb the real-time leaderboard now.</p>
+      <a href="index.html" class="inline-block px-6 py-3 rounded-xl bg-[#edc22e] hover:bg-[#e5b822] text-[#3c3a32] font-black text-sm uppercase tracking-wider shadow-lg transition-transform active:scale-95">
+        Play 2048 Online Free →
+      </a>
+    </section>
+
+  </main>
+
+  <!-- Site Footer with full internal cross-links -->
+  <footer class="w-full bg-[#1e1916] border-t border-[#bbada0]/20 py-6 px-4">
+    <div class="max-w-3xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-[#cdc1b4]">
+      <div>© 2026 2048 Online. MIT License Heritage.</div>
+      <div class="flex flex-wrap items-center justify-center gap-3">
+        <a href="index.html" class="hover:text-[#edc22e] transition-colors">Play Game</a>
+        <span>•</span>
+        <a href="how-to-play.html" class="text-white font-bold hover:text-[#edc22e] transition-colors">How to Play</a>
+        <span>•</span>
+        <a href="about-us.html" class="hover:text-[#edc22e] transition-colors">About Us</a>
+        <span>•</span>
+        <a href="privacy-policy.html" class="hover:text-[#edc22e] transition-colors">Privacy Policy</a>
+        <span>•</span>
+        <a href="terms.html" class="hover:text-[#edc22e] transition-colors">Terms</a>
+        <span>•</span>
+        <a href="contact-us.html" class="hover:text-[#edc22e] transition-colors">Contact</a>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
