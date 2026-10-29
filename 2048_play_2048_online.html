@@ -1756,6 +1756,14 @@
       const quickLbBtn = document.getElementById('quick-to-leaderboard-btn');
       if (quickLbBtn) quickLbBtn.addEventListener('click', () => switchTab('leaderboard'));
 
+      // Deep linking via URL query param (?tab=leaderboard)
+      try {
+        const urlParams = new URLSearchParams(window.location.search);
+        if (urlParams.get('tab') === 'leaderboard') {
+          switchTab('leaderboard');
+        }
+      } catch (e) {}
+
       // =========================================================================
       // 12. SOUND TOGGLE CONTROLLERS
       // =========================================================================

@@ -101,6 +101,34 @@
       background: #8f7a66;
       border-radius: 4px;
     }
+
+    /* Scrollbar utilities */
+    .no-scrollbar::-webkit-scrollbar {
+      display: none;
+    }
+    .no-scrollbar {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+
+    /* Bottom tab active & hover styling */
+    .bottom-tab-btn {
+      color: #9da5b4;
+      background: transparent;
+      border: 1px solid transparent;
+      transition: all 120ms ease;
+      text-decoration: none;
+    }
+    .bottom-tab-btn:hover {
+      color: #ffffff;
+      background: rgba(255, 255, 255, 0.05);
+    }
+    .bottom-tab-btn.active-tab {
+      color: #ffffff;
+      background: #2b303a;
+      border-color: #404756;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+    }
   </style>
 </head>
 <body class="flex flex-col justify-between">
@@ -225,25 +253,106 @@
 
   </main>
 
-  <!-- Site Footer -->
-  <footer class="w-full bg-[#1e1916] border-t border-[#bbada0]/20 py-6 px-4">
-    <div class="max-w-3xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-[#cdc1b4]">
-      <div>© 2026 2048 Online. All rights reserved.</div>
-      <div class="flex flex-wrap items-center justify-center gap-3">
-        <a href="/" class="hover:text-[#edc22e] transition-colors">Play Game</a>
-        <span>•</span>
-        <a href="/how-to-play" class="hover:text-[#edc22e] transition-colors">How to Play</a>
-        <span>•</span>
-        <a href="/about-us" class="hover:text-[#edc22e] transition-colors">About Us</a>
-        <span>•</span>
-        <a href="/privacy-policy" class="hover:text-[#edc22e] transition-colors">Privacy Policy</a>
-        <span>•</span>
-        <a href="/terms" class="hover:text-[#edc22e] transition-colors">Terms</a>
-        <span>•</span>
-        <a href="/contact-us" class="text-white font-bold hover:text-[#edc22e] transition-colors">Contact</a>
-      </div>
+  <!-- =========================================================================
+       BOTTOM NAVIGATION BAR (Matches Game Screen Navbar)
+       [Logo] [Game] [Leaderboard] [About] [How to Play] [Contact] ... [Privacy] [Terms] [🔊]
+  ========================================================================= -->
+  <nav id="bottom-navbar" class="sticky bottom-0 w-full bg-[#181a1d] border-t border-[#31353d] px-2 sm:px-4 h-12 shrink-0 z-30 flex items-center justify-between select-none">
+    
+    <!-- Left Group: Proper 2048 Logo & Primary Tabs -->
+    <div class="flex items-center gap-1 sm:gap-2 overflow-x-auto no-scrollbar py-1">
+      
+      <!-- PROPER 2048 LOGO (Clickable: returns to Game) -->
+      <a href="/" id="nav-logo-btn" class="flex items-center gap-1.5 pr-2 py-1 cursor-pointer group focus:outline-none shrink-0" title="2048 Home">
+        <!-- 2x2 Mini Board Emblem -->
+        <div class="w-7 h-7 sm:w-8 sm:h-8 rounded-lg bg-[#bbada0] p-1 grid grid-cols-2 grid-rows-2 gap-0.5 shadow shrink-0 group-hover:scale-105 transition-transform">
+          <div class="rounded-[2.5px] bg-[#eee4da] flex items-center justify-center font-black text-[7.5px] sm:text-[8px] text-[#776e65] leading-none">2</div>
+          <div class="rounded-[2.5px] bg-[#ede0c8] flex items-center justify-center font-black text-[7.5px] sm:text-[8px] text-[#776e65] leading-none">4</div>
+          <div class="rounded-[2.5px] bg-[#f2b179] flex items-center justify-center font-black text-[7.5px] sm:text-[8px] text-white leading-none">8</div>
+          <div class="rounded-[2.5px] bg-[#edc22e] flex items-center justify-center font-black text-[7.5px] sm:text-[8px] text-white leading-none">16</div>
+        </div>
+        <!-- Stylized 2048 Brand Typography -->
+        <div class="font-black text-sm sm:text-base tracking-tight flex items-center group-hover:opacity-90 transition-opacity">
+          <span class="text-[#f9f6f2]">2</span>
+          <span class="text-[#f2b179]">0</span>
+          <span class="text-[#f67c5f]">4</span>
+          <span class="text-[#edc22e]">8</span>
+        </div>
+      </a>
+
+      <!-- Tab 1: Game -->
+      <a href="/" id="tab-btn-game" class="bottom-tab-btn px-2.5 sm:px-3 py-1.5 rounded-lg text-xs font-black flex items-center gap-1 shrink-0">
+        <span>Game</span>
+      </a>
+
+      <!-- Tab 2: Leaderboard -->
+      <a href="/?tab=leaderboard" id="tab-btn-leaderboard" class="bottom-tab-btn px-2 sm:px-2.5 py-1.5 rounded-lg text-xs font-bold flex items-center gap-1 shrink-0">
+        <span>Leaderboard</span>
+      </a>
+
+      <!-- Tab 3: About -->
+      <a href="/about-us" id="tab-btn-about" class="bottom-tab-btn px-2 sm:px-2.5 py-1.5 rounded-lg text-xs font-bold flex items-center gap-1 shrink-0">
+        <span>About</span>
+      </a>
+
+      <!-- Tab 4: How to Play -->
+      <a href="/how-to-play" id="tab-btn-howto" class="bottom-tab-btn px-2 sm:px-2.5 py-1.5 rounded-lg text-xs font-bold flex items-center gap-1 shrink-0">
+        <span>How to Play</span>
+      </a>
+
+      <!-- Tab 5: Contact (Active) -->
+      <a href="/contact-us" id="tab-btn-contact" class="bottom-tab-btn active-tab px-2 sm:px-2.5 py-1.5 rounded-lg text-xs font-bold flex items-center gap-1 shrink-0">
+        <span>Contact</span>
+      </a>
+
     </div>
-  </footer>
+
+    <!-- Right Group: Legal Links & Audio Button -->
+    <div class="flex items-center gap-1.5 sm:gap-2.5 shrink-0 pl-1 sm:pl-2">
+      <!-- Privacy Policy Tab -->
+      <a href="/privacy-policy" id="tab-btn-privacy" class="bottom-tab-btn text-xs font-medium py-1 px-1.5 shrink-0 hidden md:inline-block">
+        Privacy Policy
+      </a>
+
+      <!-- Terms Tab -->
+      <a href="/terms" id="tab-btn-terms" class="bottom-tab-btn text-xs font-medium py-1 px-1.5 shrink-0 hidden md:inline-block">
+        Terms
+      </a>
+
+      <!-- Sound Toggle Button -->
+      <button id="bottom-sound-toggle-btn" type="button" class="w-8 h-8 rounded-lg bg-[#272a2f] hover:bg-[#34383f] border border-[#414652] flex items-center justify-center text-xs text-white transition-colors shrink-0 shadow-sm" title="Toggle Sound" aria-label="Toggle Sound">
+        🔊
+      </button>
+    </div>
+
+  </nav>
+
+  <!-- Sound Sync Helper Script -->
+  <script>
+    (function() {
+      const btn = document.getElementById('bottom-sound-toggle-btn');
+      if (!btn) return;
+      const key = '2048_player_settings';
+      function getSettings() {
+        try {
+          return JSON.parse(localStorage.getItem(key)) || { sound: true };
+        } catch(e) {
+          return { sound: true };
+        }
+      }
+      function updateUI(sound) {
+        btn.textContent = sound ? '🔊' : '🔇';
+      }
+      let current = getSettings();
+      updateUI(current.sound);
+      btn.addEventListener('click', () => {
+        current = getSettings();
+        current.sound = !current.sound;
+        try { localStorage.setItem(key, JSON.stringify(current)); } catch(e){}
+        updateUI(current.sound);
+      });
+    })();
+  </script>
 
   <!-- Contact Form Submission Script -->
   <script>
