@@ -238,7 +238,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
-  <script src="https://cdn.tailwindcss.com/3.4.17"></script>
+  <link rel="stylesheet" href="/styles.css" />
   <style>
     * {
       box-sizing: border-box;
@@ -454,20 +454,23 @@
         Join numbers and get to the 2048 tile! Javascript is required to render interactive sliding animations.
       </p>
       <p style="font-size: 0.85rem;">
-        <a href="/how-to-play.html" style="color: #edc22e; text-decoration: underline; margin-right: 12px;">How to Play Strategy Guide</a>
-        <a href="/about-us.html" style="color: #edc22e; text-decoration: underline; margin-right: 12px;">About Us</a>
-        <a href="/contact-us.html" style="color: #edc22e; text-decoration: underline;">Contact Support</a>
+        <a href="/how-to-play" style="color: #edc22e; text-decoration: underline; margin-right: 12px;">How to Play Strategy Guide</a>
+        <a href="/about-us" style="color: #edc22e; text-decoration: underline; margin-right: 12px;">About Us</a>
+        <a href="/contact-us" style="color: #edc22e; text-decoration: underline;">Contact Support</a>
       </p>
     </div>
   </noscript>
 
   <!-- ==================== MAIN VIEWPORT CONTAINER ==================== -->
-  <main id="main-scroll-container" class="flex-1 w-full relative overflow-hidden flex flex-col items-center justify-center">
+  <main id="main-scroll-container" class="flex-1 w-full relative overflow-y-auto overflow-x-hidden custom-scroll flex flex-col items-center">
 
     <!-- =========================================================================
          VIEW 1: WHOLE SCREEN ONLY GAME (Matches Screenshot Layout)
     ========================================================================= -->
-    <div id="tab-view-game" class="w-full h-full max-w-lg mx-auto flex flex-col items-center justify-between p-2 sm:p-3 overflow-hidden select-none">
+    <div id="tab-view-game" class="w-full flex flex-col items-center select-none">
+      
+      <!-- Primary Viewport Game Board Area -->
+      <div class="w-full max-w-lg min-h-[calc(100dvh-3rem)] flex flex-col items-center justify-between p-2 sm:p-3 shrink-0">
       <h1 class="sr-only">Play 2048 Online Free — Official Number Sliding Puzzle Game &amp; Live Leaderboard</h1>
 
       <!-- TOP GAME HUD BAR -->
@@ -490,6 +493,23 @@
             <div id="best-display" class="text-xs sm:text-base font-black text-white leading-tight">0</div>
           </div>
         </div>
+      </div>
+
+      <!-- GAME MODE & PWA INSTALL SELECTOR ROW -->
+      <div class="w-full max-w-[420px] flex items-center justify-between gap-1.5 shrink-0 py-0.5">
+        <div class="flex items-center gap-1 bg-[#1e1916]/80 p-0.5 rounded-lg border border-[#bbada0]/20">
+          <button id="mode-btn-classic" type="button" class="px-2.5 py-0.5 rounded-md text-[10px] font-black uppercase tracking-wider bg-[#bbada0] text-white shadow-sm transition-all" title="Classic 4x4 Free Play">
+            Classic 4×4
+          </button>
+          <button id="mode-btn-daily" type="button" class="px-2.5 py-0.5 rounded-md text-[10px] font-black uppercase tracking-wider text-[#cdc1b4] hover:text-white transition-all flex items-center gap-1" title="Daily Seeded Challenge">
+            <span>📅</span>
+            <span id="daily-btn-label">Daily Challenge</span>
+          </button>
+        </div>
+
+        <button id="pwa-install-btn" type="button" class="hidden px-2.5 py-0.5 rounded-lg bg-emerald-600 hover:bg-emerald-500 text-white font-extrabold text-[10px] shadow transition-all flex items-center gap-1 cursor-pointer animate-pulse" title="Install 2048 as an app">
+          <span>📲</span> <span>Install App</span>
+        </button>
       </div>
 
       <!-- GAME ACTION CONTROLS ROW -->
@@ -586,7 +606,118 @@
         </div>
       </div>
 
-    </div>
+
+    </div> <!-- End Primary Viewport Game Board Area -->
+
+    <!-- =========================================================================
+         SEO STRATEGY GUIDE, FAQ & CRAWLABLE SEMANTIC FOOTER
+    ========================================================================= -->
+    <article class="w-full max-w-3xl mx-auto px-4 sm:px-6 py-10 space-y-8 text-[#ede0c8] selectable-text border-t border-[#bbada0]/20 bg-[#1e1916]/40">
+      <header class="space-y-2 border-b border-[#bbada0]/20 pb-4">
+        <h2 class="text-2xl sm:text-3xl font-black text-white">Play 2048 Online — The Authentic Strategy &amp; Guide</h2>
+        <p class="text-sm text-[#cdc1b4] leading-relaxed">
+          Welcome to the authentic, fast, and ad-free web edition of <strong>2048</strong>. Swipe to merge numbers across the 4&times;4 grid, unlock legendary high-value tiles, and compete against real players on verified global leaderboards.
+        </p>
+      </header>
+
+      <!-- Rules & Mechanics -->
+      <section class="space-y-3">
+        <h3 class="text-lg sm:text-xl font-black text-[#edc22e] flex items-center gap-2">
+          <span>🎮</span> How to Play 2048
+        </h3>
+        <p class="text-sm leading-relaxed text-[#cdc1b4]">
+          Control the board with your <strong>Arrow Keys</strong> or <strong>W, A, S, D</strong> on desktop, or simply <strong>swipe with your fingers</strong> on any touch screen or smartphone. All tiles slide together until they reach the grid edge or collide with another tile.
+        </p>
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 pt-1">
+          <div class="bg-[#27211e] border border-[#bbada0]/20 rounded-xl p-3.5 space-y-1">
+            <div class="text-white font-bold text-sm">1. Merge Identical Numbers</div>
+            <p class="text-xs text-[#cdc1b4]">When two tiles of identical value collide (2+2, 4+4, 8+8), they combine into a single tile with double the value.</p>
+          </div>
+          <div class="bg-[#27211e] border border-[#bbada0]/20 rounded-xl p-3.5 space-y-1">
+            <div class="text-white font-bold text-sm">2. Board Spawns</div>
+            <p class="text-xs text-[#cdc1b4]">Every move spawns a new 2 (90% probability) or 4 (10% probability) in an unoccupied cell.</p>
+          </div>
+          <div class="bg-[#27211e] border border-[#bbada0]/20 rounded-xl p-3.5 space-y-1">
+            <div class="text-white font-bold text-sm">3. Reach the 2048 Tile</div>
+            <p class="text-xs text-[#cdc1b4]">Build your way to the golden 2048 tile to win, and keep going for 4096, 8192, and personal best scores!</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Corner Anchor Strategy -->
+      <section class="space-y-3">
+        <h3 class="text-lg sm:text-xl font-black text-[#edc22e] flex items-center gap-2">
+          <span>📐</span> The Corner Anchor Strategy (How to Win Consistently)
+        </h3>
+        <p class="text-sm leading-relaxed text-[#cdc1b4]">
+          The most reliable method to reach 2048 and beyond is the <strong>Corner Anchor Strategy</strong>:
+        </p>
+        <ol class="list-decimal list-inside space-y-2 text-sm text-[#cdc1b4] bg-[#27211e] border border-[#bbada0]/20 rounded-xl p-4">
+          <li><strong class="text-white">Designate a Corner Anchor:</strong> Pick one corner (e.g. bottom-right) and never swipe in the opposite direction. If your anchor is on the bottom, <em>never swipe Up</em> unless forced by a full board.</li>
+          <li><strong class="text-white">Maintain Strict Monotonicity:</strong> Keep tiles in descending numerical order along your primary wall (e.g. 1024 &rarr; 512 &rarr; 256 &rarr; 128).</li>
+          <li><strong class="text-white">Trigger Cascading Merges:</strong> Collapse tiles downward and sideways like falling dominoes to clear space efficiently.</li>
+        </ol>
+        <div class="pt-1">
+          <a href="/how-to-play" class="text-xs font-bold text-[#edc22e] hover:underline flex items-center gap-1">
+            <span>Read the Complete 2048 Strategy Guide &amp; Analysis &rarr;</span>
+          </a>
+        </div>
+      </section>
+
+      <!-- Frequently Asked Questions (FAQ) -->
+      <section class="space-y-4">
+        <h3 class="text-lg sm:text-xl font-black text-[#edc22e] flex items-center gap-2">
+          <span>❓</span> Frequently Asked Questions (FAQ)
+        </h3>
+        <div class="space-y-3">
+          <details class="bg-[#27211e] border border-[#bbada0]/20 rounded-xl p-3.5 text-sm cursor-pointer group">
+            <summary class="font-bold text-white group-hover:text-[#edc22e] transition-colors">What is the highest possible tile in 2048?</summary>
+            <p class="mt-2 text-xs text-[#cdc1b4] leading-relaxed">
+              On a standard 4&times;4 grid, the theoretical maximum tile achievable is <strong>131,072</strong>, with a theoretical maximum score of approximately <strong>3,932,156 points</strong>.
+            </p>
+          </details>
+          <details class="bg-[#27211e] border border-[#bbada0]/20 rounded-xl p-3.5 text-sm cursor-pointer group">
+            <summary class="font-bold text-white group-hover:text-[#edc22e] transition-colors">Is 2048 purely luck or strategy?</summary>
+            <p class="mt-2 text-xs text-[#cdc1b4] leading-relaxed">
+              While new tile spawns are randomized, players adhering to disciplined corner anchoring and monotonicity win over <strong>95%</strong> of their matches. Skill and space management dominate random chance.
+            </p>
+          </details>
+          <details class="bg-[#27211e] border border-[#bbada0]/20 rounded-xl p-3.5 text-sm cursor-pointer group">
+            <summary class="font-bold text-white group-hover:text-[#edc22e] transition-colors">Can I play 2048 unblocked at school or work?</summary>
+            <p class="mt-2 text-xs text-[#cdc1b4] leading-relaxed">
+              Yes! Our platform runs on pure HTML5 and HTTPS without Adobe Flash, external plugins, or intrusive ads. Visit our dedicated <a href="/2048-unblocked" class="text-[#edc22e] underline font-bold">2048 Unblocked</a> page to play freely on school Chromebooks and restricted networks.
+            </p>
+          </details>
+          <details class="bg-[#27211e] border border-[#bbada0]/20 rounded-xl p-3.5 text-sm cursor-pointer group">
+            <summary class="font-bold text-white group-hover:text-[#edc22e] transition-colors">How does the real-time leaderboard work?</summary>
+            <p class="mt-2 text-xs text-[#cdc1b4] leading-relaxed">
+              Every completed match is securely recorded in a high-speed Cloudflare D1 database. There are zero simulated bot scores — every leaderboard entry comes from an authentic human device.
+            </p>
+          </details>
+        </div>
+      </section>
+
+      <!-- Semantic Crawlable Footer -->
+      <footer class="pt-6 border-t border-[#bbada0]/20 text-xs text-[#cdc1b4] space-y-4">
+        <div class="flex flex-wrap items-center justify-between gap-3">
+          <div>&copy; 2026 <a href="/" class="text-white font-bold hover:text-[#edc22e]">2048 Online</a>. Built with MIT Open Source Heritage.</div>
+          <nav aria-label="Site Links" class="flex flex-wrap items-center gap-x-4 gap-y-1">
+            <a href="/how-to-play" class="hover:text-[#edc22e] transition-colors">How to Play</a>
+            <a href="/2048-unblocked" class="hover:text-[#edc22e] transition-colors">2048 Unblocked</a>
+            <a href="/about-us" class="hover:text-[#edc22e] transition-colors">About Us</a>
+            <a href="/contact-us" class="hover:text-[#edc22e] transition-colors">Contact</a>
+            <a href="/privacy-policy" class="hover:text-[#edc22e] transition-colors">Privacy Policy</a>
+            <a href="/terms" class="hover:text-[#edc22e] transition-colors">Terms</a>
+          </nav>
+        </div>
+        <p class="text-[11px] text-[#cdc1b4]/70">
+          Original 2048 game conceptualized by Gabriele Cirulli based on 1024 by Veewo Studio and Threes by Sirvo. This edition is independently maintained with zero fake scores, cloud persistence, and mobile optimizations.
+        </p>
+      </footer>
+    </article>
+
+  </div> <!-- End tab-view-game -->
+
 
     <!-- =========================================================================
          VIEW 2: REAL LEADERBOARD & CAREER STATS TAB
@@ -792,6 +923,11 @@
         <span>How to Play</span>
       </a>
 
+      <!-- Tab 5: Unblocked -->
+      <a href="/2048-unblocked" id="tab-btn-unblocked" class="bottom-tab-btn px-2 sm:px-2.5 py-1.5 rounded-lg text-xs font-bold flex items-center gap-1 shrink-0">
+        <span>Unblocked</span>
+      </a>
+
       <!-- Tab 5: Contact (Opens dedicated /contact-us page) -->
       <a href="/contact-us" id="tab-btn-contact" class="bottom-tab-btn px-2 sm:px-2.5 py-1.5 rounded-lg text-xs font-bold flex items-center gap-1 shrink-0">
         <span>Contact</span>
@@ -842,6 +978,46 @@
       ];
 
       // Persistent Unique Device Identifier for this hardware/browser
+      
+      // =========================================================================
+      // 1.1 GA4 TELEMETRY HELPER
+      // =========================================================================
+      const trackedMilestones = new Set();
+      function trackGAEvent(eventName, params = {}) {
+        try {
+          if (typeof window.gtag === 'function') {
+            window.gtag('event', eventName, params);
+          }
+        } catch (e) {}
+      }
+
+      // =========================================================================
+      // 1.2 SEEDED DAILY PUZZLE ENGINE (WORDLE-EFFECT)
+      // =========================================================================
+      let currentGameMode = 'classic'; // 'classic' | 'daily'
+      let dailyRandom = null;
+
+      function createSeededRandom(seed) {
+        let s = seed % 2147483647;
+        if (s <= 0) s += 2147483646;
+        return function() {
+          s = (s * 16807) % 2147483647;
+          return (s - 1) / 2147483646;
+        };
+      }
+
+      function getDailySeedInfo() {
+        const now = new Date();
+        const year = now.getUTCFullYear();
+        const month = String(now.getUTCMonth() + 1).padStart(2, '0');
+        const day = String(now.getUTCDate()).padStart(2, '0');
+        const dateStr = year + '-' + month + '-' + day;
+        const seed = parseInt('' + year + month + day, 10);
+        const epoch = new Date(Date.UTC(2026, 9, 24)); // Oct 24, 2026 launch date
+        const dayNumber = Math.max(1, Math.floor((now.getTime() - epoch.getTime()) / (1000 * 60 * 60 * 24)));
+        return { dateStr, seed, dayNumber };
+      }
+
       let deviceId = localStorage.getItem(STORAGE_KEYS.DEVICE_ID);
       if (!deviceId) {
         deviceId = 'dev_' + Date.now().toString(36) + '_' + Math.random().toString(36).slice(2, 9);
@@ -1029,8 +1205,10 @@
       function spawnRandomTile() {
         const emptyCells = getEmptyCells();
         if (emptyCells.length === 0) return null;
-        const cell = emptyCells[Math.floor(Math.random() * emptyCells.length)];
-        const val = Math.random() < 0.9 ? 2 : 4;
+        const rng = (currentGameMode === 'daily' && dailyRandom) ? dailyRandom() : Math.random();
+        const rngVal = (currentGameMode === 'daily' && dailyRandom) ? dailyRandom() : Math.random();
+        const cell = emptyCells[Math.floor(rng * emptyCells.length)];
+        const val = rngVal < 0.9 ? 2 : 4;
         const tile = {
           id: nextTileId++,
           val: val,
@@ -1175,6 +1353,17 @@
 
         // Persist to Cloudflare D1 Database
         saveRecordToCloudflareDB(record);
+
+        // GA4 Telemetry for Game Over (Key Event)
+        trackGAEvent('game_over', {
+          score: record.score,
+          highest_tile: record.highestTile,
+          moves: record.moves,
+          duration_sec: record.durationSec,
+          did_win: record.didWin2048 ? 1 : 0,
+          mode: currentGameMode,
+          reason: record.reason
+        });
       }
 
       // =========================================================================
@@ -1306,6 +1495,15 @@
           score += turnScore;
           bestTile = getHighestTile();
 
+          if (moves === 1) {
+            trackGAEvent('game_start', { player_name: profile.name, mode: currentGameMode });
+          }
+
+          if (mergedMax >= 512 && !trackedMilestones.has(mergedMax)) {
+            trackedMilestones.add(mergedMax);
+            trackGAEvent('tile_milestone', { tile_value: mergedMax, score: score, mode: currentGameMode });
+          }
+
           if (mergedMax > 0) {
             playSound('merge', mergedMax);
             triggerHaptic('merge');
@@ -1417,6 +1615,13 @@
         keepPlaying = false;
         isGameOver = false;
         gameStartTime = Date.now();
+
+        if (currentGameMode === 'daily') {
+          const dailyInfo = getDailySeedInfo();
+          dailyRandom = createSeededRandom(dailyInfo.seed);
+        } else {
+          dailyRandom = null;
+        }
 
         document.getElementById('match-review-modal').classList.add('hidden');
         spawnRandomTile();
@@ -1987,6 +2192,7 @@
         moves = snap.moves;
         bestTile = getHighestTile();
         undosLeft--;
+        trackGAEvent('undo_used', { undos_left: undosLeft, moves: moves });
         syncTilesDOM();
         updateHUD();
       });
@@ -2129,18 +2335,93 @@
       lbFilterToday.addEventListener('click', () => setLbFilter('today'));
       lbFilterMine.addEventListener('click', () => setLbFilter('mine'));
 
-      // Handle Clean URL Route Selection (No Hashtags)
+      // Handle Clean URL Route Selection, Embed Mode & Daily Mode
       function initRoute() {
         const urlParams = new URLSearchParams(window.location.search);
+        if (urlParams.get('embed') === '1') {
+          const navbar = document.getElementById('bottom-navbar');
+          if (navbar) navbar.style.display = 'none';
+        }
+        if (urlParams.get('mode') === 'daily') {
+          setGameMode('daily');
+        }
         if (urlParams.get('tab') === 'leaderboard') {
           switchTab('leaderboard');
         } else {
           switchTab('game');
         }
-        // If an old legacy hashtag was loaded in browser, remove it cleanly
         if (window.location.hash) {
           history.replaceState(null, '', window.location.pathname + window.location.search);
         }
+      }
+
+      function setGameMode(mode) {
+        currentGameMode = mode;
+        const classicBtn = document.getElementById('mode-btn-classic');
+        const dailyBtn = document.getElementById('mode-btn-daily');
+        const dailyInfo = getDailySeedInfo();
+
+        if (mode === 'daily') {
+          if (classicBtn) {
+            classicBtn.classList.remove('bg-[#bbada0]', 'text-white', 'shadow-sm');
+            classicBtn.classList.add('text-[#cdc1b4]');
+          }
+          if (dailyBtn) {
+            dailyBtn.classList.add('bg-[#edc22e]', 'text-[#3c3a32]', 'shadow-sm');
+            dailyBtn.classList.remove('text-[#cdc1b4]');
+            dailyBtn.innerHTML = '<span>📅</span> <span>Daily #' + dailyInfo.dayNumber + '</span>';
+          }
+        } else {
+          if (classicBtn) {
+            classicBtn.classList.add('bg-[#bbada0]', 'text-white', 'shadow-sm');
+            classicBtn.classList.remove('text-[#cdc1b4]');
+          }
+          if (dailyBtn) {
+            dailyBtn.classList.remove('bg-[#edc22e]', 'text-[#3c3a32]', 'shadow-sm');
+            dailyBtn.classList.add('text-[#cdc1b4]');
+          }
+        }
+
+        trackedMilestones.clear();
+        initGame();
+      }
+
+      // Mode Switcher Listeners
+      const classicBtnEl = document.getElementById('mode-btn-classic');
+      const dailyBtnEl = document.getElementById('mode-btn-daily');
+      if (classicBtnEl) classicBtnEl.addEventListener('click', () => setGameMode('classic'));
+      if (dailyBtnEl) dailyBtnEl.addEventListener('click', () => setGameMode('daily'));
+
+      // Service Worker Registration for PWA Offline Play
+      if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+          navigator.serviceWorker.register('/sw.js').catch(() => {});
+        });
+      }
+
+      // Native PWA Install Prompt Listener
+      let deferredPwaPrompt = null;
+      window.addEventListener('beforeinstallprompt', evt => {
+        evt.preventDefault();
+        deferredPwaPrompt = evt;
+        const pwaBtn = document.getElementById('pwa-install-btn');
+        if (pwaBtn) pwaBtn.classList.remove('hidden');
+      });
+
+      const pwaBtn = document.getElementById('pwa-install-btn');
+      if (pwaBtn) {
+        pwaBtn.addEventListener('click', () => {
+          if (deferredPwaPrompt) {
+            deferredPwaPrompt.prompt();
+            deferredPwaPrompt.userChoice.then(choice => {
+              if (choice.outcome === 'accepted') {
+                trackGAEvent('pwa_installed');
+              }
+              deferredPwaPrompt = null;
+              pwaBtn.classList.add('hidden');
+            });
+          }
+        });
       }
 
       // =========================================================================

@@ -5,6 +5,21 @@ https://play-2048-online.pages.dev/*
 https://*.play-2048-online.pages.dev/*
   X-Robots-Tag: noindex
 
+# Global security headers
+/*
+  X-Content-Type-Options: nosniff
+  Referrer-Policy: strict-origin-when-cross-origin
+
+# Service worker (always fresh)
+/sw.js
+  Content-Type: application/javascript; charset=utf-8
+  Cache-Control: public, max-age=0, must-revalidate
+
+# Compiled static stylesheet
+/styles.css
+  Content-Type: text/css; charset=utf-8
+  Cache-Control: public, max-age=604800, stale-while-revalidate=86400
+
 # Cache headers and MIME types for SEO & Core Web Vitals
 /sitemap.xml
   Content-Type: application/xml; charset=utf-8

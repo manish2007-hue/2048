@@ -36,6 +36,31 @@ export async function onRequest(context) {
     const moves = Math.max(0, parseInt(data.moves, 10) || 0);
     const durationSec = Math.max(0, parseInt(data.durationSec, 10) || 0);
     const didWin = data.didWin || highestTile >= 2048 ? 1 : 0;
+
+    // Mathematical sanity checks to prevent fake/injected scores
+    const isPowerOfTwo = (n) => n > 0 && (n & (n - 1)) === 0;
+    if (!isPowerOfTwo(highestTile) || highestTile > 131072) {
+      return new Response(JSON.stringify({ error: "Invalid highest tile value" }), {
+        status: 400,
+        headers: corsHeaders
+      });
+    }
+
+    if (score > 4000000) {
+      return new Response(JSON.stringify({ error: "Score exceeds theoretical maximum" }), {
+        status: 400,
+        headers: corsHeaders
+      });
+    }
+
+    // A run reaching 2048 or higher requires significant moves
+    if (highestTile >= 2048 && moves < 80) {
+      return new Response(JSON.stringify({ error: "Impossible move count for tile achieved" }), {
+        status: 400,
+        headers: corsHeaders
+      });
+    }
+
     const now = Date.now();
     const dateStr = new Date().toLocaleDateString("en-US", {
       month: "short",

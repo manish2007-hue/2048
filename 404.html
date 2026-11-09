@@ -21,11 +21,11 @@
   <meta name="description" content="Oops! The page you are looking for does not exist on our 4x4 grid. Return to 2048 Online to resume playing." />
   <meta name="robots" content="noindex, follow" />
 
-  <!-- Fonts & Tailwind -->
+  <!-- Fonts & Stylesheet -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
-  <script src="https://cdn.tailwindcss.com/3.4.17"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/styles.css" />
   <style>
     * {
       box-sizing: border-box;
@@ -80,7 +80,7 @@
   <!-- Top Navigation Header -->
   <header class="w-full bg-[#241e1b]/90 backdrop-blur-md border-b border-[#bbada0]/20 px-4 sm:px-6 py-3 sticky top-0 z-30">
     <div class="max-w-3xl mx-auto flex items-center justify-between">
-      <a href="index.html" class="flex items-center gap-2 group">
+      <a href="/" class="flex items-center gap-2 group">
         <div class="w-8 h-8 rounded-lg bg-[#bbada0] p-1 grid grid-cols-2 grid-rows-2 gap-0.5 shadow group-hover:scale-105 transition-transform">
           <div class="rounded-[2.5px] bg-[#eee4da] flex items-center justify-center font-black text-[8px] text-[#776e65] leading-none">2</div>
           <div class="rounded-[2.5px] bg-[#ede0c8] flex items-center justify-center font-black text-[8px] text-[#776e65] leading-none">4</div>
@@ -96,7 +96,7 @@
         </div>
       </a>
 
-      <a href="index.html" class="px-3.5 py-1.5 rounded-xl bg-[#8f7a66] hover:bg-[#9f8b77] text-white font-extrabold text-xs uppercase tracking-wider transition-all shadow flex items-center gap-1.5">
+      <a href="/" class="px-3.5 py-1.5 rounded-xl bg-[#8f7a66] hover:bg-[#9f8b77] text-white font-extrabold text-xs uppercase tracking-wider transition-all shadow flex items-center gap-1.5">
         <span>←</span>
         <span>Play Game</span>
       </a>
@@ -137,7 +137,7 @@
 
     <!-- Primary Action Buttons -->
     <div class="flex flex-col sm:flex-row items-center gap-3 w-full max-w-sm pt-2">
-      <a href="index.html" class="w-full sm:flex-1 py-3 px-4 rounded-xl bg-[#edc22e] hover:bg-[#e5b822] text-[#3c3a32] font-black text-xs sm:text-sm uppercase tracking-wider shadow-lg transition-transform active:scale-95 flex items-center justify-center gap-2">
+      <a href="/" class="w-full sm:flex-1 py-3 px-4 rounded-xl bg-[#edc22e] hover:bg-[#e5b822] text-[#3c3a32] font-black text-xs sm:text-sm uppercase tracking-wider shadow-lg transition-transform active:scale-95 flex items-center justify-center gap-2">
         <span>🎮</span>
         <span>Back to 2048 Game</span>
       </a>
@@ -150,19 +150,19 @@
     <div class="w-full max-w-md bg-[#27211e] border border-[#bbada0]/20 rounded-2xl p-4 text-left space-y-2.5">
       <div class="text-[11px] font-extrabold uppercase tracking-wider text-[#cdc1b4]">Helpful Navigation Links</div>
       <div class="grid grid-cols-2 gap-2 text-xs">
-        <a href="2048_play_2048_online.html#tab-view-leaderboard" class="p-2 rounded-lg bg-[#1e1916] hover:bg-[#352e2a] text-[#ede0c8] hover:text-[#edc22e] font-semibold transition-colors flex items-center gap-1.5">
+        <a href="/?tab=leaderboard" class="p-2 rounded-lg bg-[#1e1916] hover:bg-[#352e2a] text-[#ede0c8] hover:text-[#edc22e] font-semibold transition-colors flex items-center gap-1.5">
           <span>🏆</span>
           <span>Leaderboard</span>
         </a>
-        <a href="2048_play_2048_online.html#about-2048-guide" class="p-2 rounded-lg bg-[#1e1916] hover:bg-[#352e2a] text-[#ede0c8] hover:text-[#edc22e] font-semibold transition-colors flex items-center gap-1.5">
+        <a href="/how-to-play" class="p-2 rounded-lg bg-[#1e1916] hover:bg-[#352e2a] text-[#ede0c8] hover:text-[#edc22e] font-semibold transition-colors flex items-center gap-1.5">
           <span>📖</span>
           <span>Strategy Guide</span>
         </a>
-        <a href="about-us.html" class="p-2 rounded-lg bg-[#1e1916] hover:bg-[#352e2a] text-[#ede0c8] hover:text-[#edc22e] font-semibold transition-colors flex items-center gap-1.5">
-          <span>ℹ️</span>
-          <span>About 2048</span>
+        <a href="/2048-unblocked" class="p-2 rounded-lg bg-[#1e1916] hover:bg-[#352e2a] text-[#ede0c8] hover:text-[#edc22e] font-semibold transition-colors flex items-center gap-1.5">
+          <span>🏫</span>
+          <span>2048 Unblocked</span>
         </a>
-        <a href="contact-us.html" class="p-2 rounded-lg bg-[#1e1916] hover:bg-[#352e2a] text-[#ede0c8] hover:text-[#edc22e] font-semibold transition-colors flex items-center gap-1.5">
+        <a href="/contact-us" class="p-2 rounded-lg bg-[#1e1916] hover:bg-[#352e2a] text-[#ede0c8] hover:text-[#edc22e] font-semibold transition-colors flex items-center gap-1.5">
           <span>✉️</span>
           <span>Contact Support</span>
         </a>
@@ -218,7 +218,12 @@
         <span>How to Play</span>
       </a>
 
-      <!-- Tab 5: Contact -->
+      <!-- Tab 5: Unblocked -->
+      <a href="/2048-unblocked" id="tab-btn-unblocked" class="bottom-tab-btn px-2 sm:px-2.5 py-1.5 rounded-lg text-xs font-bold flex items-center gap-1 shrink-0">
+        <span>Unblocked</span>
+      </a>
+
+      <!-- Tab 6: Contact -->
       <a href="/contact-us" id="tab-btn-contact" class="bottom-tab-btn px-2 sm:px-2.5 py-1.5 rounded-lg text-xs font-bold flex items-center gap-1 shrink-0">
         <span>Contact</span>
       </a>

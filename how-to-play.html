@@ -33,7 +33,7 @@
   <meta property="og:site_name" content="2048 Online" />
   <meta property="og:title" content="How to Play 2048 — Ultimate Strategy Guide, Rules &amp; Pro Tips" />
   <meta property="og:description" content="Master the Corner Anchor technique, monotonicity, probability calculations, and frequently asked questions for 2048." />
-  <meta property="og:url" content="https://play2048online.site/how-to-play.html" />
+  <meta property="og:url" content="https://play2048online.site/how-to-play" />
   <meta property="og:image" content="https://play2048online.site/og-image-2048.png" />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
@@ -45,122 +45,156 @@
   <meta name="twitter:description" content="The proven corner anchor method to reach the 2048 tile every single match." />
   <meta name="twitter:image" content="https://play2048online.site/og-image-2048.png" />
 
-  <!-- BreadcrumbList Schema -->
+  <!-- Schema.org JSON-LD Structured Data Graph -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@type": "BreadcrumbList",
-    "itemListElement": [
+    "@graph": [
       {
-        "@type": "ListItem",
-        "position": 1,
-        "name": "Home",
-        "item": "https://play2048online.site/"
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://play2048online.site/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "How to Play & Strategy Guide",
+            "item": "https://play2048online.site/how-to-play"
+          }
+        ]
       },
       {
-        "@type": "ListItem",
-        "position": 2,
-        "name": "How to Play & Strategy Guide",
-        "item": "https://play2048online.site/how-to-play"
+        "@type": "HowTo",
+        "name": "How to Play and Win the 2048 Puzzle Game",
+        "description": "Step-by-step masterclass on applying the Corner Anchor Strategy to consistently reach the 2048 tile and beyond.",
+        "image": "https://play2048online.site/og-image-2048.png",
+        "totalTime": "PT15M",
+        "step": [
+          {
+            "@type": "HowToStep",
+            "name": "Understand Board Mechanics",
+            "text": "The game takes place on a 4x4 grid. Swipe in four directions (Up, Down, Left, Right). Identical tiles merge into doubled values when they collide."
+          },
+          {
+            "@type": "HowToStep",
+            "name": "Designate a Permanent Anchor Corner",
+            "text": "Select one corner of the board (e.g. bottom-right) as the permanent home for your highest-value tile. Never swipe in the opposite direction."
+          },
+          {
+            "@type": "HowToStep",
+            "name": "Maintain Strict Monotonicity",
+            "text": "Arrange tiles along the anchor row in strictly decreasing numerical order (e.g., 1024, 512, 256, 128) to enable smooth cascading merges."
+          },
+          {
+            "@type": "HowToStep",
+            "name": "Trigger Cascading Merges",
+            "text": "Build identical numbers directly adjacent to their partners and collapse columns downward to trigger chain reactions that free up empty board space."
+          },
+          {
+            "@type": "HowToStep",
+            "name": "Avoid Orphaned Low Tiles",
+            "text": "Never swipe Up if your anchor is in the bottom row. Keep high-value tiles anchored along the perimeter to prevent 2s and 4s from getting trapped underneath."
+          }
+        ]
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "How do you play 2048?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "<p>Slide numbered tiles in four directions (Up, Down, Left, or Right) using arrow keys, WASD, or mobile touch swipes. When two tiles with identical values collide, they combine into one doubled tile. Combine tiles strategically until you create the 2048 tile.</p>"
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What is the best strategy to win 2048?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "<p>The Corner Anchor Strategy is universally proven as the highest win-rate method: anchor your maximum tile into one corner (e.g. bottom-right) and build descending monotonic sequences across that row. Never swipe opposite your anchor wall.</p>"
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What is the highest possible score in 2048?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "<p>The theoretical maximum score on a standard 4x4 board is 3,932,156 points, achievable by creating a 131,072 tile. Reaching the initial 2048 tile generally yields between 20,000 and 28,000 points.</p>"
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Is 2048 a game of skill or luck?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "<p>While tile spawns carry randomized values (90% chance of a 2, 10% chance of a 4), structured positioning and disciplined board management dictate over 95% of results. Skilled players reach 2048 almost every game.</p>"
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Can you continue after creating the 2048 tile?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "<p>Yes! Creating the 2048 tile unlocks an achievement badge and offers a 'Keep Going' option to push onward toward 4096, 8192, and beyond until the board fills.</p>"
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Are your leaderboard scores genuine?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "<p>Yes. Every score listed on our platform is recorded directly from verified game runs with accurate move timestamps and achieved tile markers—no fake bot records.</p>"
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Who created the original 2048 game?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "<p>Gabriele Cirulli developed 2048 in March 2014 as an open-source project under the MIT license, inspired by the mobile puzzle games 1024 and Threes.</p>"
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How does the Undo feature operate?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "<p>Each round grants up to 3 Undo moves. If you make an erroneous swipe that threatens your corner anchor, tapping Undo instantly reverts the board and score to the previous state.</p>"
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Can I play offline without internet access?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "<p>Yes. The application executes completely client-side in your web browser. All scores, career statistics, and settings persist safely in your browser's local storage.</p>"
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How is this version optimized for mobile devices?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "<p>Features include dynamic viewport height (100dvh) to avoid browser bar resizing, zero scroll jitter, touch event protection, synthesized Web Audio, and an optional on-screen D-Pad.</p>"
+            }
+          }
+        ]
       }
     ]
   }
   </script>
 
-  <!-- HowTo Schema -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "HowTo",
-    "name": "How to Play and Win the 2048 Puzzle Game",
-    "description": "Step-by-step masterclass on applying the Corner Anchor Strategy to consistently reach the 2048 tile and beyond.",
-    "image": "https://play2048online.site/og-image-2048.png",
-    "totalTime": "PT15M",
-    "step": [
-      {
-        "@type": "HowToStep",
-        "name": "Understand Board Mechanics",
-        "text": "The game takes place on a 4x4 grid. Swipe in four directions (Up, Down, Left, Right). Identical tiles merge into doubled values when they collide."
-      },
-      {
-        "@type": "HowToStep",
-        "name": "Designate a Permanent Anchor Corner",
-        "text": "Select one corner of the board (e.g. bottom-right) as the permanent home for your highest-value tile. Never swipe in the opposite direction."
-      },
-      {
-        "@type": "HowToStep",
-        "name": "Maintain Strict Monotonicity",
-        "text": "Arrange tiles along the anchor row in strictly decreasing numerical order (e.g., 1024, 512, 256, 128) to enable smooth cascading merges."
-      },
-      {
-        "@type": "HowToStep",
-        "name": "Trigger Cascading Merges",
-        "text": "Build identical numbers directly adjacent to their partners and collapse columns downward to trigger chain reactions that free up empty board space."
-      },
-      {
-        "@type": "HowToStep",
-        "name": "Avoid Orphaned Low Tiles",
-        "text": "Never swipe Up if your anchor is in the bottom row. Keep high-value tiles anchored along the perimeter to prevent 2s and 4s from getting trapped underneath."
-      }
-    ]
-  }
-  </script>
-
-  <!-- FAQPage Schema -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    "mainEntity": [
-      {
-        "@type": "Question",
-        "name": "How do you play 2048?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "<p>Slide numbered tiles in four directions (Up, Down, Left, or Right) using arrow keys, WASD, mobile touch swipes, or the on-screen D-Pad. When two tiles with identical values collide, they combine into one doubled tile. Combine tiles strategically until you create the 2048 tile.</p>"
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "What is the best strategy to win 2048?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "<p>The Corner Anchor Strategy is universally proven as the highest win-rate method: anchor your maximum tile into one corner (e.g. bottom-right) and build descending monotonic sequences across that row. Never swipe opposite your anchor wall.</p>"
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "What is the highest possible score in 2048?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "<p>The theoretical maximum score on a standard 4x4 board is 3,932,156 points, achievable by creating a 131,072 tile. Reaching the initial 2048 tile generally yields between 20,000 and 28,000 points.</p>"
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "Is 2048 a game of skill or luck?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "<p>While tile spawns carry randomized values (90% chance of a 2, 10% chance of a 4), structured positioning and disciplined board management dictate over 95% of results. Skilled players reach 2048 almost every game.</p>"
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "Can you continue after creating the 2048 tile?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "<p>Yes! Creating the 2048 tile unlocks an achievement badge and offers a 'Keep Going' option to push onward toward 4096, 8192, and beyond until the board fills.</p>"
-        }
-      }
-    ]
-  }
-  </script>
-
-  <!-- Fonts & Tailwind -->
+  <!-- Fonts & Stylesheet -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
-  <script src="https://cdn.tailwindcss.com/3.4.17"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/styles.css" />
   <style>
     * {
       box-sizing: border-box;
@@ -336,7 +370,7 @@
               <span class="text-[#edc22e] group-open:rotate-180 transition-transform">▼</span>
             </summary>
             <p class="mt-2 text-[#cdc1b4] leading-relaxed">
-              Slide numbered tiles across the 4x4 grid in four directions using keyboard arrow keys, WASD, mobile touch swipes, or the on-screen D-Pad. When two tiles with identical values collide, they merge into one tile of doubled value. The goal is to strategically combine tiles until reaching the 2048 tile.
+              Slide numbered tiles across the 4x4 grid in four directions using keyboard arrow keys, WASD, or mobile touch swipes. When two tiles with identical values collide, they merge into one tile of doubled value. The goal is to strategically combine tiles until reaching the 2048 tile.
             </p>
           </details>
 
@@ -426,7 +460,7 @@
               <span class="text-[#edc22e] group-open:rotate-180 transition-transform">▼</span>
             </summary>
             <p class="mt-2 text-[#cdc1b4] leading-relaxed">
-              Features include dynamic viewport height (100dvh) to avoid browser bar resizing, zero scroll jitter, touch event protection, synthesized Web Audio, and an optional on-screen D-Pad.
+              Features include dynamic viewport height (100dvh) to avoid browser bar resizing, zero scroll jitter, touch event protection, and synthesized Web Audio.
             </p>
           </details>
         </div>
@@ -492,7 +526,12 @@
         <span>How to Play</span>
       </a>
 
-      <!-- Tab 5: Contact -->
+      <!-- Tab 5: Unblocked -->
+      <a href="/2048-unblocked" id="tab-btn-unblocked" class="bottom-tab-btn px-2 sm:px-2.5 py-1.5 rounded-lg text-xs font-bold flex items-center gap-1 shrink-0">
+        <span>Unblocked</span>
+      </a>
+
+      <!-- Tab 6: Contact -->
       <a href="/contact-us" id="tab-btn-contact" class="bottom-tab-btn px-2 sm:px-2.5 py-1.5 rounded-lg text-xs font-bold flex items-center gap-1 shrink-0">
         <span>Contact</span>
       </a>

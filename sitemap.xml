@@ -69,4 +69,17 @@
     <priority>0.5</priority>
   </url>
 
+  <!-- 2048 Unblocked — Play at School, Work & Anywhere -->
+  <url>
+    <loc>https://play2048online.site/2048-unblocked</loc>
+    <lastmod>2026-10-30T12:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.95</priority>
+    <image:image>
+      <image:loc>https://play2048online.site/og-image-2048.png</image:loc>
+      <image:title>2048 Unblocked — Play Free at School and Work</image:title>
+      <image:caption>Play the classic 2048 number puzzle unblocked on any network — school Chromebooks, office PCs, and mobile devices.</image:caption>
+    </image:image>
+  </url>
+
 </urlset>

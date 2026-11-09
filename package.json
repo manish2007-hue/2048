@@ -3,7 +3,8 @@
   "version": "1.0.0",
   "description": "Play 2048 Online Free with real leaderboard, player stats dashboard, responsive mobile controls, and complete SEO strategy guide.",
   "scripts": {
-    "deploy": "npx wrangler pages deploy . --project-name=play-2048-online --branch=main",
+    "build:css": "tailwindcss -i ./src/input.css -o ./styles.css --minify",
+    "deploy": "npm run build:css && npx wrangler pages deploy . --project-name=play-2048-online --branch=main",
     "preview": "npx wrangler pages dev ."
   },
   "keywords": [
@@ -16,6 +17,7 @@
   "author": "manish2007-hue",
   "license": "MIT",
   "devDependencies": {
+    "tailwindcss": "^3.4.17",
     "wrangler": "^4.152.0"
   }
 }

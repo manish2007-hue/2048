@@ -19,7 +19,7 @@ A modern, fast, and authentic web edition of the classic **2048** sliding puzzle
   - Dynamic Viewport Sizing (`100dvh`) prevents browser address bar clipping.
   - Safe-area insets (`env(safe-area-inset-bottom)`) for iPhones and edge-to-edge Android devices.
   - Zero-jitter touch events with `preventDefault()` on `touchmove` to eliminate screen bounce and pull-to-refresh.
-  - Optional toggleable on-screen **🎮 D-Pad** for comfortable one-handed thumb navigation.
+  - Responsive keyboard arrow keys, WASD, and touch swipe gestures supported out-of-the-box.
   - Subtle tactile **haptic vibration feedback** via `navigator.vibrate`.
 - **🔊 Synthesized Web Audio API:** Crisp slide, merge, and victory sounds synthesized directly in the browser with zero external audio assets.
 - **↶ Tactical Undos:** Up to 3 undos per match to recover from accidental slips.
