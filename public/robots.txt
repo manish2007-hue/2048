@@ -12,14 +12,12 @@ Disallow: /api/
 Disallow: /404.html
 Disallow: /500.html
 
-# Googlebot specific rules
 User-agent: Googlebot
 Allow: /
 Disallow: /api/
 Disallow: /404.html
 Disallow: /500.html
 
-# Googlebot Image Crawler
 User-agent: Googlebot-Image
 Allow: /
 Allow: /favicon.svg
@@ -28,36 +26,11 @@ Allow: /apple-touch-icon.png
 Allow: /og-image-2048.png
 Allow: /icon-*.png
 
-# Bingbot
 User-agent: Bingbot
 Allow: /
 Disallow: /api/
 Disallow: /404.html
 Disallow: /500.html
 
-# Other search crawlers
-User-agent: Slurp
-Allow: /
-Disallow: /api/
-
-User-agent: DuckDuckBot
-Allow: /
-Disallow: /api/
-
-User-agent: Baiduspider
-Allow: /
-Disallow: /api/
-
-User-agent: YandexBot
-Allow: /
-Disallow: /api/
-
-User-agent: Applebot
-Allow: /
-Disallow: /api/
-
-# Host directive
 Host: play2048online.site
-
-# Sitemap location
 Sitemap: https://play2048online.site/sitemap.xml

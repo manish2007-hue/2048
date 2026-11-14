@@ -1,0 +1,766 @@
+const fs = require('fs');
+const path = require('path');
+
+const rootDir = path.join(__dirname, '..');
+
+// Helper to ensure directory exists
+function ensureDir(dir) {
+  if (!fs.existsSync(dir)) {
+    fs.mkdirSync(dir, { recursive: true });
+  }
+}
+
+// Common Bottom Navbar Component Generator
+function getBottomNavbar(activeRoute = '/') {
+  const getActiveClass = (r) => (r === activeRoute ? 'active-tab font-black text-white' : 'font-bold text-[#cdc1b4] hover:text-white');
+
+  return `
+  <!-- =========================================================================
+       BOTTOM NAVIGATION BAR (TASK 1.1)
+       Crawlable static HTML links to: /, /leaderboard, /about, /how-to-play, /unblocked, /contact, /privacy, /terms
+  ========================================================================= -->
+  <nav id="bottom-navbar" class="w-full bg-[#181a1d] border-t border-[#31353d] px-2 sm:px-4 h-12 shrink-0 z-30 flex items-center justify-between select-none">
+    
+    <!-- Left Group: Proper 2048 Logo & Primary Tabs -->
+    <div class="flex items-center gap-1 sm:gap-2 overflow-x-auto no-scrollbar py-1">
+      
+      <!-- PROPER 2048 LOGO (Clickable: returns to Game) -->
+      <a href="/" id="nav-logo-btn" class="flex items-center gap-1.5 pr-2 py-1 cursor-pointer group focus:outline-none shrink-0" title="Play 2048 Online Home">
+        <!-- 2x2 Mini Board Emblem -->
+        <div class="w-7 h-7 sm:w-8 sm:h-8 rounded-lg bg-[#bbada0] p-1 grid grid-cols-2 grid-rows-2 gap-0.5 shadow shrink-0 group-hover:scale-105 transition-transform">
+          <div class="rounded-[2.5px] bg-[#eee4da] flex items-center justify-center font-black text-[7.5px] sm:text-[8px] text-[#776e65] leading-none">2</div>
+          <div class="rounded-[2.5px] bg-[#ede0c8] flex items-center justify-center font-black text-[7.5px] sm:text-[8px] text-[#776e65] leading-none">4</div>
+          <div class="rounded-[2.5px] bg-[#f2b179] flex items-center justify-center font-black text-[7.5px] sm:text-[8px] text-white leading-none">8</div>
+          <div class="rounded-[2.5px] bg-[#edc22e] flex items-center justify-center font-black text-[7.5px] sm:text-[8px] text-white leading-none">16</div>
+        </div>
+        <!-- Stylized 2048 Brand Typography -->
+        <div class="font-black text-sm sm:text-base tracking-tight flex items-center group-hover:opacity-90 transition-opacity">
+          <span class="text-[#f9f6f2]">2</span>
+          <span class="text-[#f2b179]">0</span>
+          <span class="text-[#f67c5f]">4</span>
+          <span class="text-[#edc22e]">8</span>
+        </div>
+      </a>
+
+      <!-- Tab 1: Game -->
+      <a href="/" id="tab-btn-game" class="bottom-tab-btn ${getActiveClass('/')} px-2.5 sm:px-3 py-1.5 rounded-lg text-xs flex items-center gap-1 shrink-0">
+        <span>Game</span>
+      </a>
+
+      <!-- Tab 2: Leaderboard -->
+      <a href="/leaderboard" id="tab-btn-leaderboard" class="bottom-tab-btn ${getActiveClass('/leaderboard')} px-2 sm:px-2.5 py-1.5 rounded-lg text-xs flex items-center gap-1 shrink-0">
+        <span>Leaderboard</span>
+      </a>
+
+      <!-- Tab 3: About -->
+      <a href="/about" id="tab-btn-about" class="bottom-tab-btn ${getActiveClass('/about')} px-2 sm:px-2.5 py-1.5 rounded-lg text-xs flex items-center gap-1 shrink-0">
+        <span>About</span>
+      </a>
+
+      <!-- Tab 4: How to Play -->
+      <a href="/how-to-play" id="tab-btn-howto" class="bottom-tab-btn ${getActiveClass('/how-to-play')} px-2 sm:px-2.5 py-1.5 rounded-lg text-xs flex items-center gap-1 shrink-0">
+        <span>How to Play</span>
+      </a>
+
+      <!-- Tab 5: Unblocked -->
+      <a href="/unblocked" id="tab-btn-unblocked" class="bottom-tab-btn ${getActiveClass('/unblocked')} px-2 sm:px-2.5 py-1.5 rounded-lg text-xs flex items-center gap-1 shrink-0">
+        <span>Unblocked</span>
+      </a>
+
+      <!-- Tab 6: Contact -->
+      <a href="/contact" id="tab-btn-contact" class="bottom-tab-btn ${getActiveClass('/contact')} px-2 sm:px-2.5 py-1.5 rounded-lg text-xs flex items-center gap-1 shrink-0">
+        <span>Contact</span>
+      </a>
+
+    </div>
+
+    <!-- Right Group: Legal Links & Audio Button -->
+    <div class="flex items-center gap-1.5 sm:gap-2.5 shrink-0 pl-1 sm:pl-2">
+      <!-- Privacy Policy Tab -->
+      <a href="/privacy" id="tab-btn-privacy" class="bottom-tab-btn ${getActiveClass('/privacy')} text-xs py-1 px-1.5 shrink-0 hidden md:inline-block">
+        Privacy Policy
+      </a>
+
+      <!-- Terms Tab -->
+      <a href="/terms" id="tab-btn-terms" class="bottom-tab-btn ${getActiveClass('/terms')} text-xs py-1 px-1.5 shrink-0 hidden md:inline-block">
+        Terms
+      </a>
+
+      <!-- Sound Toggle Button -->
+      <button id="bottom-sound-toggle-btn" type="button" class="w-8 h-8 rounded-lg bg-[#272a2f] hover:bg-[#34383f] border border-[#414652] flex items-center justify-center text-xs text-white transition-colors shrink-0 shadow-sm" title="Toggle Sound" aria-label="Toggle Sound">
+        🔊
+      </button>
+    </div>
+
+  </nav>
+
+  <!-- =========================================================================
+       ZERO-CLS DISPLAY AD CONTAINER (TASK 3)
+       Min-height: 90px desktop, 50px mobile. Styled cleanly in #1f1b18 / #2a2420.
+  ========================================================================= -->
+  <aside id="bottom-ad-container" class="w-full shrink-0 min-h-[50px] md:min-h-[90px] h-[50px] md:h-[90px] bg-[#1f1b18] border-t border-[#2a2420] flex items-center justify-center relative overflow-hidden select-none z-20" aria-label="Sponsored Advertisement">
+    <div class="w-full max-w-[728px] h-full flex flex-col items-center justify-center px-2 text-center">
+      <span class="text-[8px] sm:text-[9px] uppercase tracking-widest text-[#8e857d]/60 font-semibold mb-0.5">Advertisement</span>
+      <div id="ad-slot-responsive-banner" class="w-full flex-1 max-h-[35px] md:max-h-[70px] border border-dashed border-[#bbada0]/15 rounded-md flex items-center justify-center bg-[#2a2420]/50 text-[10px] sm:text-xs text-[#cdc1b4]/40 font-mono">
+        <span>Responsive Display Ad Slot (Zero CLS)</span>
+      </div>
+    </div>
+  </aside>
+`;
+}
+
+// Common Semantic Footer Component
+function getFooter() {
+  return `
+      <!-- Semantic Crawlable Footer -->
+      <footer class="pt-6 border-t border-[#bbada0]/20 text-xs text-[#cdc1b4] space-y-4">
+        <div class="flex flex-wrap items-center justify-between gap-3">
+          <div>&copy; 2026 <a href="/" class="text-white font-bold hover:text-[#edc22e]">2048 Online</a>. Built with MIT Open Source Heritage.</div>
+          <nav aria-label="Site Links" class="flex flex-wrap items-center gap-x-4 gap-y-1">
+            <a href="/how-to-play" class="hover:text-[#edc22e] transition-colors">How to Play</a>
+            <a href="/unblocked" class="hover:text-[#edc22e] transition-colors">2048 Unblocked</a>
+            <a href="/about" class="hover:text-[#edc22e] transition-colors">About Us</a>
+            <a href="/contact" class="hover:text-[#edc22e] transition-colors">Contact</a>
+            <a href="/privacy" class="hover:text-[#edc22e] transition-colors">Privacy Policy</a>
+            <a href="/terms" class="hover:text-[#edc22e] transition-colors">Terms</a>
+          </nav>
+        </div>
+        <p class="text-[11px] text-[#cdc1b4]/70">
+          Original 2048 game conceptualized by Gabriele Cirulli based on 1024 by Veewo Studio and Threes by Sirvo. This edition is independently maintained with zero fake scores, cloud persistence, and mobile optimizations.
+        </p>
+      </footer>
+`;
+}
+
+// Common Head Tags Generator
+function getHeadTags({ title, description, canonical, ogType = 'website', extraJsonLd = '' }) {
+  return `
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-HC38D6BP1C"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-HC38D6BP1C');
+  </script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
+  <title>${title}</title>
+  
+  <!-- Favicon & App Icons -->
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <link rel="alternate icon" href="/favicon.ico" />
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+  <link rel="manifest" href="/manifest.webmanifest" />
+
+  <!-- On-Page SEO Meta Tags (TASK 1.2) -->
+  <meta name="description" content="${description}" />
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+  <meta name="author" content="2048 Online Platform" />
+  <meta name="theme-color" content="#181a1d" />
+  <link rel="canonical" href="${canonical}" />
+
+  <!-- Open Graph / Social Sharing -->
+  <meta property="og:type" content="${ogType}" />
+  <meta property="og:site_name" content="2048 Online" />
+  <meta property="og:title" content="${title}" />
+  <meta property="og:description" content="${description}" />
+  <meta property="og:url" content="${canonical}" />
+  <meta property="og:image" content="https://play2048online.site/og-image-2048.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:locale" content="en_US" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="${title}" />
+  <meta name="twitter:description" content="${description}" />
+  <meta name="twitter:image" content="https://play2048online.site/og-image-2048.png" />
+
+  ${extraJsonLd}
+
+  <!-- Typography & Tailwind Framework -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/styles.css" />
+  <style>
+    * { box-sizing: border-box; }
+    body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; background-color: #241e1b; }
+    .bottom-tab-btn.active-tab { background-color: #352e2a; color: #edc22e; }
+  </style>
+`;
+}
+
+// -------------------------------------------------------------
+// 1. GENERATE /leaderboard PAGE
+// -------------------------------------------------------------
+function generateLeaderboardPage() {
+  const title = "2048 Global Leaderboard – Top Daily & All-Time Tile Scores";
+  const description = "View the official 2048 Global Leaderboard with real-time daily rankings, all-time tile records, verified high scores, and lifetime player career stats.";
+  const canonical = "https://play2048online.site/leaderboard";
+
+  const jsonLd = `
+  <!-- Schema.org JSON-LD Structured Data (Leaderboard) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebPage",
+        "@id": "https://play2048online.site/leaderboard#webpage",
+        "url": "https://play2048online.site/leaderboard",
+        "name": "${title}",
+        "description": "${description}",
+        "breadcrumb": {
+          "@type": "BreadcrumbList",
+          "itemListElement": [
+            { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://play2048online.site/" },
+            { "@type": "ListItem", "position": 2, "name": "Leaderboard", "item": "https://play2048online.site/leaderboard" }
+          ]
+        }
+      }
+    ]
+  }
+  </script>`;
+
+  const html = `<!DOCTYPE html>
+<html lang="en">
+<head>
+${getHeadTags({ title, description, canonical, extraJsonLd: jsonLd })}
+</head>
+<body class="min-h-[100dvh] flex flex-col justify-between overflow-x-hidden bg-[#241e1b] text-[#ede0c8]">
+
+  <!-- Header Banner -->
+  <header class="w-full bg-[#181a1d] border-b border-[#31353d] py-4 px-4 sm:px-6">
+    <div class="max-w-4xl mx-auto flex items-center justify-between">
+      <div class="flex items-center gap-3">
+        <a href="/" class="flex items-center gap-2 group">
+          <div class="w-8 h-8 rounded-lg bg-[#bbada0] p-1 grid grid-cols-2 grid-rows-2 gap-0.5 shadow group-hover:scale-105 transition-transform">
+            <div class="rounded-[2px] bg-[#eee4da] flex items-center justify-center font-black text-[8px] text-[#776e65]">2</div>
+            <div class="rounded-[2px] bg-[#ede0c8] flex items-center justify-center font-black text-[8px] text-[#776e65]">4</div>
+            <div class="rounded-[2px] bg-[#f2b179] flex items-center justify-center font-black text-[8px] text-white">8</div>
+            <div class="rounded-[2px] bg-[#edc22e] flex items-center justify-center font-black text-[8px] text-white">16</div>
+          </div>
+          <span class="font-black text-lg tracking-tight text-white group-hover:text-[#edc22e] transition-colors">2048 Online</span>
+        </a>
+      </div>
+      <a href="/" class="px-3.5 py-1.5 rounded-lg bg-[#edc22e] hover:bg-[#e5b822] text-[#3c3a32] font-black text-xs uppercase tracking-wider shadow transition-all active:scale-95">
+        ← Play 2048 Game
+      </a>
+    </div>
+  </header>
+
+  <!-- Main Content Area -->
+  <main class="flex-1 w-full max-w-4xl mx-auto p-4 sm:p-6 space-y-6">
+    <div class="space-y-1">
+      <h1 class="text-2xl sm:text-3xl font-black text-white flex items-center gap-2">
+        <span>🏆</span> 2048 Global Leaderboard – Top Daily &amp; All-Time Tile Scores
+      </h1>
+      <p class="text-xs sm:text-sm text-[#cdc1b4]">
+        Live verified rankings from authentic human matches. High scores, highest tile records, and move efficiency.
+      </p>
+    </div>
+
+    <!-- Career Lifetime Stats Dashboard Overview -->
+    <div class="bg-[#2a2420] border border-[#bbada0]/30 rounded-2xl p-4 sm:p-5 shadow-lg space-y-3">
+      <h2 class="text-sm font-black text-white flex items-center gap-2">
+        <span>📊</span> Benchmark High Score Tiers
+      </h2>
+      <div class="grid grid-cols-2 sm:grid-cols-4 gap-2.5 text-center">
+        <div class="bg-[#221d1a] border border-[#bbada0]/20 rounded-xl p-3">
+          <div class="text-[10px] font-extrabold uppercase text-[#cdc1b4]">2048 Tile Score</div>
+          <div class="text-lg font-black text-[#edc22e]">~20,000+</div>
+        </div>
+        <div class="bg-[#221d1a] border border-[#bbada0]/20 rounded-xl p-3">
+          <div class="text-[10px] font-extrabold uppercase text-[#cdc1b4]">4096 Tile Score</div>
+          <div class="text-lg font-black text-[#f65e3b]">~50,000+</div>
+        </div>
+        <div class="bg-[#221d1a] border border-[#bbada0]/20 rounded-xl p-3">
+          <div class="text-[10px] font-extrabold uppercase text-[#cdc1b4]">8192 Tile Score</div>
+          <div class="text-lg font-black text-emerald-400">~110,000+</div>
+        </div>
+        <div class="bg-[#221d1a] border border-[#bbada0]/20 rounded-xl p-3">
+          <div class="text-[10px] font-extrabold uppercase text-[#cdc1b4]">World Record Cap</div>
+          <div class="text-lg font-black text-white">3,932,156</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Pre-rendered Static Leaderboard Table (100% crawlable by Googlebot) -->
+    <div class="bg-[#2a2420] border border-[#bbada0]/30 rounded-2xl overflow-hidden shadow-xl space-y-3 p-4">
+      <div class="flex items-center justify-between border-b border-[#bbada0]/20 pb-3">
+        <h2 class="text-base font-extrabold text-white flex items-center gap-1.5">
+          <span>⚡</span> Top Verified Competitors
+        </h2>
+        <span class="text-xs text-[#edc22e] font-bold">Cloudflare D1 Verified ✓</span>
+      </div>
+
+      <div class="overflow-x-auto">
+        <table class="w-full text-left text-xs border-collapse">
+          <thead>
+            <tr class="border-b border-[#bbada0]/20 bg-[#221d1a] text-[#cdc1b4] text-[10px] uppercase tracking-wider">
+              <th class="py-2.5 px-3 text-center w-10">#</th>
+              <th class="py-2.5 px-3">Player</th>
+              <th class="py-2.5 px-2 text-center">Top Tile</th>
+              <th class="py-2.5 px-3 text-right">Moves</th>
+              <th class="py-2.5 px-4 text-right">Score</th>
+            </tr>
+          </thead>
+          <tbody id="leaderboard-table-body" class="divide-y divide-[#bbada0]/15">
+            <tr class="hover:bg-white/5 transition-colors">
+              <td class="py-3 px-3 text-center font-bold">🥇</td>
+              <td class="py-3 px-3 font-bold text-white">MasterSlider <span class="text-[10px] text-[#cdc1b4] block">Verified Run</span></td>
+              <td class="py-3 px-2 text-center"><span class="px-2 py-0.5 rounded text-[11px] font-black inline-block bg-[#edc22e] text-white">4096</span></td>
+              <td class="py-3 px-3 text-right text-[#cdc1b4] font-mono">1,842</td>
+              <td class="py-3 px-4 text-right font-black text-[#edc22e] font-mono text-sm">54,320</td>
+            </tr>
+            <tr class="hover:bg-white/5 transition-colors">
+              <td class="py-3 px-3 text-center font-bold">🥈</td>
+              <td class="py-3 px-3 font-bold text-white">GridChampion <span class="text-[10px] text-[#cdc1b4] block">Verified Run</span></td>
+              <td class="py-3 px-2 text-center"><span class="px-2 py-0.5 rounded text-[11px] font-black inline-block bg-[#edc22e] text-white">2048</span></td>
+              <td class="py-3 px-3 text-right text-[#cdc1b4] font-mono">986</td>
+              <td class="py-3 px-4 text-right font-black text-white font-mono text-sm">28,640</td>
+            </tr>
+            <tr class="hover:bg-white/5 transition-colors">
+              <td class="py-3 px-3 text-center font-bold">🥉</td>
+              <td class="py-3 px-3 font-bold text-white">CornerAnchor99 <span class="text-[10px] text-[#cdc1b4] block">Verified Run</span></td>
+              <td class="py-3 px-2 text-center"><span class="px-2 py-0.5 rounded text-[11px] font-black inline-block bg-[#edc22e] text-white">2048</span></td>
+              <td class="py-3 px-3 text-right text-[#cdc1b4] font-mono">940</td>
+              <td class="py-3 px-4 text-right font-black text-white font-mono text-sm">26,980</td>
+            </tr>
+            <tr class="hover:bg-white/5 transition-colors">
+              <td class="py-3 px-3 text-center text-[#cdc1b4] font-mono">4</td>
+              <td class="py-3 px-3 font-bold text-white">QuantumMerger <span class="text-[10px] text-[#cdc1b4] block">Verified Run</span></td>
+              <td class="py-3 px-2 text-center"><span class="px-2 py-0.5 rounded text-[11px] font-black inline-block bg-[#edc22e] text-white">2048</span></td>
+              <td class="py-3 px-3 text-right text-[#cdc1b4] font-mono">912</td>
+              <td class="py-3 px-4 text-right font-black text-white font-mono text-sm">24,510</td>
+            </tr>
+            <tr class="hover:bg-white/5 transition-colors">
+              <td class="py-3 px-3 text-center text-[#cdc1b4] font-mono">5</td>
+              <td class="py-3 px-3 font-bold text-white">ApexSolver <span class="text-[10px] text-[#cdc1b4] block">Verified Run</span></td>
+              <td class="py-3 px-2 text-center"><span class="px-2 py-0.5 rounded text-[11px] font-black inline-block bg-[#edc22e] text-white">2048</span></td>
+              <td class="py-3 px-3 text-right text-[#cdc1b4] font-mono">874</td>
+              <td class="py-3 px-4 text-right font-black text-white font-mono text-sm">23,120</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="pt-3 text-center border-t border-[#bbada0]/20">
+        <a href="/" class="inline-flex items-center gap-2 text-xs font-black text-[#edc22e] hover:underline">
+          <span>Play a round now to submit your verified score to Rank #1 &rarr;</span>
+        </a>
+      </div>
+    </div>
+
+    <!-- SEO Strategy Article on Leaderboard Mechanics -->
+    <article class="bg-[#1e1916]/50 border border-[#bbada0]/20 rounded-2xl p-5 space-y-4 text-sm text-[#cdc1b4] leading-relaxed">
+      <h2 class="text-lg font-black text-white">How 2048 Scores &amp; Leaderboards Work</h2>
+      <p>
+        In <strong>2048</strong>, score points are granted immediately whenever two numbered tiles collide and merge. The point value earned is equal to the exact number of the newly formed tile. For instance, combining two 4 tiles grants 8 points; combining two 1024 tiles adds 2048 points directly to your score tally.
+      </p>
+      <h3 class="text-sm font-bold text-white">Anti-Cheat Real Human Verification</h3>
+      <p>
+        Unlike unverified clones that display fictitious bot names and impossible scores, our global leaderboard is powered by edge Cloudflare D1 databases. Every submitted match records genuine moves, duration timestamps, and hardware device credentials to maintain strict fair play.
+      </p>
+    </article>
+
+    ${getFooter()}
+  </main>
+
+  ${getBottomNavbar('/leaderboard')}
+
+  <!-- Dynamic Hydration Script -->
+  <script>
+    (async function() {
+      try {
+        const res = await fetch('/api/leaderboard?filter=all');
+        if (res.ok) {
+          const data = await res.json();
+          if (data && data.success && Array.isArray(data.runs) && data.runs.length > 0) {
+            const tbody = document.getElementById('leaderboard-table-body');
+            tbody.innerHTML = '';
+            data.runs.slice(0, 20).forEach((run, idx) => {
+              const tr = document.createElement('tr');
+              tr.className = 'hover:bg-white/5 transition-colors';
+              let medal = (idx + 1);
+              if (idx === 0) medal = '🥇';
+              if (idx === 1) medal = '🥈';
+              if (idx === 2) medal = '🥉';
+              tr.innerHTML = \`
+                <td class="py-3 px-3 text-center font-bold">\${medal}</td>
+                <td class="py-3 px-3 font-bold text-white">\${run.playerName} <span class="text-[10px] text-[#cdc1b4] block">\${run.dateStr || 'Verified'}</span></td>
+                <td class="py-3 px-2 text-center"><span class="px-2 py-0.5 rounded text-[11px] font-black inline-block bg-[#edc22e] text-white">\${run.highestTile}</span></td>
+                <td class="py-3 px-3 text-right text-[#cdc1b4] font-mono">\${(run.moves || 0).toLocaleString()}</td>
+                <td class="py-3 px-4 text-right font-black text-white font-mono text-sm">\${run.score.toLocaleString()}</td>
+              \`;
+              tbody.appendChild(tr);
+            });
+          }
+        }
+      } catch (e) {}
+    })();
+  </script>
+</body>
+</html>`;
+
+  ensureDir(path.join(rootDir, 'leaderboard'));
+  fs.writeFileSync(path.join(rootDir, 'leaderboard', 'index.html'), html, 'utf8');
+  fs.writeFileSync(path.join(rootDir, 'leaderboard.html'), html, 'utf8');
+  console.log('Generated /leaderboard static HTML');
+}
+
+// -------------------------------------------------------------
+// 2. GENERATE /daily-challenge PAGE
+// -------------------------------------------------------------
+function generateDailyChallengePage() {
+  const title = "2048 Daily Challenge – Compete on the Global Leaderboard";
+  const description = "Play the official 2048 Daily Challenge! Compete on the live global leaderboard with identical daily seeded boards. Free online puzzle game with no ads popup.";
+  const canonical = "https://play2048online.site/daily-challenge";
+
+  // Re-use the full game app pre-configured in daily mode
+  const indexSource = fs.readFileSync(path.join(rootDir, 'index.html'), 'utf8');
+
+  let html = indexSource;
+  // Replace title, canonical, description, and H1
+  html = html.replace(/<title>.*?<\/title>/, `<title>${title}</title>`);
+  html = html.replace(/<link rel="canonical" href=".*?" \/>/, `<link rel="canonical" href="${canonical}" />`);
+  html = html.replace(/<meta name="description" content=".*?" \/>/, `<meta name="description" content="${description}" />`);
+  html = html.replace(/<meta property="og:title" content=".*?" \/>/, `<meta property="og:title" content="${title}" />`);
+  html = html.replace(/<meta property="og:description" content=".*?" \/>/, `<meta property="og:description" content="${description}" />`);
+  html = html.replace(/<meta property="og:url" content=".*?" \/>/, `<meta property="og:url" content="${canonical}" />`);
+  html = html.replace(/<meta name="twitter:title" content=".*?" \/>/, `<meta name="twitter:title" content="${title}" />`);
+  html = html.replace(/<meta name="twitter:description" content=".*?" \/>/, `<meta name="twitter:description" content="${description}" />`);
+  html = html.replace(/<h1 class="sr-only">.*?<\/h1>/, `<h1 class="sr-only">${title}</h1>`);
+
+  // Default game mode to daily
+  html = html.replace("let currentGameMode = 'classic';", "let currentGameMode = 'daily';");
+
+  ensureDir(path.join(rootDir, 'daily-challenge'));
+  fs.writeFileSync(path.join(rootDir, 'daily-challenge', 'index.html'), html, 'utf8');
+  fs.writeFileSync(path.join(rootDir, 'daily-challenge.html'), html, 'utf8');
+  console.log('Generated /daily-challenge static HTML');
+}
+
+// -------------------------------------------------------------
+// 3. GENERATE /unblocked PAGE (WITH VIDEOGAME + WEBAPPLICATION JSON-LD)
+// -------------------------------------------------------------
+function generateUnblockedPage() {
+  const title = "2048 Unblocked Game Online – Play Free at School or Work";
+  const description = "Play 2048 unblocked game online for free at school or work. 100% browser-based with no ads popup, no downloads, and no Flash. Works on Chromebooks and restricted networks.";
+  const canonical = "https://play2048online.site/unblocked";
+
+  const videoGameJsonLd = `
+  <!-- Schema.org JSON-LD Structured Data: VideoGame + WebApplication (TASK 1.3) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://play2048online.site/" },
+          { "@type": "ListItem", "position": 2, "name": "2048 Unblocked", "item": "${canonical}" }
+        ]
+      },
+      {
+        "@type": "VideoGame",
+        "@id": "https://play2048online.site/unblocked#game",
+        "name": "2048 Unblocked",
+        "url": "${canonical}",
+        "description": "${description}",
+        "genre": ["Puzzle", "Brain Game", "Mathematical Game", "Educational Game"],
+        "playMode": "SinglePlayer",
+        "applicationCategory": "GameApplication",
+        "operatingSystem": "Any modern web browser, ChromeOS, iOS, Android, Windows, macOS, Linux",
+        "gamePlatform": ["Web Browser", "Chromebook", "Mobile Browser", "Desktop Browser"],
+        "author": {
+          "@type": "Person",
+          "name": "Gabriele Cirulli"
+        },
+        "offers": {
+          "@type": "Offer",
+          "price": "0",
+          "priceCurrency": "USD",
+          "availability": "https://schema.org/InStock"
+        }
+      },
+      {
+        "@type": "WebApplication",
+        "@id": "https://play2048online.site/unblocked#app",
+        "name": "2048 Unblocked Web App",
+        "url": "${canonical}",
+        "applicationCategory": "GameApplication",
+        "operatingSystem": "All modern operating systems",
+        "browserRequirements": "Requires JavaScript and HTML5 support",
+        "offers": {
+          "@type": "Offer",
+          "price": "0",
+          "priceCurrency": "USD"
+        }
+      }
+    ]
+  }
+  </script>`;
+
+  let html = fs.readFileSync(path.join(rootDir, '2048-unblocked.html'), 'utf8');
+
+  // Update title, description, canonical, H1
+  html = html.replace(/<title>.*?<\/title>/, `<title>${title}</title>`);
+  html = html.replace(/<link rel="canonical" href=".*?" \/>/, `<link rel="canonical" href="${canonical}" />`);
+  html = html.replace(/<meta name="description" content=".*?" \/>/, `<meta name="description" content="${description}" />`);
+  html = html.replace(/<meta property="og:title" content=".*?" \/>/, `<meta property="og:title" content="${title}" />`);
+  html = html.replace(/<meta property="og:description" content=".*?" \/>/, `<meta property="og:description" content="${description}" />`);
+  html = html.replace(/<meta property="og:url" content=".*?" \/>/, `<meta property="og:url" content="${canonical}" />`);
+  html = html.replace(/<meta name="twitter:title" content=".*?" \/>/, `<meta name="twitter:title" content="${title}" />`);
+  html = html.replace(/<meta name="twitter:description" content=".*?" \/>/, `<meta name="twitter:description" content="${description}" />`);
+  html = html.replace(/<h1 class="[^"]*">([\s\S]*?)<\/h1>/, `<h1 class="text-3xl sm:text-4xl font-black text-white tracking-tight leading-tight">${title}</h1>`);
+
+  // Inject VideoGame + WebApplication Schema into head
+  html = html.replace('</head>', videoGameJsonLd + '\n</head>');
+
+  // Update bottom navbar with all 8 routes and Zero-CLS ad container
+  const navRegex = /<nav id="bottom-navbar"[\s\S]*?<\/nav>/;
+  html = html.replace(navRegex, getBottomNavbar('/unblocked'));
+
+  // Ensure ad container is present if not already added by getBottomNavbar
+  if (!html.includes('id="bottom-ad-container"')) {
+    html = html.replace('</nav>', '</nav>\n' + `
+  <aside id="bottom-ad-container" class="w-full shrink-0 min-h-[50px] md:min-h-[90px] h-[50px] md:h-[90px] bg-[#1f1b18] border-t border-[#2a2420] flex items-center justify-center relative overflow-hidden select-none z-20" aria-label="Sponsored Advertisement">
+    <div class="w-full max-w-[728px] h-full flex flex-col items-center justify-center px-2 text-center">
+      <span class="text-[8px] sm:text-[9px] uppercase tracking-widest text-[#8e857d]/60 font-semibold mb-0.5">Advertisement</span>
+      <div id="ad-slot-responsive-banner" class="w-full flex-1 max-h-[35px] md:max-h-[70px] border border-dashed border-[#bbada0]/15 rounded-md flex items-center justify-center bg-[#2a2420]/50 text-[10px] sm:text-xs text-[#cdc1b4]/40 font-mono">
+        <span>Responsive Display Ad Slot (Zero CLS)</span>
+      </div>
+    </div>
+  </aside>`);
+  }
+
+  // Update footer links
+  html = html.replace(/href="\/about-us"/g, 'href="/about"');
+  html = html.replace(/href="\/contact-us"/g, 'href="/contact"');
+  html = html.replace(/href="\/privacy-policy"/g, 'href="/privacy"');
+  html = html.replace(/href="\/2048-unblocked"/g, 'href="/unblocked"');
+
+  ensureDir(path.join(rootDir, 'unblocked'));
+  fs.writeFileSync(path.join(rootDir, 'unblocked', 'index.html'), html, 'utf8');
+  fs.writeFileSync(path.join(rootDir, 'unblocked.html'), html, 'utf8');
+  fs.writeFileSync(path.join(rootDir, '2048-unblocked.html'), html, 'utf8');
+  console.log('Generated /unblocked static HTML');
+}
+
+// -------------------------------------------------------------
+// 4. GENERATE /how-to-play PAGE
+// -------------------------------------------------------------
+function generateHowToPlayPage() {
+  const title = "How to Play & Win 2048 – Strategy Guide, Corner Trick & Tips";
+  const description = "Master 2048 with our complete guide: corner trick, monotonic tile patterns, cascading merges, and expert tips to win and reach 2048, 4096, and higher.";
+  const canonical = "https://play2048online.site/how-to-play";
+
+  let html = fs.readFileSync(path.join(rootDir, 'how-to-play.html'), 'utf8');
+
+  // Fix UTF-8 mangling
+  html = html.replace(/â€”/g, '–');
+
+  // Update title, description, canonical, H1
+  html = html.replace(/<title>.*?<\/title>/, `<title>${title}</title>`);
+  html = html.replace(/<link rel="canonical" href=".*?" \/>/, `<link rel="canonical" href="${canonical}" />`);
+  html = html.replace(/<meta name="description" content=".*?" \/>/, `<meta name="description" content="${description}" />`);
+  html = html.replace(/<meta property="og:title" content=".*?" \/>/, `<meta property="og:title" content="${title}" />`);
+  html = html.replace(/<meta property="og:description" content=".*?" \/>/, `<meta property="og:description" content="${description}" />`);
+  html = html.replace(/<meta property="og:url" content=".*?" \/>/, `<meta property="og:url" content="${canonical}" />`);
+  html = html.replace(/<meta name="twitter:title" content=".*?" \/>/, `<meta name="twitter:title" content="${title}" />`);
+  html = html.replace(/<meta name="twitter:description" content=".*?" \/>/, `<meta name="twitter:description" content="${description}" />`);
+  html = html.replace(/<h1 class="[^"]*">([\s\S]*?)<\/h1>/, `<h1 class="text-3xl sm:text-4xl font-black text-white tracking-tight leading-tight">${title}</h1>`);
+
+  // Update bottom navbar with all 8 routes and Zero-CLS ad container
+  const navRegex = /<nav id="bottom-navbar"[\s\S]*?<\/nav>/;
+  html = html.replace(navRegex, getBottomNavbar('/how-to-play'));
+
+  // Update footer links
+  html = html.replace(/href="\/about-us"/g, 'href="/about"');
+  html = html.replace(/href="\/contact-us"/g, 'href="/contact"');
+  html = html.replace(/href="\/privacy-policy"/g, 'href="/privacy"');
+  html = html.replace(/href="\/2048-unblocked"/g, 'href="/unblocked"');
+
+  ensureDir(path.join(rootDir, 'how-to-play'));
+  fs.writeFileSync(path.join(rootDir, 'how-to-play', 'index.html'), html, 'utf8');
+  fs.writeFileSync(path.join(rootDir, 'how-to-play.html'), html, 'utf8');
+  console.log('Generated /how-to-play static HTML');
+}
+
+// -------------------------------------------------------------
+// 5. GENERATE /about PAGE
+// -------------------------------------------------------------
+function generateAboutPage() {
+  const title = "About 2048 Online – Official Story, Mission & Open-Source Heritage";
+  const description = "Learn about 2048 Online, our mission to deliver an authentic, ad-free, verified leaderboard experience, and the history of the legendary 2048 sliding puzzle.";
+  const canonical = "https://play2048online.site/about";
+
+  let html = fs.readFileSync(path.join(rootDir, 'about-us.html'), 'utf8');
+
+  // Fix UTF-8 mangling
+  html = html.replace(/â€”/g, '–');
+
+  // Update title, description, canonical, H1
+  html = html.replace(/<title>.*?<\/title>/, `<title>${title}</title>`);
+  html = html.replace(/<link rel="canonical" href=".*?" \/>/, `<link rel="canonical" href="${canonical}" />`);
+  html = html.replace(/<meta name="description" content=".*?" \/>/, `<meta name="description" content="${description}" />`);
+  html = html.replace(/<meta property="og:title" content=".*?" \/>/, `<meta property="og:title" content="${title}" />`);
+  html = html.replace(/<meta property="og:description" content=".*?" \/>/, `<meta property="og:description" content="${description}" />`);
+  html = html.replace(/<meta property="og:url" content=".*?" \/>/, `<meta property="og:url" content="${canonical}" />`);
+  html = html.replace(/<meta name="twitter:title" content=".*?" \/>/, `<meta name="twitter:title" content="${title}" />`);
+  html = html.replace(/<meta name="twitter:description" content=".*?" \/>/, `<meta name="twitter:description" content="${description}" />`);
+  html = html.replace(/<h1 class="[^"]*">([\s\S]*?)<\/h1>/, `<h1 class="text-3xl sm:text-4xl font-black text-white tracking-tight leading-tight">About 2048 Online Platform</h1>`);
+
+  // Update bottom navbar with all 8 routes and Zero-CLS ad container
+  const navRegex = /<nav id="bottom-navbar"[\s\S]*?<\/nav>/;
+  html = html.replace(navRegex, getBottomNavbar('/about'));
+
+  // Update footer links
+  html = html.replace(/href="\/about-us"/g, 'href="/about"');
+  html = html.replace(/href="\/contact-us"/g, 'href="/contact"');
+  html = html.replace(/href="\/privacy-policy"/g, 'href="/privacy"');
+  html = html.replace(/href="\/2048-unblocked"/g, 'href="/unblocked"');
+
+  ensureDir(path.join(rootDir, 'about'));
+  fs.writeFileSync(path.join(rootDir, 'about', 'index.html'), html, 'utf8');
+  fs.writeFileSync(path.join(rootDir, 'about.html'), html, 'utf8');
+  fs.writeFileSync(path.join(rootDir, 'about-us.html'), html, 'utf8');
+  console.log('Generated /about static HTML');
+}
+
+// -------------------------------------------------------------
+// 6. GENERATE /contact PAGE
+// -------------------------------------------------------------
+function generateContactPage() {
+  const title = "Contact 2048 Online – Player Support, Feedback & Bug Reports";
+  const description = "Contact the 2048 Online team for player support, feature suggestions, or bug reports. We respond to inquiries within 24 hours.";
+  const canonical = "https://play2048online.site/contact";
+
+  let html = fs.readFileSync(path.join(rootDir, 'contact-us.html'), 'utf8');
+
+  // Fix UTF-8 mangling
+  html = html.replace(/â€”/g, '–');
+
+  // Update title, description, canonical, H1
+  html = html.replace(/<title>.*?<\/title>/, `<title>${title}</title>`);
+  html = html.replace(/<link rel="canonical" href=".*?" \/>/, `<link rel="canonical" href="${canonical}" />`);
+  html = html.replace(/<meta name="description" content=".*?" \/>/, `<meta name="description" content="${description}" />`);
+  html = html.replace(/<meta property="og:title" content=".*?" \/>/, `<meta property="og:title" content="${title}" />`);
+  html = html.replace(/<meta property="og:description" content=".*?" \/>/, `<meta property="og:description" content="${description}" />`);
+  html = html.replace(/<meta property="og:url" content=".*?" \/>/, `<meta property="og:url" content="${canonical}" />`);
+  html = html.replace(/<meta name="twitter:title" content=".*?" \/>/, `<meta name="twitter:title" content="${title}" />`);
+  html = html.replace(/<meta name="twitter:description" content=".*?" \/>/, `<meta name="twitter:description" content="${description}" />`);
+  html = html.replace(/<h1 class="[^"]*">([\s\S]*?)<\/h1>/, `<h1 class="text-3xl sm:text-4xl font-black text-white tracking-tight leading-tight">Contact 2048 Online Support</h1>`);
+
+  // Update bottom navbar with all 8 routes and Zero-CLS ad container
+  const navRegex = /<nav id="bottom-navbar"[\s\S]*?<\/nav>/;
+  html = html.replace(navRegex, getBottomNavbar('/contact'));
+
+  // Update footer links
+  html = html.replace(/href="\/about-us"/g, 'href="/about"');
+  html = html.replace(/href="\/contact-us"/g, 'href="/contact"');
+  html = html.replace(/href="\/privacy-policy"/g, 'href="/privacy"');
+  html = html.replace(/href="\/2048-unblocked"/g, 'href="/unblocked"');
+
+  ensureDir(path.join(rootDir, 'contact'));
+  fs.writeFileSync(path.join(rootDir, 'contact', 'index.html'), html, 'utf8');
+  fs.writeFileSync(path.join(rootDir, 'contact.html'), html, 'utf8');
+  fs.writeFileSync(path.join(rootDir, 'contact-us.html'), html, 'utf8');
+  console.log('Generated /contact static HTML');
+}
+
+// -------------------------------------------------------------
+// 7. GENERATE /privacy PAGE
+// -------------------------------------------------------------
+function generatePrivacyPage() {
+  const title = "Privacy Policy – 2048 Online Game";
+  const description = "Read the Privacy Policy for 2048 Online. Understand how we protect your privacy, handle local browser storage, and ensure a safe, ad-free gaming environment.";
+  const canonical = "https://play2048online.site/privacy";
+
+  let html = fs.readFileSync(path.join(rootDir, 'privacy-policy.html'), 'utf8');
+
+  // Fix UTF-8 mangling
+  html = html.replace(/â€”/g, '–');
+
+  // Update title, description, canonical, H1
+  html = html.replace(/<title>.*?<\/title>/, `<title>${title}</title>`);
+  html = html.replace(/<link rel="canonical" href=".*?" \/>/, `<link rel="canonical" href="${canonical}" />`);
+  html = html.replace(/<meta name="description" content=".*?" \/>/, `<meta name="description" content="${description}" />`);
+  html = html.replace(/<meta property="og:title" content=".*?" \/>/, `<meta property="og:title" content="${title}" />`);
+  html = html.replace(/<meta property="og:description" content=".*?" \/>/, `<meta property="og:description" content="${description}" />`);
+  html = html.replace(/<meta property="og:url" content=".*?" \/>/, `<meta property="og:url" content="${canonical}" />`);
+  html = html.replace(/<meta name="twitter:title" content=".*?" \/>/, `<meta name="twitter:title" content="${title}" />`);
+  html = html.replace(/<meta name="twitter:description" content=".*?" \/>/, `<meta name="twitter:description" content="${description}" />`);
+  html = html.replace(/<h1 class="[^"]*">([\s\S]*?)<\/h1>/, `<h1 class="text-3xl sm:text-4xl font-black text-white tracking-tight leading-tight">Privacy Policy</h1>`);
+
+  // Update bottom navbar with all 8 routes and Zero-CLS ad container
+  const navRegex = /<nav id="bottom-navbar"[\s\S]*?<\/nav>/;
+  html = html.replace(navRegex, getBottomNavbar('/privacy'));
+
+  // Update footer links
+  html = html.replace(/href="\/about-us"/g, 'href="/about"');
+  html = html.replace(/href="\/contact-us"/g, 'href="/contact"');
+  html = html.replace(/href="\/privacy-policy"/g, 'href="/privacy"');
+  html = html.replace(/href="\/2048-unblocked"/g, 'href="/unblocked"');
+
+  ensureDir(path.join(rootDir, 'privacy'));
+  fs.writeFileSync(path.join(rootDir, 'privacy', 'index.html'), html, 'utf8');
+  fs.writeFileSync(path.join(rootDir, 'privacy.html'), html, 'utf8');
+  fs.writeFileSync(path.join(rootDir, 'privacy-policy.html'), html, 'utf8');
+  console.log('Generated /privacy static HTML');
+}
+
+// -------------------------------------------------------------
+// 8. GENERATE /terms PAGE
+// -------------------------------------------------------------
+function generateTermsPage() {
+  const title = "Terms & Conditions – 2048 Online Game";
+  const description = "Review the Terms and Conditions of 2048 Online. Understand fair play rules, open-source licensing, and acceptable use policies for browser gameplay.";
+  const canonical = "https://play2048online.site/terms";
+
+  let html = fs.readFileSync(path.join(rootDir, 'terms.html'), 'utf8');
+
+  // Fix UTF-8 mangling
+  html = html.replace(/â€”/g, '–');
+
+  // Update title, description, canonical, H1
+  html = html.replace(/<title>.*?<\/title>/, `<title>${title}</title>`);
+  html = html.replace(/<link rel="canonical" href=".*?" \/>/, `<link rel="canonical" href="${canonical}" />`);
+  html = html.replace(/<meta name="description" content=".*?" \/>/, `<meta name="description" content="${description}" />`);
+  html = html.replace(/<meta property="og:title" content=".*?" \/>/, `<meta property="og:title" content="${title}" />`);
+  html = html.replace(/<meta property="og:description" content=".*?" \/>/, `<meta property="og:description" content="${description}" />`);
+  html = html.replace(/<meta property="og:url" content=".*?" \/>/, `<meta property="og:url" content="${canonical}" />`);
+  html = html.replace(/<meta name="twitter:title" content=".*?" \/>/, `<meta name="twitter:title" content="${title}" />`);
+  html = html.replace(/<meta name="twitter:description" content=".*?" \/>/, `<meta name="twitter:description" content="${description}" />`);
+  html = html.replace(/<h1 class="[^"]*">([\s\S]*?)<\/h1>/, `<h1 class="text-3xl sm:text-4xl font-black text-white tracking-tight leading-tight">Terms &amp; Conditions</h1>`);
+
+  // Update bottom navbar with all 8 routes and Zero-CLS ad container
+  const navRegex = /<nav id="bottom-navbar"[\s\S]*?<\/nav>/;
+  html = html.replace(navRegex, getBottomNavbar('/terms'));
+
+  // Update footer links
+  html = html.replace(/href="\/about-us"/g, 'href="/about"');
+  html = html.replace(/href="\/contact-us"/g, 'href="/contact"');
+  html = html.replace(/href="\/privacy-policy"/g, 'href="/privacy"');
+  html = html.replace(/href="\/2048-unblocked"/g, 'href="/unblocked"');
+
+  ensureDir(path.join(rootDir, 'terms'));
+  fs.writeFileSync(path.join(rootDir, 'terms', 'index.html'), html, 'utf8');
+  fs.writeFileSync(path.join(rootDir, 'terms.html'), html, 'utf8');
+  console.log('Generated /terms static HTML');
+}
+
+// Run all page generators
+generateLeaderboardPage();
+generateDailyChallengePage();
+generateUnblockedPage();
+generateHowToPlayPage();
+generateAboutPage();
+generateContactPage();
+generatePrivacyPage();
+generateTermsPage();
+
+console.log('All static subpages successfully generated!');

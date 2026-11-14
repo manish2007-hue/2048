@@ -1,9 +1,19 @@
 # Cloudflare Pages 301 Permanent Redirects to enforce canonical URLs
 /2048_play_2048_online.html  https://play2048online.site/  301!
 /index.html                  https://play2048online.site/  301!
-/how-to-play.html            /how-to-play  301!
-/about-us.html               /about-us  301!
-/contact-us.html             /contact-us  301!
-/privacy-policy.html         /privacy-policy  301!
-/terms.html                  /terms  301!
-/2048-unblocked.html         /2048-unblocked  301!
+/how-to-play.html            /how-to-play                  301!
+/about-us.html               /about                        301!
+/about-us                    /about                        301!
+/about.html                  /about                        301!
+/contact-us.html             /contact                      301!
+/contact-us                  /contact                      301!
+/contact.html                /contact                      301!
+/privacy-policy.html         /privacy                      301!
+/privacy-policy              /privacy                      301!
+/privacy.html                /privacy                      301!
+/terms.html                  /terms                        301!
+/2048-unblocked.html         /unblocked                    301!
+/2048-unblocked              /unblocked                    301!
+/unblocked.html              /unblocked                    301!
+/leaderboard.html            /leaderboard                  301!
+/daily-challenge.html        /daily-challenge              301!

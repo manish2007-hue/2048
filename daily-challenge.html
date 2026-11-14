@@ -1,0 +1,2659 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-HC38D6BP1C"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-HC38D6BP1C');
+  </script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
+  <title>2048 Daily Challenge – Compete on the Global Leaderboard</title>
+  <!-- Favicon & App Icons -->
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <link rel="alternate icon" href="/favicon.ico" />
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+  <link rel="manifest" href="/manifest.webmanifest" />
+  
+  <!-- On-Page SEO Meta Tags -->
+  <meta name="description" content="Play the official 2048 Daily Challenge! Compete on the live global leaderboard with identical daily seeded boards. Free online puzzle game with no ads popup." />
+  <meta name="keywords" content="2048, play 2048, 2048 online, 2048 game, play 2048 online, 2048 unblocked, 2048 leaderboard, 2048 strategy, 2048 tile, gabriele cirulli 2048, 2048 puzzle, number puzzle game, sliding tile game, 2048 tips and tricks, 2048 high score, 2048 corner strategy, 2048 free online game, brain puzzle game, math game online, 2048 no ads, 2048 mobile game, number merge game, tile merge puzzle, 2048 game online free no download" />
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+  <meta name="author" content="2048 Online Platform" />
+  <meta name="theme-color" content="#181a1d" />
+  <link rel="canonical" href="https://play2048online.site/daily-challenge" />
+
+  <!-- Open Graph / Facebook Meta Tags -->
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="2048 Online" />
+  <meta property="og:title" content="2048 Daily Challenge – Compete on the Global Leaderboard" />
+  <meta property="og:description" content="Play the official 2048 Daily Challenge! Compete on the live global leaderboard with identical daily seeded boards. Free online puzzle game with no ads popup." />
+  <meta property="og:url" content="https://play2048online.site/daily-challenge" />
+  <meta property="og:image" content="https://play2048online.site/og-image-2048.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:locale" content="en_US" />
+
+  <!-- Twitter Card Meta Tags -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="2048 Daily Challenge – Compete on the Global Leaderboard" />
+  <meta name="twitter:description" content="Play the official 2048 Daily Challenge! Compete on the live global leaderboard with identical daily seeded boards. Free online puzzle game with no ads popup." />
+  <meta name="twitter:image" content="https://play2048online.site/og-image-2048.png" />
+
+  <!-- Schema.org JSON-LD Structured Data Graph -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebSite",
+        "@id": "https://play2048online.site/#website",
+        "url": "https://play2048online.site/",
+        "name": "2048 Online",
+        "description": "Play 2048 online for free with real leaderboards and player statistics.",
+        "inLanguage": "en-US",
+        "publisher": {
+          "@id": "https://play2048online.site/#organization"
+        }
+      },
+      {
+        "@type": "Organization",
+        "@id": "https://play2048online.site/#organization",
+        "name": "2048 Online",
+        "url": "https://play2048online.site/",
+        "logo": "https://play2048online.site/favicon.svg",
+        "sameAs": [
+          "https://github.com/manish2007-hue/2048"
+        ]
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://play2048online.site/"
+          }
+        ]
+      },
+      {
+        "@type": "VideoGame",
+        "@id": "https://play2048online.site/#game",
+        "name": "2048",
+        "url": "https://play2048online.site/",
+        "description": "The classic 2048 sliding number puzzle game. Merge identical numbers (2, 4, 8, 16...) to create the golden 2048 tile.",
+        "genre": ["Puzzle", "Brain Game", "Mathematical Game", "Casual Game"],
+        "playMode": "SinglePlayer",
+        "applicationCategory": "GameApplication",
+        "operatingSystem": "Any modern web browser, iOS, Android, macOS, Windows, Linux, ChromeOS",
+        "gamePlatform": ["Web Browser", "Mobile Browser", "Desktop Browser"],
+        "author": {
+          "@type": "Person",
+          "name": "Gabriele Cirulli"
+        },
+        "offers": {
+          "@type": "Offer",
+          "price": "0",
+          "priceCurrency": "USD",
+          "availability": "https://schema.org/InStock"
+        }
+      },
+      {
+        "@type": "WebApplication",
+        "@id": "https://play2048online.site/#app",
+        "name": "2048 Online Web App",
+        "url": "https://play2048online.site/",
+        "applicationCategory": "GameApplication",
+        "operatingSystem": "All modern operating systems",
+        "browserRequirements": "Requires JavaScript and HTML5 support",
+        "offers": {
+          "@type": "Offer",
+          "price": "0",
+          "priceCurrency": "USD"
+        }
+      },
+      {
+        "@type": "HowTo",
+        "name": "How to Play and Win 2048 with Corner Anchor Strategy",
+        "description": "Master the classic 2048 number puzzle with disciplined corner anchoring and cascading merges.",
+        "image": "https://play2048online.site/og-image-2048.png",
+        "step": [
+          {
+            "@type": "HowToStep",
+            "name": "Understand Tile Movement",
+            "text": "Swipe in four cardinal directions (Up, Down, Left, Right). Tiles slide across the 4x4 grid until they hit walls or other tiles."
+          },
+          {
+            "@type": "HowToStep",
+            "name": "Anchor Highest Tile in One Corner",
+            "text": "Keep your highest-value tile locked permanently in one corner (e.g. bottom-right) and never swipe away from it."
+          },
+          {
+            "@type": "HowToStep",
+            "name": "Build Monotonic Decreasing Sequences",
+            "text": "Maintain decreasing tile values along the anchor row (1024, 512, 256, 128) to trigger cascading merges."
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+
+  <!-- Schema.org JSON-LD for FAQ SEO -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "How do you play 2048?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "<p>Slide numbered tiles in four directions (Up, Down, Left, or Right) using arrow keys, WASD, mobile touch swipes, or the on-screen D-Pad. When two tiles with the same number collide, they combine into one doubled tile (2+2=4, 4+4=8, etc.). The goal is to strategically merge numbers until you create the 2048 tile.</p>"
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What is the best strategy to win 2048?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "<p>The most effective method is the Corner Anchor strategy: permanently keep your highest tile in one chosen corner (such as bottom-right) and build descending values along that row. Never swipe in the opposite direction (Up), as this risks dislodging your anchor tile and trapping low numbers underneath.</p>"
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What is the highest possible score in 2048?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "<p>The theoretical maximum score on a standard 4x4 board is 3,932,156 points, achievable by constructing a 131,072 tile. In typical games, reaching the 2048 tile yields between 20,000 and 28,000 points, while creating a 4096 tile pushes scores past 50,000 points.</p>"
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Is 2048 a game of skill or pure luck?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "<p>While new tile spawns involve randomness (a 90% chance of a 2 and a 10% chance of a 4), skill and positioning dictate more than 95% of game outcomes. By utilizing the corner anchor technique and maintaining monotonic tile chains, experienced players can reach the 2048 tile in almost every round.</p>"
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can you keep playing after reaching the 2048 tile?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "<p>Yes! Once you construct the 2048 tile, a victory banner appears allowing you to tap 'Keep Going' to continue towards higher milestones such as 4096, 8192, 16384, and beyond until no legal moves remain.</p>"
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Are the leaderboard scores on this website real?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "<p>Yes, 100% of the scores on our leaderboard come from genuine verified game sessions. Unlike other portals that inject fictitious bots with fake scores, our system records your actual completed games with verified timestamps, tile achievements, and move counters.</p>"
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Who invented 2048 and when was it created?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "<p>2048 was created in March 2014 by Italian developer Gabriele Cirulli at age 19 as an open-source project on GitHub under the MIT license. It was conceptually inspired by Veewo Studio's 1024 and Asher Vollmer's Threes.</p>"
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How does the Undo feature work in this game?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "<p>Each match provides up to 3 Undo moves. If you make an accidental swipe that disrupts your corner setup, tapping Undo restores the board grid, score, and moves count to the exact state before that turn.</p>"
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Does 2048 require an internet connection to play?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "<p>No. Once the web application loads into your browser, it runs entirely client-side using local HTML5 and JavaScript. You can play offline, on airplanes, or with spotty connections, and all high scores persist in your browser's private local storage.</p>"
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How is 2048 optimized for mobile smartphones?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "<p>Our implementation utilizes modern CSS dynamic viewport units (100dvh) to prevent mobile browser address bar jumping, touch action locks to stop accidental page scrolling, synthesized haptic vibration on merges, and an optional ergonomic on-screen D-Pad for one-handed play.</p>"
+        }
+      }
+    ]
+  }
+  </script>
+
+  <!-- Typography & Tailwind Framework -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/styles.css" />
+  <style>
+    * {
+      box-sizing: border-box;
+      user-select: none;
+      -webkit-user-select: none;
+      -webkit-touch-callout: none;
+      -webkit-tap-highlight-color: transparent;
+    }
+    :root {
+      --app-height: 100dvh;
+    }
+    body {
+      font-family: 'Inter', system-ui, -apple-system, sans-serif;
+      background: radial-gradient(circle at 50% 30%, #3a322c 0%, #1e1916 100%);
+      color: #f9f6f2;
+      margin: 0;
+      padding: 0;
+      height: 100vh;
+      height: 100dvh;
+      width: 100vw;
+      overflow: hidden;
+      touch-action: manipulation;
+    }
+
+    /* Board container with dynamic scale to fit viewport height */
+    #board-container {
+      container-type: inline-size;
+      position: relative;
+      width: 100%;
+      max-width: min(420px, 92vw, calc(100dvh - 180px));
+      max-height: min(420px, 92vw, calc(100dvh - 180px));
+      aspect-ratio: 1 / 1;
+      background-color: #bbada0;
+      border-radius: 14px;
+      padding: 8px;
+      box-shadow: 0 16px 36px rgba(0, 0, 0, 0.45), inset 0 1px 0 rgba(255, 255, 255, 0.2);
+      touch-action: none;
+      cursor: grab;
+      user-select: none;
+      -webkit-user-select: none;
+    }
+    #board-container:active,
+    #board-container.is-dragging {
+      cursor: grabbing;
+    }
+    #match-review-modal {
+      pointer-events: auto !important;
+      cursor: default !important;
+      z-index: 50 !important;
+    }
+    #match-review-modal button {
+      pointer-events: auto !important;
+      cursor: pointer !important;
+      position: relative;
+      z-index: 60 !important;
+    }
+
+    @media (min-width: 640px) {
+      #board-container {
+        padding: 12px;
+        border-radius: 16px;
+      }
+    }
+
+    .grid-bg {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      grid-template-rows: repeat(4, 1fr);
+      gap: 7px;
+      width: 100%;
+      height: 100%;
+    }
+    @media (min-width: 640px) {
+      .grid-bg {
+        gap: 10px;
+      }
+    }
+
+    .grid-cell {
+      background-color: rgba(238, 228, 218, 0.35);
+      border-radius: 8px;
+      width: 100%;
+      height: 100%;
+    }
+    @media (min-width: 640px) {
+      .grid-cell {
+        border-radius: 10px;
+      }
+    }
+
+    #tile-layer {
+      position: absolute;
+      inset: 8px;
+      pointer-events: none;
+    }
+    @media (min-width: 640px) {
+      #tile-layer {
+        inset: 12px;
+      }
+    }
+
+    .tile-wrapper {
+      position: absolute;
+      width: calc((100% - 21px) / 4);
+      height: calc((100% - 21px) / 4);
+      transition: transform 115ms cubic-bezier(0.25, 1, 0.5, 1);
+      will-change: transform;
+      z-index: 10;
+    }
+    @media (min-width: 640px) {
+      .tile-wrapper {
+        width: calc((100% - 30px) / 4);
+        height: calc((100% - 30px) / 4);
+      }
+    }
+
+    .tile-inner {
+      width: 100%;
+      height: 100%;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 800;
+      line-height: 1;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.18), inset 0 1px 0 rgba(255, 255, 255, 0.3);
+    }
+    @media (min-width: 640px) {
+      .tile-inner {
+        border-radius: 10px;
+      }
+    }
+
+    .tile-appear {
+      animation: appear 160ms cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    }
+    .tile-pop {
+      animation: pop 190ms ease-in-out;
+      z-index: 20;
+    }
+
+    @keyframes appear {
+      0% { opacity: 0; transform: scale(0); }
+      100% { opacity: 1; transform: scale(1); }
+    }
+    @keyframes pop {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.18); }
+      100% { transform: scale(1); }
+    }
+
+    /* Container query tile font size */
+    @container (min-width: 0px) {
+      .tile-font-sm { font-size: 8cqw; }
+      .tile-font-md { font-size: 11cqw; }
+      .tile-font-lg { font-size: 13cqw; }
+    }
+
+    /* Sleek slim custom scrollbar for content tabs */
+    .custom-scroll::-webkit-scrollbar {
+      width: 6px;
+    }
+    .custom-scroll::-webkit-scrollbar-track {
+      background: rgba(30, 25, 22, 0.5);
+    }
+    .custom-scroll::-webkit-scrollbar-thumb {
+      background: #5a4e44;
+      border-radius: 4px;
+    }
+    .custom-scroll::-webkit-scrollbar-thumb:hover {
+      background: #8f7a66;
+    }
+
+    /* Hide scrollbar for tab bar */
+    .no-scrollbar::-webkit-scrollbar {
+      display: none;
+    }
+    .no-scrollbar {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+
+    /* Bottom tab active & hover styling */
+    .bottom-tab-btn {
+      color: #9da5b4;
+      background: transparent;
+      border: 1px solid transparent;
+      transition: all 120ms ease;
+    }
+    .bottom-tab-btn:hover {
+      color: #ffffff;
+      background: rgba(255, 255, 255, 0.05);
+    }
+    .bottom-tab-btn.active-tab {
+      color: #ffffff;
+      background: #2b303a;
+      border-color: #404756;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+    }
+
+    /* Allow readable text selection in content tabs */
+    .selectable-text, .selectable-text * {
+      user-select: text !important;
+      -webkit-user-select: text !important;
+    }
+  </style>
+</head>
+<body class="h-[100dvh] w-screen flex flex-col justify-between overflow-hidden bg-[#241e1b]">
+  <noscript>
+    <div style="padding: 16px; text-align: center; background: #1e1916; color: #f9f6f2; border-bottom: 2px solid #edc22e;">
+      <h2 style="font-size: 1.25rem; font-weight: bold; margin-bottom: 8px;">Play 2048 Online Free — Official Puzzle Game</h2>
+      <p style="font-size: 0.9rem; color: #cdc1b4; max-width: 600px; margin: 0 auto 10px;">
+        Join numbers and get to the 2048 tile! Javascript is required to render interactive sliding animations.
+      </p>
+      <p style="font-size: 0.85rem;">
+        <a href="/how-to-play" style="color: #edc22e; text-decoration: underline; margin-right: 12px;">How to Play Strategy Guide</a>
+        <a href="/about-us" style="color: #edc22e; text-decoration: underline; margin-right: 12px;">About Us</a>
+        <a href="/contact-us" style="color: #edc22e; text-decoration: underline;">Contact Support</a>
+      </p>
+    </div>
+  </noscript>
+
+  <!-- ==================== MAIN VIEWPORT CONTAINER ==================== -->
+  <main id="main-scroll-container" class="flex-1 w-full relative overflow-y-auto overflow-x-hidden custom-scroll flex flex-col items-center">
+
+    <!-- =========================================================================
+         VIEW 1: WHOLE SCREEN ONLY GAME (Matches Screenshot Layout)
+    ========================================================================= -->
+    <div id="tab-view-game" class="w-full flex flex-col items-center select-none">
+      
+      <!-- Primary Viewport Game Board Area -->
+      <div class="w-full max-w-lg min-h-[calc(100dvh-3rem)] flex flex-col items-center justify-between p-2 sm:p-3 shrink-0">
+      <h1 class="sr-only">2048 Daily Challenge – Compete on the Global Leaderboard</h1>
+
+      <!-- TOP GAME HUD BAR -->
+      <div class="w-full max-w-[420px] flex items-center justify-between gap-2 shrink-0 pt-0.5">
+        <!-- Left: Player Profile Nickname with Edit Icon -->
+        <button id="header-user-btn" type="button" class="flex items-center gap-1.5 bg-[#362f2b]/90 hover:bg-[#443c37] border border-[#bbada0]/30 rounded-full px-3 py-1 text-xs font-bold text-[#ede0c8] hover:text-white transition-all shadow-sm" title="Change your player nickname">
+          <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+          <span id="player-name-label" class="max-w-[100px] sm:max-w-[130px] truncate">Player</span>
+          <span class="text-[#edc22e] text-xs leading-none">✎</span>
+        </button>
+
+        <!-- Right: Real Score and High Score (Cirulli style) -->
+        <div class="flex items-center gap-1.5">
+          <div class="bg-[#bbada0] rounded-lg px-2.5 sm:px-3 py-1 text-center min-w-[65px] sm:min-w-[72px] shadow">
+            <div class="text-[8.5px] sm:text-[9px] font-black uppercase tracking-wider text-[#eee4da]">SCORE</div>
+            <div id="score-display" class="text-xs sm:text-base font-black text-white leading-tight">0</div>
+          </div>
+          <div class="bg-[#bbada0] rounded-lg px-2.5 sm:px-3 py-1 text-center min-w-[65px] sm:min-w-[72px] shadow">
+            <div class="text-[8.5px] sm:text-[9px] font-black uppercase tracking-wider text-[#eee4da]">BEST</div>
+            <div id="best-display" class="text-xs sm:text-base font-black text-white leading-tight">0</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- GAME MODE & PWA INSTALL SELECTOR ROW -->
+      <div class="w-full max-w-[420px] flex items-center justify-between gap-1.5 shrink-0 py-0.5">
+        <div class="flex items-center gap-1 bg-[#1e1916]/80 p-0.5 rounded-lg border border-[#bbada0]/20">
+          <button id="mode-btn-classic" type="button" class="px-2.5 py-0.5 rounded-md text-[10px] font-black uppercase tracking-wider bg-[#bbada0] text-white shadow-sm transition-all" title="Classic 4x4 Free Play">
+            Classic 4×4
+          </button>
+          <button id="mode-btn-daily" type="button" class="px-2.5 py-0.5 rounded-md text-[10px] font-black uppercase tracking-wider text-[#cdc1b4] hover:text-white transition-all flex items-center gap-1" title="Daily Seeded Challenge">
+            <span>📅</span>
+            <span id="daily-btn-label">Daily Challenge</span>
+          </button>
+        </div>
+
+        <button id="pwa-install-btn" type="button" class="hidden px-2.5 py-0.5 rounded-lg bg-emerald-600 hover:bg-emerald-500 text-white font-extrabold text-[10px] shadow transition-all flex items-center gap-1 cursor-pointer animate-pulse" title="Install 2048 as an app">
+          <span>📲</span> <span>Install App</span>
+        </button>
+      </div>
+
+      <!-- GAME ACTION CONTROLS ROW -->
+      <div class="w-full max-w-[420px] flex items-center justify-between gap-1.5 text-xs shrink-0 py-0.5">
+        <div class="flex items-center gap-1 text-[11px] font-bold text-[#cdc1b4]">
+          <span>Moves:</span>
+          <span id="moves-count-display" class="text-white font-extrabold">0</span>
+        </div>
+
+        <div class="flex items-center gap-1.5">
+          <button id="undo-move-btn" type="button" class="px-2.5 py-1 rounded-lg bg-[#8f7a66] hover:bg-[#9f8b77] active:scale-95 text-[#f9f6f2] font-extrabold text-[11px] shadow transition-all flex items-center gap-1">
+            <span>↶</span> Undo (<span id="undo-left-count">3</span>)
+          </button>
+          <button id="restart-game-btn" type="button" class="px-2.5 py-1 rounded-lg bg-[#8f7a66] hover:bg-[#9f8b77] active:scale-95 text-[#f9f6f2] font-extrabold text-[11px] shadow transition-all">
+            New Game
+          </button>
+          <button id="dpad-toggle-btn" type="button" class="px-2 py-1 rounded-lg bg-[#362f2b] hover:bg-[#443c37] border border-[#bbada0]/30 text-white font-bold text-[11px] shadow transition-all" title="Toggle On-Screen Touch D-Pad">
+            🎮 D-Pad
+          </button>
+        </div>
+      </div>
+
+      <!-- 4x4 RESPONSIVE BOARD CONTAINER (Centered, Scaled to viewport) -->
+      <div id="board-container" class="shrink-0 my-auto">
+        <!-- 16 Static Background Cells -->
+        <div class="grid-bg">
+          <div class="grid-cell"></div><div class="grid-cell"></div><div class="grid-cell"></div><div class="grid-cell"></div>
+          <div class="grid-cell"></div><div class="grid-cell"></div><div class="grid-cell"></div><div class="grid-cell"></div>
+          <div class="grid-cell"></div><div class="grid-cell"></div><div class="grid-cell"></div><div class="grid-cell"></div>
+          <div class="grid-cell"></div><div class="grid-cell"></div><div class="grid-cell"></div><div class="grid-cell"></div>
+        </div>
+
+        <!-- Animated Tile Entities Layer -->
+        <div id="tile-layer"></div>
+
+        <!-- Game Over / Victory Modal Inside Board -->
+        <div id="match-review-modal" class="hidden absolute inset-0 bg-[#3b332e]/90 backdrop-blur-sm rounded-[14px] flex flex-col items-center justify-center p-4 text-center z-20">
+          <div id="review-badge-icon" class="text-3xl mb-1">🎮</div>
+          <h2 id="review-winner-title" class="text-2xl sm:text-3xl font-black text-white mb-0.5">Game Over!</h2>
+          <p id="review-reason-text" class="text-xs font-semibold text-[#cdc1b4] mb-3">No more valid moves left</p>
+
+          <div class="bg-[#241e1b] border border-[#bbada0]/30 rounded-xl p-3 w-full max-w-[260px] mb-3 text-white space-y-1.5 shadow">
+            <div class="flex justify-between items-center text-xs">
+              <span class="text-[#cdc1b4]">Final Score</span>
+              <strong id="review-final-score" class="font-black text-base text-white">0</strong>
+            </div>
+            <div class="flex justify-between items-center text-xs">
+              <span class="text-[#cdc1b4]">Best Tile Reached</span>
+              <div id="review-best-tile-pill" class="px-2 py-0.5 rounded font-black text-xs bg-[#edc22e] text-white">2</div>
+            </div>
+            <div class="flex justify-between items-center text-xs">
+              <span class="text-[#cdc1b4]">Total Moves</span>
+              <strong id="review-total-moves" class="font-bold text-[#ede0c8]">0</strong>
+            </div>
+            <div class="flex justify-between items-center text-xs">
+              <span class="text-[#cdc1b4]">Time Played</span>
+              <strong id="review-duration-text" class="font-bold text-[#ede0c8]">0s</strong>
+            </div>
+          </div>
+
+          <!-- Share Score Grid / Daily Challenge Card Button -->
+          <button id="share-score-grid-btn" type="button" class="w-full max-w-[260px] py-2 px-3 rounded-lg bg-emerald-600 hover:bg-emerald-500 text-white font-black text-xs uppercase tracking-wider shadow transition-all active:scale-95 flex items-center justify-center gap-1.5 mb-2 cursor-pointer" title="Copy score grid and challenge link">
+            <span>📋</span>
+            <span id="share-score-label">Copy Score Grid / Share Challenge</span>
+          </button>
+
+          <div class="flex items-center gap-2 w-full max-w-[260px]">
+            <button id="keep-going-btn" onclick="window.handleKeepGoingClick && window.handleKeepGoingClick(event)" type="button" class="hidden flex-1 py-2 rounded-lg bg-[#8f7a66] hover:bg-[#9f8b77] text-white font-black text-xs uppercase tracking-wider shadow transition-all active:scale-95 cursor-pointer">
+              Keep Going
+            </button>
+            <button id="play-again-btn" onclick="window.handlePlayAgainClick && window.handlePlayAgainClick(event)" type="button" class="flex-1 py-2 rounded-lg bg-[#edc22e] hover:bg-[#e5b822] text-[#3c3a32] font-black text-xs uppercase tracking-wider shadow transition-all active:scale-95 cursor-pointer">
+              Play Again
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- BOTTOM OF GAME AREA: Leaderboard Quick Bar or Mobile D-Pad -->
+      <div class="w-full max-w-[420px] flex flex-col items-center gap-1 shrink-0 pb-0.5">
+        <!-- Real Daily Leaderboard Quick Teaser Bar -->
+        <button id="quick-to-leaderboard-btn" type="button" class="w-full bg-[#352e2a]/80 hover:bg-[#3f3732] border border-[#bbada0]/30 rounded-xl px-3 py-1.5 flex items-center justify-between text-xs transition-colors shadow">
+          <div class="flex items-center gap-2 truncate">
+            <span class="text-sm">🏆</span>
+            <span id="quick-lb-text" class="text-[#ede0c8] font-bold truncate">No recorded games yet — Play &amp; set the 1st score!</span>
+          </div>
+          <span class="text-[11px] font-bold text-[#edc22e] shrink-0 ml-1">Rankings →</span>
+        </button>
+
+        <!-- OPTIONAL MOBILE TOUCH D-PAD -->
+        <div id="mobile-dpad-container" class="hidden w-full flex flex-col items-center justify-center pt-1">
+          <div class="grid grid-cols-3 gap-1.5 w-40">
+            <div></div>
+            <button id="dpad-up" type="button" class="h-9 rounded-lg bg-[#463d37] border border-[#bbada0]/40 flex items-center justify-center text-base text-white font-black shadow active:scale-90 transition-all">▲</button>
+            <div></div>
+
+            <button id="dpad-left" type="button" class="h-9 rounded-lg bg-[#463d37] border border-[#bbada0]/40 flex items-center justify-center text-base text-white font-black shadow active:scale-90 transition-all">◀</button>
+            <button id="dpad-down" type="button" class="h-9 rounded-lg bg-[#463d37] border border-[#bbada0]/40 flex items-center justify-center text-base text-white font-black shadow active:scale-90 transition-all">▼</button>
+            <button id="dpad-right" type="button" class="h-9 rounded-lg bg-[#463d37] border border-[#bbada0]/40 flex items-center justify-center text-base text-white font-black shadow active:scale-90 transition-all">▶</button>
+          </div>
+        </div>
+      </div>
+
+
+    </div> <!-- End Primary Viewport Game Board Area -->
+
+    <!-- =========================================================================
+         SEO STRATEGY GUIDE, FAQ & CRAWLABLE SEMANTIC FOOTER
+    ========================================================================= -->
+    <article class="w-full max-w-3xl mx-auto px-4 sm:px-6 py-10 space-y-8 text-[#ede0c8] selectable-text border-t border-[#bbada0]/20 bg-[#1e1916]/40">
+      <header class="space-y-2 border-b border-[#bbada0]/20 pb-4">
+        <h2 class="text-2xl sm:text-3xl font-black text-white">Play 2048 Online — The Authentic Strategy &amp; Guide</h2>
+        <p class="text-sm text-[#cdc1b4] leading-relaxed">
+          Welcome to the authentic, fast, and ad-free web edition of <strong>2048</strong>. Swipe to merge numbers across the 4&times;4 grid, unlock legendary high-value tiles, and compete against real players on verified global leaderboards.
+        </p>
+      </header>
+
+      <!-- Rules & Mechanics -->
+      <section class="space-y-3">
+        <h3 class="text-lg sm:text-xl font-black text-[#edc22e] flex items-center gap-2">
+          <span>🎮</span> How to Play 2048
+        </h3>
+        <p class="text-sm leading-relaxed text-[#cdc1b4]">
+          Control the board with your <strong>Arrow Keys</strong> or <strong>W, A, S, D</strong> on desktop, or simply <strong>swipe with your fingers</strong> on any touch screen or smartphone. All tiles slide together until they reach the grid edge or collide with another tile.
+        </p>
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 pt-1">
+          <div class="bg-[#27211e] border border-[#bbada0]/20 rounded-xl p-3.5 space-y-1">
+            <div class="text-white font-bold text-sm">1. Merge Identical Numbers</div>
+            <p class="text-xs text-[#cdc1b4]">When two tiles of identical value collide (2+2, 4+4, 8+8), they combine into a single tile with double the value.</p>
+          </div>
+          <div class="bg-[#27211e] border border-[#bbada0]/20 rounded-xl p-3.5 space-y-1">
+            <div class="text-white font-bold text-sm">2. Board Spawns</div>
+            <p class="text-xs text-[#cdc1b4]">Every move spawns a new 2 (90% probability) or 4 (10% probability) in an unoccupied cell.</p>
+          </div>
+          <div class="bg-[#27211e] border border-[#bbada0]/20 rounded-xl p-3.5 space-y-1">
+            <div class="text-white font-bold text-sm">3. Reach the 2048 Tile</div>
+            <p class="text-xs text-[#cdc1b4]">Build your way to the golden 2048 tile to win, and keep going for 4096, 8192, and personal best scores!</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Corner Anchor Strategy -->
+      <section class="space-y-3">
+        <h3 class="text-lg sm:text-xl font-black text-[#edc22e] flex items-center gap-2">
+          <span>📐</span> The Corner Anchor Strategy (How to Win Consistently)
+        </h3>
+        <p class="text-sm leading-relaxed text-[#cdc1b4]">
+          The most reliable method to reach 2048 and beyond is the <strong>Corner Anchor Strategy</strong>:
+        </p>
+        <ol class="list-decimal list-inside space-y-2 text-sm text-[#cdc1b4] bg-[#27211e] border border-[#bbada0]/20 rounded-xl p-4">
+          <li><strong class="text-white">Designate a Corner Anchor:</strong> Pick one corner (e.g. bottom-right) and never swipe in the opposite direction. If your anchor is on the bottom, <em>never swipe Up</em> unless forced by a full board.</li>
+          <li><strong class="text-white">Maintain Strict Monotonicity:</strong> Keep tiles in descending numerical order along your primary wall (e.g. 1024 &rarr; 512 &rarr; 256 &rarr; 128).</li>
+          <li><strong class="text-white">Trigger Cascading Merges:</strong> Collapse tiles downward and sideways like falling dominoes to clear space efficiently.</li>
+        </ol>
+        <div class="pt-1">
+          <a href="/how-to-play" class="text-xs font-bold text-[#edc22e] hover:underline flex items-center gap-1">
+            <span>Read the Complete 2048 Strategy Guide &amp; Analysis &rarr;</span>
+          </a>
+        </div>
+      </section>
+
+      <!-- Frequently Asked Questions (FAQ) -->
+      <section class="space-y-4">
+        <h3 class="text-lg sm:text-xl font-black text-[#edc22e] flex items-center gap-2">
+          <span>❓</span> Frequently Asked Questions (FAQ)
+        </h3>
+        <div class="space-y-3">
+          <details class="bg-[#27211e] border border-[#bbada0]/20 rounded-xl p-3.5 text-sm cursor-pointer group">
+            <summary class="font-bold text-white group-hover:text-[#edc22e] transition-colors">What is the highest possible tile in 2048?</summary>
+            <p class="mt-2 text-xs text-[#cdc1b4] leading-relaxed">
+              On a standard 4&times;4 grid, the theoretical maximum tile achievable is <strong>131,072</strong>, with a theoretical maximum score of approximately <strong>3,932,156 points</strong>.
+            </p>
+          </details>
+          <details class="bg-[#27211e] border border-[#bbada0]/20 rounded-xl p-3.5 text-sm cursor-pointer group">
+            <summary class="font-bold text-white group-hover:text-[#edc22e] transition-colors">Is 2048 purely luck or strategy?</summary>
+            <p class="mt-2 text-xs text-[#cdc1b4] leading-relaxed">
+              While new tile spawns are randomized, players adhering to disciplined corner anchoring and monotonicity win over <strong>95%</strong> of their matches. Skill and space management dominate random chance.
+            </p>
+          </details>
+          <details class="bg-[#27211e] border border-[#bbada0]/20 rounded-xl p-3.5 text-sm cursor-pointer group">
+            <summary class="font-bold text-white group-hover:text-[#edc22e] transition-colors">Can I play 2048 unblocked at school or work?</summary>
+            <p class="mt-2 text-xs text-[#cdc1b4] leading-relaxed">
+              Yes! Our platform runs on pure HTML5 and HTTPS without Adobe Flash, external plugins, or intrusive ads. Visit our dedicated <a href="/2048-unblocked" class="text-[#edc22e] underline font-bold">2048 Unblocked</a> page to play freely on school Chromebooks and restricted networks.
+            </p>
+          </details>
+          <details class="bg-[#27211e] border border-[#bbada0]/20 rounded-xl p-3.5 text-sm cursor-pointer group">
+            <summary class="font-bold text-white group-hover:text-[#edc22e] transition-colors">How does the real-time leaderboard work?</summary>
+            <p class="mt-2 text-xs text-[#cdc1b4] leading-relaxed">
+              Every completed match is securely recorded in a high-speed Cloudflare D1 database. There are zero simulated bot scores — every leaderboard entry comes from an authentic human device.
+            </p>
+          </details>
+        </div>
+      </section>
+
+      <!-- Semantic Crawlable Footer -->
+      <footer class="pt-6 border-t border-[#bbada0]/20 text-xs text-[#cdc1b4] space-y-4">
+        <div class="flex flex-wrap items-center justify-between gap-3">
+          <div>&copy; 2026 <a href="/" class="text-white font-bold hover:text-[#edc22e]">2048 Online</a>. Built with MIT Open Source Heritage.</div>
+          <nav aria-label="Site Links" class="flex flex-wrap items-center gap-x-4 gap-y-1">
+            <a href="/how-to-play" class="hover:text-[#edc22e] transition-colors">How to Play</a>
+            <a href="/unblocked" class="hover:text-[#edc22e] transition-colors">2048 Unblocked</a>
+            <a href="/about" class="hover:text-[#edc22e] transition-colors">About Us</a>
+            <a href="/contact" class="hover:text-[#edc22e] transition-colors">Contact</a>
+            <a href="/privacy" class="hover:text-[#edc22e] transition-colors">Privacy Policy</a>
+            <a href="/terms" class="hover:text-[#edc22e] transition-colors">Terms</a>
+          </nav>
+
+  <!-- =========================================================================
+       ZERO-CLS DISPLAY AD CONTAINER (TASK 3)
+       Min-height: 90px desktop, 50px mobile. Styled in #1f1b18 / #2a2420.
+       Positioned below the bottom navigation bar so CLS = 0 and swipe gestures are never blocked.
+  ========================================================================= -->
+  <aside id="bottom-ad-container" class="w-full shrink-0 min-h-[50px] md:min-h-[90px] h-[50px] md:h-[90px] bg-[#1f1b18] border-t border-[#2a2420] flex items-center justify-center relative overflow-hidden select-none z-20" aria-label="Sponsored Advertisement">
+    <div class="w-full max-w-[728px] h-full flex flex-col items-center justify-center px-2 text-center">
+      <span class="text-[8px] sm:text-[9px] uppercase tracking-widest text-[#8e857d]/60 font-semibold mb-0.5">Advertisement</span>
+      <div id="ad-slot-responsive-banner" class="w-full flex-1 max-h-[35px] md:max-h-[70px] border border-dashed border-[#bbada0]/15 rounded-md flex items-center justify-center bg-[#2a2420]/50 text-[10px] sm:text-xs text-[#cdc1b4]/40 font-mono">
+        <span>Responsive Display Ad Slot (Zero CLS)</span>
+      </div>
+    </div>
+  </aside>
+
+        </div>
+        <p class="text-[11px] text-[#cdc1b4]/70">
+          Original 2048 game conceptualized by Gabriele Cirulli based on 1024 by Veewo Studio and Threes by Sirvo. This edition is independently maintained with zero fake scores, cloud persistence, and mobile optimizations.
+        </p>
+      </footer>
+    </article>
+
+  </div> <!-- End tab-view-game -->
+
+
+    <!-- =========================================================================
+         VIEW 2: REAL LEADERBOARD & CAREER STATS TAB
+    ========================================================================= -->
+    <div id="tab-view-leaderboard" class="hidden w-full max-w-2xl mx-auto h-full overflow-y-auto custom-scroll p-4 sm:p-6 space-y-4">
+      <div class="flex items-center justify-between border-b border-[#bbada0]/25 pb-3">
+        <div>
+          <h2 class="text-xl sm:text-2xl font-black text-white flex items-center gap-2">
+            <span>🏆</span> 2048 Leaderboard &amp; Stats
+          </h2>
+          <p class="text-xs text-[#cdc1b4]">Verified real player runs &amp; lifetime records</p>
+        </div>
+        <button id="back-to-game-btn" type="button" class="px-3.5 py-1.5 rounded-lg bg-[#edc22e] hover:bg-[#e5b822] text-[#3c3a32] font-black text-xs uppercase tracking-wider shadow transition-all">
+          ← Play Game
+        </button>
+      </div>
+
+      <!-- Filters Row -->
+      <div class="flex items-center justify-between gap-2">
+        <div class="flex items-center gap-1 bg-[#221c19] p-1 rounded-lg">
+          <button id="lb-filter-today" type="button" class="px-3 py-1.5 rounded-md text-xs font-black bg-[#edc22e] text-[#3c3a32] shadow-xs transition-all">⚡ Today (Day)</button>
+          <button id="lb-filter-all" type="button" class="px-3 py-1.5 rounded-md text-xs font-black text-[#cdc1b4] hover:text-white transition-all">🏆 All-Time</button>
+          <button id="lb-filter-mine" type="button" class="px-3 py-1.5 rounded-md text-xs font-bold text-[#cdc1b4] hover:text-white transition-all">👤 My Runs</button>
+        </div>
+        <button id="edit-profile-btn" type="button" class="text-xs font-bold text-[#edc22e] hover:underline flex items-center gap-1">
+          <span>Edit Nickname</span> ✎
+        </button>
+      </div>
+
+      <!-- Leaderboard Table Container -->
+      <div class="bg-[#2a2420] border border-[#bbada0]/30 rounded-xl overflow-hidden shadow">
+        <div class="max-h-[260px] overflow-y-auto custom-scroll">
+          <table class="w-full text-left text-xs border-collapse">
+            <thead>
+              <tr class="border-b border-[#bbada0]/20 bg-[#221d1a] text-[#cdc1b4] text-[10px] uppercase tracking-wider sticky top-0">
+                <th class="py-2.5 px-2 text-center w-8">#</th>
+                <th class="py-2.5 px-3">Player</th>
+                <th class="py-2.5 px-2 text-center">Tile</th>
+                <th class="py-2.5 px-2 text-right">Moves</th>
+                <th class="py-2.5 px-3 text-right">Score</th>
+              </tr>
+            </thead>
+            <tbody id="leaderboard-table-body" class="divide-y divide-[#bbada0]/15">
+              <!-- Dynamically populated real rows -->
+            </tbody>
+          </table>
+
+          <div id="lb-empty-state" class="hidden py-8 px-4 text-center space-y-2">
+            <div class="text-3xl">🎯</div>
+            <div class="text-sm font-extrabold text-white">No Verified Runs Recorded Yet</div>
+            <p class="text-xs text-[#cdc1b4] max-w-xs mx-auto">
+              This leaderboard records real completed games. Play a round and reach your high score to claim Rank #1!
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Player Career Analytics Cards -->
+      <div class="space-y-2 pt-2">
+        <h3 class="text-sm font-black text-white flex items-center gap-1.5">
+          <span>📊</span> Career Lifetime Statistics
+        </h3>
+        <div class="grid grid-cols-2 sm:grid-cols-3 gap-2 text-center">
+          <div class="bg-[#26201d] border border-[#bbada0]/20 rounded-xl p-2.5">
+            <div class="text-[10px] font-extrabold uppercase text-[#cdc1b4]">High Score</div>
+            <div id="dash-high-score" class="text-base font-black text-[#edc22e]">0</div>
+          </div>
+          <div class="bg-[#26201d] border border-[#bbada0]/20 rounded-xl p-2.5 flex flex-col items-center justify-center">
+            <div class="text-[10px] font-extrabold uppercase text-[#cdc1b4]">Max Tile</div>
+            <div id="dash-max-tile-badge" class="mt-0.5 px-2.5 py-0.5 rounded font-black text-xs bg-[#eee4da] text-[#776e65]">2</div>
+          </div>
+          <div class="bg-[#26201d] border border-[#bbada0]/20 rounded-xl p-2.5">
+            <div class="text-[10px] font-extrabold uppercase text-[#cdc1b4]">Games Played</div>
+            <div id="dash-games-played" class="text-base font-black text-white">0</div>
+          </div>
+          <div class="bg-[#26201d] border border-[#bbada0]/20 rounded-xl p-2.5">
+            <div class="text-[10px] font-extrabold uppercase text-[#cdc1b4]">2048 Wins</div>
+            <div id="dash-wins-count" class="text-base font-black text-emerald-400">0</div>
+          </div>
+          <div class="bg-[#26201d] border border-[#bbada0]/20 rounded-xl p-2.5">
+            <div class="text-[10px] font-extrabold uppercase text-[#cdc1b4]">Avg Score</div>
+            <div id="dash-avg-score" class="text-base font-black text-white">0</div>
+          </div>
+          <div class="bg-[#26201d] border border-[#bbada0]/20 rounded-xl p-2.5">
+            <div class="text-[10px] font-extrabold uppercase text-[#cdc1b4]">Total Moves</div>
+            <div id="dash-total-moves" class="text-base font-black text-white">0</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tile Milestones Showcase -->
+      <div class="bg-[#26201d] border border-[#bbada0]/20 rounded-xl p-3">
+        <div class="text-[10px] font-extrabold uppercase tracking-wider text-[#cdc1b4] mb-2">Tile Milestones Unlocked</div>
+        <div id="tile-milestone-gallery" class="flex items-center justify-between gap-1 overflow-x-auto py-1"></div>
+      </div>
+
+      <!-- Actions -->
+      <div class="flex items-center justify-between pt-2 border-t border-[#bbada0]/20 text-xs">
+        <button id="clear-history-prompt-btn" type="button" class="text-[#cdc1b4] hover:text-red-400 font-bold transition-colors">
+          Reset Device Data
+        </button>
+        <button id="export-json-btn" type="button" class="text-[#cdc1b4] hover:text-white font-bold transition-colors">
+          📥 Export Stats JSON
+        </button>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- ==================== USERNAME EDIT MODAL ==================== -->
+  <div id="username-modal" class="hidden absolute inset-0 bg-black/75 backdrop-blur-sm flex items-center justify-center p-4 z-40">
+    <div class="bg-[#332c28] border border-[#bbada0]/40 rounded-2xl max-w-sm w-full p-4 space-y-3 shadow-2xl">
+      <div class="flex items-center justify-between">
+        <h3 class="text-sm font-black text-white flex items-center gap-1.5"><span>👤</span> Player Login &amp; Device Sync</h3>
+        <button id="close-user-modal-btn" type="button" class="text-[#cdc1b4] hover:text-white text-base font-bold">✕</button>
+      </div>
+
+      <p class="text-xs text-[#cdc1b4] leading-relaxed">
+        Log in with your nickname. Every game you play on this device is permanently recorded under your name in the database.
+      </p>
+      <div class="bg-[#241e1b] rounded-lg p-2 text-[11px] text-[#edc22e] flex items-center justify-between border border-[#bbada0]/20">
+        <span>Device ID: <code class="font-mono text-[#f9f6f2]">${deviceId.slice(0, 16)}...</code></span>
+        <span class="text-emerald-400 font-bold">Linked ✓</span>
+      </div>
+
+      <form id="profile-name-form" class="space-y-3">
+        <input id="profile-name-input" type="text" maxlength="16" placeholder="Enter player name" class="w-full bg-[#241e1b] border border-[#bbada0]/40 rounded-lg px-3 py-2 text-sm font-bold text-white focus:outline-none focus:border-[#edc22e]" required />
+        <div class="flex items-center gap-2">
+          <button type="button" id="random-name-btn" class="px-3 py-2 rounded-lg bg-[#443c37] hover:bg-[#524943] text-xs font-bold text-[#ede0c8]">
+            🎲 Random
+          </button>
+          <button type="submit" class="flex-1 py-2 rounded-lg bg-[#edc22e] hover:bg-[#e5b822] text-[#3c3a32] font-black text-xs uppercase tracking-wider">
+            Login / Sync Device
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- ==================== CONFIRM RESET MODAL ==================== -->
+  <div id="confirm-reset-modal" class="hidden absolute inset-0 bg-black/75 backdrop-blur-sm flex items-center justify-center p-4 z-40">
+    <div class="bg-[#332c28] border border-[#bbada0]/40 rounded-2xl max-w-sm w-full p-4 space-y-3 shadow-2xl text-center">
+      <div class="text-3xl">📱</div>
+      <h3 class="text-sm font-black text-white">Reset Local Device Data?</h3>
+      <p class="text-xs text-[#cdc1b4]">
+        This will reset your local saved game session and personal stats on this device. Worldwide cloud leaderboard records will remain permanently saved.
+      </p>
+      <div class="flex items-center gap-2 pt-1">
+        <button id="cancel-reset-btn" type="button" class="flex-1 py-2 rounded-lg bg-[#443c37] hover:bg-[#524943] text-xs font-bold text-[#ede0c8]">
+          Cancel
+        </button>
+        <button id="confirm-reset-btn" type="button" class="flex-1 py-2 rounded-lg bg-red-600 hover:bg-red-700 text-white font-black text-xs uppercase tracking-wider">
+          Reset Device Data
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- =========================================================================
+       BOTTOM NAVIGATION BAR (Matches User Screenshot Structure)
+       [Logo] [Game] [Leaderboard] [About] [How to Play] [Contact] ... [Privacy] [Terms] [🔊]
+  ========================================================================= -->
+  
+  <!-- ==================== REWARDED AD UNDO MODAL (TASK 3) ==================== -->
+  <div id="rewarded-undo-modal" class="hidden fixed inset-0 bg-black/80 backdrop-blur-sm flex items-center justify-center p-4 z-50 select-none">
+    <div class="bg-[#2a2420] border border-[#bbada0]/30 rounded-2xl max-w-sm w-full p-5 space-y-4 shadow-2xl text-center text-white">
+      <div class="w-12 h-12 mx-auto rounded-full bg-[#edc22e]/20 border border-[#edc22e]/40 flex items-center justify-center text-2xl">
+        🎁
+      </div>
+      <div class="space-y-1">
+        <h3 class="text-base sm:text-lg font-black text-white">Out of Undo Moves!</h3>
+        <p class="text-xs text-[#cdc1b4] leading-relaxed">
+          Watch a quick sponsor clip to get <strong>+3 Extra Undos</strong> and keep your high-score run alive!
+        </p>
+      </div>
+
+      <div class="bg-[#1f1b18] border border-[#bbada0]/20 rounded-xl p-3 flex items-center justify-between text-xs">
+        <span class="text-[#cdc1b4]">Undos Left:</span>
+        <span class="font-extrabold text-[#f67c5f]">0 Left</span>
+      </div>
+
+      <div class="space-y-2 pt-1">
+        <button id="claim-rewarded-undo-btn" type="button" class="w-full py-2.5 px-4 rounded-xl bg-[#edc22e] hover:bg-[#e5b822] text-[#3c3a32] font-black text-xs uppercase tracking-wider shadow-lg transition-all active:scale-95 flex items-center justify-center gap-1.5 cursor-pointer">
+          <span>🎬</span>
+          <span id="claim-rewarded-btn-text">Get +3 Extra Undos</span>
+        </button>
+        <button id="cancel-rewarded-undo-btn" type="button" class="w-full py-2 px-3 rounded-lg text-xs font-bold text-[#cdc1b4] hover:text-white transition-colors cursor-pointer">
+          No Thanks, Keep Playing
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <nav id="bottom-navbar" class="w-full bg-[#181a1d] border-t border-[#31353d] px-2 sm:px-4 h-12 shrink-0 z-30 flex items-center justify-between select-none">
+    
+    <!-- Left Group: Proper 2048 Logo & Primary Tabs -->
+    <div class="flex items-center gap-1 sm:gap-2 overflow-x-auto no-scrollbar py-1">
+      
+      <!-- PROPER 2048 LOGO (Clickable: returns to Game) -->
+      <a href="/" id="nav-logo-btn" class="flex items-center gap-1.5 pr-2 py-1 cursor-pointer group focus:outline-none shrink-0" title="Play 2048 Online Home">
+        <!-- 2x2 Mini Board Emblem -->
+        <div class="w-7 h-7 sm:w-8 sm:h-8 rounded-lg bg-[#bbada0] p-1 grid grid-cols-2 grid-rows-2 gap-0.5 shadow shrink-0 group-hover:scale-105 transition-transform">
+          <div class="rounded-[2.5px] bg-[#eee4da] flex items-center justify-center font-black text-[7.5px] sm:text-[8px] text-[#776e65] leading-none">2</div>
+          <div class="rounded-[2.5px] bg-[#ede0c8] flex items-center justify-center font-black text-[7.5px] sm:text-[8px] text-[#776e65] leading-none">4</div>
+          <div class="rounded-[2.5px] bg-[#f2b179] flex items-center justify-center font-black text-[7.5px] sm:text-[8px] text-white leading-none">8</div>
+          <div class="rounded-[2.5px] bg-[#edc22e] flex items-center justify-center font-black text-[7.5px] sm:text-[8px] text-white leading-none">16</div>
+        </div>
+        <!-- Stylized 2048 Brand Typography -->
+        <div class="font-black text-sm sm:text-base tracking-tight flex items-center group-hover:opacity-90 transition-opacity">
+          <span class="text-[#f9f6f2]">2</span>
+          <span class="text-[#f2b179]">0</span>
+          <span class="text-[#f67c5f]">4</span>
+          <span class="text-[#edc22e]">8</span>
+        </div>
+      </a>
+
+      <!-- Tab 1: Game (Active by default) -->
+      <a href="/" id="tab-btn-game" class="bottom-tab-btn active-tab px-2.5 sm:px-3 py-1.5 rounded-lg text-xs font-black flex items-center gap-1 shrink-0"><span>Game</span></a>
+
+      <!-- Tab 2: Leaderboard -->
+      <a href="/leaderboard" id="tab-btn-leaderboard" class="bottom-tab-btn px-2 sm:px-2.5 py-1.5 rounded-lg text-xs font-bold flex items-center gap-1 shrink-0"><span>Leaderboard</span></a>
+
+      <!-- Tab 3: About (Opens dedicated /about-us page) -->
+      <a href="/about" id="tab-btn-about" class="bottom-tab-btn px-2 sm:px-2.5 py-1.5 rounded-lg text-xs font-bold flex items-center gap-1 shrink-0">
+        <span>About</span>
+      </a>
+
+      <!-- Tab 4: How to Play (Opens dedicated /how-to-play page) -->
+      <a href="/how-to-play" id="tab-btn-howto" class="bottom-tab-btn px-2 sm:px-2.5 py-1.5 rounded-lg text-xs font-bold flex items-center gap-1 shrink-0">
+        <span>How to Play</span>
+      </a>
+
+      <!-- Tab 5: Unblocked -->
+      <a href="/unblocked" id="tab-btn-unblocked" class="bottom-tab-btn px-2 sm:px-2.5 py-1.5 rounded-lg text-xs font-bold flex items-center gap-1 shrink-0">
+        <span>Unblocked</span>
+      </a>
+
+      <!-- Tab 5: Contact (Opens dedicated /contact-us page) -->
+      <a href="/contact" id="tab-btn-contact" class="bottom-tab-btn px-2 sm:px-2.5 py-1.5 rounded-lg text-xs font-bold flex items-center gap-1 shrink-0">
+        <span>Contact</span>
+      </a>
+
+    </div>
+
+    <!-- Right Group: Legal Links & Audio Button (Matches Screenshot) -->
+    <div class="flex items-center gap-1.5 sm:gap-2.5 shrink-0 pl-1 sm:pl-2">
+      <!-- Privacy Policy Tab (Opens dedicated /privacy-policy page) -->
+      <a href="/privacy" id="tab-btn-privacy" class="bottom-tab-btn text-xs font-medium py-1 px-1.5 shrink-0 hidden md:inline-block">
+        Privacy Policy
+      </a>
+
+      <!-- Terms Tab (Opens dedicated /terms page) -->
+      <a href="/terms" id="tab-btn-terms" class="bottom-tab-btn text-xs font-medium py-1 px-1.5 shrink-0 hidden md:inline-block">
+        Terms
+      </a>
+
+      <!-- Sound Toggle Button -->
+      <button id="bottom-sound-toggle-btn" type="button" class="w-8 h-8 rounded-lg bg-[#272a2f] hover:bg-[#34383f] border border-[#414652] flex items-center justify-center text-xs text-white transition-colors shrink-0 shadow-sm" title="Toggle Sound" aria-label="Toggle Sound">
+        🔊
+      </button>
+    </div>
+
+  </nav>
+
+  <!-- ==================== JAVASCRIPT GAME ENGINE & CONTROLLERS ==================== -->
+  <script>
+    (function() {
+      'use strict';
+
+      // =========================================================================
+      // 1. DATA PERSISTENCE & STORAGE KEYS
+      // =========================================================================
+      const STORAGE_KEYS = {
+        PROFILE: '2048_player_profile',
+        SETTINGS: '2048_player_settings',
+        RECORDS: '2048_verified_records_v1',
+        DEVICE_ID: '2048_persistent_device_id',
+        ACTIVE_SESSION: '2048_active_board_session'
+      };
+
+      const RANDOM_NAMES = [
+        'SwiftSlider', 'TileMaster', 'MatrixFox', 'GridChampion', 'ApexMerger',
+        'Quantum2048', 'GoldenTile', 'PixelBrain', 'CornerAnchor', 'CosmicSolver',
+        'LogicAce', 'TileSurfer', 'BoardWizard', 'SpeedMerger', 'ZoomyBeak'
+      ];
+
+      // Persistent Unique Device Identifier for this hardware/browser
+      
+      // =========================================================================
+      // 1.1 GA4 TELEMETRY HELPER
+      // =========================================================================
+      const trackedMilestones = new Set();
+      function trackGAEvent(eventName, params = {}) {
+        try {
+          if (typeof window.gtag === 'function') {
+            window.gtag('event', eventName, params);
+          }
+        } catch (e) {}
+      }
+
+      // =========================================================================
+      // 1.2 SEEDED DAILY PUZZLE ENGINE (WORDLE-EFFECT)
+      // =========================================================================
+      let currentGameMode = 'daily'; // 'classic' | 'daily'
+      let dailyRandom = null;
+
+      function createSeededRandom(seed) {
+        let s = seed % 2147483647;
+        if (s <= 0) s += 2147483646;
+        return function() {
+          s = (s * 16807) % 2147483647;
+          return (s - 1) / 2147483646;
+        };
+      }
+
+      function getDailySeedInfo() {
+        const now = new Date();
+        const year = now.getUTCFullYear();
+        const month = String(now.getUTCMonth() + 1).padStart(2, '0');
+        const day = String(now.getUTCDate()).padStart(2, '0');
+        const dateStr = year + '-' + month + '-' + day;
+        const seed = parseInt('' + year + month + day, 10);
+        const epoch = new Date(Date.UTC(2026, 9, 24)); // Oct 24, 2026 launch date
+        const dayNumber = Math.max(1, Math.floor((now.getTime() - epoch.getTime()) / (1000 * 60 * 60 * 24)));
+        return { dateStr, seed, dayNumber };
+      }
+
+      let deviceId = localStorage.getItem(STORAGE_KEYS.DEVICE_ID);
+      if (!deviceId) {
+        deviceId = 'dev_' + Date.now().toString(36) + '_' + Math.random().toString(36).slice(2, 9);
+        localStorage.setItem(STORAGE_KEYS.DEVICE_ID, deviceId);
+      }
+
+      let profile = {
+        name: RANDOM_NAMES[Math.floor(Math.random() * RANDOM_NAMES.length)] + Math.floor(10 + Math.random() * 89),
+        deviceId: deviceId,
+        createdAt: Date.now(),
+        highScore: 0,
+        highestTile: 2,
+        gamesPlayed: 0,
+        wins2048: 0,
+        totalScore: 0,
+        totalMoves: 0
+      };
+
+      let dbConnected = true;
+
+      let settings = {
+        sound: true,
+        haptics: true,
+        showDpad: false
+      };
+
+      let matchRecords = [];
+      let activeLbFilter = 'today';
+
+      function loadPersistentData() {
+        try {
+          const rawProfile = localStorage.getItem(STORAGE_KEYS.PROFILE);
+          if (rawProfile) profile = Object.assign(profile, JSON.parse(rawProfile));
+
+          const rawSettings = localStorage.getItem(STORAGE_KEYS.SETTINGS);
+          if (rawSettings) settings = Object.assign(settings, JSON.parse(rawSettings));
+
+          const rawRecords = localStorage.getItem(STORAGE_KEYS.RECORDS);
+          if (rawRecords) {
+            const parsed = JSON.parse(rawRecords);
+            if (Array.isArray(parsed)) matchRecords = parsed;
+          }
+        } catch (e) {
+          console.warn('LocalStorage error:', e);
+        }
+      }
+
+      function savePersistentData() {
+        try {
+          localStorage.setItem(STORAGE_KEYS.PROFILE, JSON.stringify(profile));
+          localStorage.setItem(STORAGE_KEYS.SETTINGS, JSON.stringify(settings));
+          localStorage.setItem(STORAGE_KEYS.RECORDS, JSON.stringify(matchRecords));
+        } catch (e) {
+          console.warn('LocalStorage save error:', e);
+        }
+      }
+
+      // =========================================================================
+      // 2. SYNTHESIZED WEB AUDIO & HAPTIC FEEDBACK
+      // =========================================================================
+      let audioCtx = null;
+
+      function ensureAudio() {
+        if (!settings.sound) return;
+        if (!audioCtx) {
+          const AudioContextClass = window.AudioContext || window.webkitAudioContext;
+          if (AudioContextClass) audioCtx = new AudioContextClass();
+        }
+        if (audioCtx && audioCtx.state === 'suspended') {
+          audioCtx.resume();
+        }
+      }
+
+      function triggerHaptic(type = 'tap') {
+        if (!settings.haptics || !navigator.vibrate) return;
+        try {
+          if (type === 'tap') navigator.vibrate(12);
+          else if (type === 'merge') navigator.vibrate(20);
+          else if (type === 'win') navigator.vibrate([40, 50, 80, 50, 100]);
+        } catch (e) {}
+      }
+
+      function playSound(type, tileVal = 4) {
+        if (!settings.sound) return;
+        try {
+          ensureAudio();
+          if (!audioCtx) return;
+          const now = audioCtx.currentTime;
+
+          if (type === 'slide') {
+            const osc = audioCtx.createOscillator();
+            const gain = audioCtx.createGain();
+            osc.type = 'sine';
+            osc.frequency.setValueAtTime(170, now);
+            osc.frequency.exponentialRampToValueAtTime(110, now + 0.045);
+            gain.gain.setValueAtTime(0.12, now);
+            gain.gain.exponentialRampToValueAtTime(0.001, now + 0.05);
+            osc.connect(gain);
+            gain.connect(audioCtx.destination);
+            osc.start(now);
+            osc.stop(now + 0.055);
+          } else if (type === 'merge') {
+            const step = Math.min(11, Math.max(1, Math.log2(tileVal)));
+            const freq = 220 + step * 55;
+            const osc = audioCtx.createOscillator();
+            const gain = audioCtx.createGain();
+            osc.type = 'triangle';
+            osc.frequency.setValueAtTime(freq, now);
+            osc.frequency.exponentialRampToValueAtTime(freq * 1.25, now + 0.08);
+            gain.gain.setValueAtTime(0.24, now);
+            gain.gain.exponentialRampToValueAtTime(0.001, now + 0.085);
+            osc.connect(gain);
+            gain.connect(audioCtx.destination);
+            osc.start(now);
+            osc.stop(now + 0.09);
+          } else if (type === 'win') {
+            [523.25, 659.25, 783.99, 1046.5].forEach((freq, idx) => {
+              const osc = audioCtx.createOscillator();
+              const gain = audioCtx.createGain();
+              osc.type = 'triangle';
+              osc.frequency.setValueAtTime(freq, now + idx * 0.085);
+              gain.gain.setValueAtTime(0.22, now + idx * 0.085);
+              gain.gain.exponentialRampToValueAtTime(0.001, now + idx * 0.085 + 0.25);
+              osc.connect(gain);
+              gain.connect(audioCtx.destination);
+              osc.start(now + idx * 0.085);
+              osc.stop(now + idx * 0.085 + 0.26);
+            });
+          }
+        } catch (e) {}
+      }
+
+      // =========================================================================
+      // 3. TILE COLOR PALETTE & STYLES
+      // =========================================================================
+      const TILE_STYLES = {
+        2: { bg: '#eee4da', text: '#776e65', scale: 0.44 },
+        4: { bg: '#ede0c8', text: '#776e65', scale: 0.44 },
+        8: { bg: '#f2b179', text: '#f9f6f2', scale: 0.44 },
+        16: { bg: '#f59563', text: '#f9f6f2', scale: 0.40 },
+        32: { bg: '#f67c5f', text: '#f9f6f2', scale: 0.40 },
+        64: { bg: '#f65e3b', text: '#f9f6f2', scale: 0.40 },
+        128: { bg: '#edcf72', text: '#f9f6f2', scale: 0.35 },
+        256: { bg: '#edcc61', text: '#f9f6f2', scale: 0.35 },
+        512: { bg: '#edc850', text: '#f9f6f2', scale: 0.35 },
+        1024: { bg: '#edc53f', text: '#f9f6f2', scale: 0.28 },
+        2048: { bg: '#edc22e', text: '#f9f6f2', scale: 0.28 },
+        4096: { bg: '#3c3a32', text: '#f9f6f2', scale: 0.28 },
+        8192: { bg: '#25231f', text: '#f9f6f2', scale: 0.28 }
+      };
+
+      // =========================================================================
+      // 4. GAME ENGINE STATE
+      // =========================================================================
+      let nextTileId = 1;
+      let grid = [
+        [null, null, null, null],
+        [null, null, null, null],
+        [null, null, null, null],
+        [null, null, null, null]
+      ];
+      let score = 0;
+      let moves = 0;
+      let bestTile = 2;
+      let undoStack = [];
+      let undosLeft = 3;
+      let hasWon2048 = false;
+      let keepPlaying = false;
+      let isGameOver = false;
+      let isAnimating = false;
+      let gameStartTime = Date.now();
+
+      const tileLayerEl = document.getElementById('tile-layer');
+
+      function getEmptyCells() {
+        const list = [];
+        for (let r = 0; r < 4; r++) {
+          for (let c = 0; c < 4; c++) {
+            if (!grid[r][c]) list.push({ r, c });
+          }
+        }
+        return list;
+      }
+
+      function spawnRandomTile() {
+        const emptyCells = getEmptyCells();
+        if (emptyCells.length === 0) return null;
+        const rng = (currentGameMode === 'daily' && dailyRandom) ? dailyRandom() : Math.random();
+        const rngVal = (currentGameMode === 'daily' && dailyRandom) ? dailyRandom() : Math.random();
+        const cell = emptyCells[Math.floor(rng * emptyCells.length)];
+        const val = rngVal < 0.9 ? 2 : 4;
+        const tile = {
+          id: nextTileId++,
+          val: val,
+          r: cell.r,
+          c: cell.c,
+          isNew: true,
+          isMerged: false
+        };
+        grid[cell.r][cell.c] = tile;
+        return tile;
+      }
+
+      function getHighestTile() {
+        let max = 2;
+        for (let r = 0; r < 4; r++) {
+          for (let c = 0; c < 4; c++) {
+            if (grid[r][c] && grid[r][c].val > max) max = grid[r][c].val;
+          }
+        }
+        return max;
+      }
+
+      function hasMovesRemaining() {
+        for (let r = 0; r < 4; r++) {
+          for (let c = 0; c < 4; c++) {
+            if (!grid[r][c]) return true;
+            const currentVal = grid[r][c].val;
+            if (r < 3 && grid[r + 1][c] && grid[r + 1][c].val === currentVal) return true;
+            if (c < 3 && grid[r][c + 1] && grid[r][c + 1].val === currentVal) return true;
+          }
+        }
+        return false;
+      }
+
+      function saveUndoSnapshot() {
+        const snapshot = {
+          gridValues: grid.map(row => row.map(cell => cell ? cell.val : 0)),
+          score: score,
+          moves: moves
+        };
+        undoStack.push(snapshot);
+        if (undoStack.length > 5) undoStack.shift();
+      }
+
+      // =========================================================================
+      // 5. DOM TILE RENDERING & POSITIONING
+      // =========================================================================
+      function getTilePosStyle(r, c) {
+        const isDesktop = window.innerWidth >= 640;
+        const gap = isDesktop ? 10 : 7;
+        return `translate3d(calc(${c} * (100% + ${gap}px)), calc(${r} * (100% + ${gap}px)), 0)`;
+      }
+
+      function syncTilesDOM() {
+        tileLayerEl.innerHTML = '';
+        for (let r = 0; r < 4; r++) {
+          for (let c = 0; c < 4; c++) {
+            const tile = grid[r][c];
+            if (!tile) continue;
+
+            const wrap = document.createElement('div');
+            wrap.className = 'tile-wrapper';
+            wrap.style.transform = getTilePosStyle(tile.r, tile.c);
+
+            const inner = document.createElement('div');
+            const style = TILE_STYLES[tile.val] || { bg: '#25231f', text: '#f9f6f2', scale: 0.28 };
+            inner.style.backgroundColor = style.bg;
+            inner.style.color = style.text;
+
+            let fontClass = 'tile-font-lg';
+            if (tile.val >= 100 && tile.val < 1000) fontClass = 'tile-font-md';
+            else if (tile.val >= 1000) fontClass = 'tile-font-sm';
+
+            inner.className = `tile-inner ${fontClass} ${tile.isNew ? 'tile-appear' : ''} ${tile.isMerged ? 'tile-pop' : ''}`;
+            inner.textContent = tile.val;
+
+            wrap.appendChild(inner);
+            tileLayerEl.appendChild(wrap);
+
+            tile.isNew = false;
+            tile.isMerged = false;
+          }
+        }
+      }
+
+      // =========================================================================
+      // 6. HUD, BEST SCORE & PROFILE UPDATE
+      // =========================================================================
+      function updateHUD() {
+        document.getElementById('score-display').textContent = score.toLocaleString();
+        
+        let personalBest = 0;
+        matchRecords.forEach(rec => {
+          if (rec.playerName === profile.name && rec.score > personalBest) {
+            personalBest = rec.score;
+          }
+        });
+        if (score > personalBest) personalBest = score;
+        document.getElementById('best-display').textContent = personalBest.toLocaleString();
+
+        document.getElementById('moves-count-display').textContent = moves.toLocaleString();
+        document.getElementById('undo-left-count').textContent = undosLeft;
+        document.getElementById('player-name-label').textContent = profile.name;
+
+        // Quick leaderboard teaser
+        const quickLbEl = document.getElementById('quick-lb-text');
+        if (matchRecords.length === 0) {
+          quickLbEl.textContent = 'No verified games yet — Play & set Rank #1!';
+        } else {
+          const topRun = [...matchRecords].sort((a, b) => b.score - a.score)[0];
+          quickLbEl.textContent = `Rank #1: ${topRun.playerName} (${topRun.score.toLocaleString()} pts, ${topRun.highestTile} tile)`;
+        }
+      }
+
+      // =========================================================================
+      // 7. RECORD FINISHED RUN (VERIFIED REAL SCORES)
+      // =========================================================================
+      function recordFinishedGame(didWin, reason) {
+        if (moves < 3 && score === 0) return;
+
+        const durationSec = Math.round((Date.now() - gameStartTime) / 1000);
+        const record = {
+          id: 'run_' + Date.now() + '_' + Math.floor(Math.random() * 1000),
+          playerName: profile.name,
+          score: score,
+          highestTile: getHighestTile(),
+          moves: moves,
+          durationSec: durationSec,
+          didWin2048: hasWon2048,
+          timestamp: Date.now(),
+          dateStr: new Date().toLocaleDateString('en-US', { month: 'short', day: 'numeric', hour: '2-digit', minute: '2-digit' }),
+          reason: reason || (didWin ? '2048 Tile Reached' : 'Board Filled')
+        };
+
+        matchRecords.unshift(record);
+        if (matchRecords.length > 100) matchRecords.pop();
+
+        savePersistentData();
+        renderLeaderboard();
+        renderDashboard();
+        updateHUD();
+
+        // Persist to Cloudflare D1 Database
+        saveRecordToCloudflareDB(record);
+
+        // GA4 Telemetry for Game Over (Key Event)
+        trackGAEvent('game_over', {
+          score: record.score,
+          highest_tile: record.highestTile,
+          moves: record.moves,
+          duration_sec: record.durationSec,
+          did_win: record.didWin2048 ? 1 : 0,
+          mode: currentGameMode,
+          reason: record.reason
+        });
+      }
+
+      // =========================================================================
+      // 8. GAME OVER / WIN MODAL
+      // =========================================================================
+      function showGameOverModal(isWin) {
+        const modal = document.getElementById('match-review-modal');
+        const icon = document.getElementById('review-badge-icon');
+        const title = document.getElementById('review-winner-title');
+        const reason = document.getElementById('review-reason-text');
+        const keepGoingBtn = document.getElementById('keep-going-btn');
+        const bestTilePill = document.getElementById('review-best-tile-pill');
+
+        const topTile = getHighestTile();
+        const durationSec = Math.round((Date.now() - gameStartTime) / 1000);
+
+        document.getElementById('review-final-score').textContent = score.toLocaleString();
+        document.getElementById('review-total-moves').textContent = moves.toLocaleString();
+        document.getElementById('review-duration-text').textContent = durationSec + 's';
+
+        bestTilePill.textContent = topTile;
+        const style = TILE_STYLES[topTile] || { bg: '#edc22e', text: '#fff' };
+        bestTilePill.style.backgroundColor = style.bg;
+        bestTilePill.style.color = style.text;
+
+        if (isWin) {
+          icon.textContent = '🌟';
+          title.textContent = 'You Reached 2048!';
+          reason.textContent = 'Magnificent victory! You beat the sliding board.';
+          keepGoingBtn.classList.remove('hidden');
+          playSound('win');
+          triggerHaptic('win');
+        } else {
+          icon.textContent = '🎮';
+          title.textContent = 'Game Over!';
+          reason.textContent = 'No more valid sliding moves remaining.';
+          keepGoingBtn.classList.add('hidden');
+        }
+
+        modal.classList.remove('hidden');
+      }
+
+      // =========================================================================
+      // 9. MOVE LOGIC (UP, DOWN, LEFT, RIGHT)
+      // =========================================================================
+      function move(dir) {
+        if (isGameOver || isAnimating) return false;
+
+        let moved = false;
+        let turnScore = 0;
+        let mergedMax = 0;
+
+        function slideLine(line) {
+          const filtered = line.filter(tile => tile !== null);
+          const result = [];
+          for (let i = 0; i < filtered.length; i++) {
+            if (i < filtered.length - 1 && filtered[i].val === filtered[i + 1].val) {
+              const mergedVal = filtered[i].val * 2;
+              turnScore += mergedVal;
+              if (mergedVal > mergedMax) mergedMax = mergedVal;
+              result.push({
+                id: nextTileId++,
+                val: mergedVal,
+                r: 0,
+                c: 0,
+                isNew: false,
+                isMerged: true
+              });
+              i++;
+              moved = true;
+            } else {
+              result.push(filtered[i]);
+            }
+          }
+          while (result.length < 4) {
+            result.push(null);
+          }
+          return result;
+        }
+
+        saveUndoSnapshot();
+
+        if (dir === 'left') {
+          for (let r = 0; r < 4; r++) {
+            const row = [grid[r][0], grid[r][1], grid[r][2], grid[r][3]];
+            const newRow = slideLine(row);
+            for (let c = 0; c < 4; c++) {
+              if (newRow[c] !== row[c]) moved = true;
+              if (newRow[c]) { newRow[c].r = r; newRow[c].c = c; }
+              grid[r][c] = newRow[c];
+            }
+          }
+        } else if (dir === 'right') {
+          for (let r = 0; r < 4; r++) {
+            const row = [grid[r][3], grid[r][2], grid[r][1], grid[r][0]];
+            const newRow = slideLine(row);
+            for (let c = 0; c < 4; c++) {
+              const targetCol = 3 - c;
+              if (newRow[c] !== row[c]) moved = true;
+              if (newRow[c]) { newRow[c].r = r; newRow[c].c = targetCol; }
+              grid[r][targetCol] = newRow[c];
+            }
+          }
+        } else if (dir === 'up') {
+          for (let c = 0; c < 4; c++) {
+            const col = [grid[0][c], grid[1][c], grid[2][c], grid[3][c]];
+            const newCol = slideLine(col);
+            for (let r = 0; r < 4; r++) {
+              if (newCol[r] !== col[r]) moved = true;
+              if (newCol[r]) { newCol[r].r = r; newCol[r].c = c; }
+              grid[r][c] = newCol[r];
+            }
+          }
+        } else if (dir === 'down') {
+          for (let c = 0; c < 4; c++) {
+            const col = [grid[3][c], grid[2][c], grid[1][c], grid[0][c]];
+            const newCol = slideLine(col);
+            for (let r = 0; r < 4; r++) {
+              const targetRow = 3 - r;
+              if (newCol[r] !== col[r]) moved = true;
+              if (newCol[r]) { newCol[r].r = targetRow; newCol[r].c = c; }
+              grid[targetRow][c] = newCol[r];
+            }
+          }
+        }
+
+        if (moved) {
+          moves++;
+          score += turnScore;
+          bestTile = getHighestTile();
+
+          if (moves === 1) {
+            trackGAEvent('game_start', { player_name: profile.name, mode: currentGameMode });
+          }
+
+          if (mergedMax >= 512 && !trackedMilestones.has(mergedMax)) {
+            trackedMilestones.add(mergedMax);
+            trackGAEvent('tile_milestone', { tile_value: mergedMax, score: score, mode: currentGameMode });
+          }
+
+          if (mergedMax > 0) {
+            playSound('merge', mergedMax);
+            triggerHaptic('merge');
+          } else {
+            playSound('slide');
+            triggerHaptic('tap');
+          }
+
+          spawnRandomTile();
+          syncTilesDOM();
+          updateHUD();
+          saveActiveSession();
+
+          if (!hasWon2048 && bestTile >= 2048 && !keepPlaying) {
+            hasWon2048 = true;
+            isGameOver = true;
+            recordFinishedGame(true, 'Reached 2048 Tile!');
+            showGameOverModal(true);
+            return true;
+          }
+
+          if (!hasMovesRemaining()) {
+            isGameOver = true;
+            recordFinishedGame(false, 'Board Filled (Game Over)');
+            showGameOverModal(false);
+            return true;
+          }
+        } else {
+          undoStack.pop();
+        }
+
+        return moved;
+      }
+
+            // =========================================================================
+      // 8.5 ACTIVE IN-PROGRESS SESSION AUTO-SAVE (RESUME ON SAME DEVICE)
+      // =========================================================================
+      function saveActiveSession() {
+        if (isGameOver) {
+          localStorage.removeItem(STORAGE_KEYS.ACTIVE_SESSION);
+          return;
+        }
+        try {
+          const session = {
+            gridValues: grid.map(row => row.map(cell => cell ? cell.val : 0)),
+            score,
+            moves,
+            bestTile,
+            undosLeft,
+            gameStartTime,
+            hasWon2048,
+            timestamp: Date.now()
+          };
+          localStorage.setItem(STORAGE_KEYS.ACTIVE_SESSION, JSON.stringify(session));
+        } catch (e) {}
+      }
+
+      function restoreActiveSession() {
+        try {
+          const raw = localStorage.getItem(STORAGE_KEYS.ACTIVE_SESSION);
+          if (!raw) return false;
+          const session = JSON.parse(raw);
+          if (!session || !session.gridValues || session.moves === 0) return false;
+
+          tileLayerEl.innerHTML = '';
+          grid = [
+            [null, null, null, null],
+            [null, null, null, null],
+            [null, null, null, null],
+            [null, null, null, null]
+          ];
+          for (let r = 0; r < 4; r++) {
+            for (let c = 0; c < 4; c++) {
+              const val = session.gridValues[r][c];
+              if (val > 0) {
+                grid[r][c] = { id: nextTileId++, val, r, c, isNew: false, isMerged: false };
+              }
+            }
+          }
+          score = session.score || 0;
+          moves = session.moves || 0;
+          bestTile = session.bestTile || getHighestTile();
+          undosLeft = typeof session.undosLeft === 'number' ? session.undosLeft : 3;
+          gameStartTime = session.gameStartTime || Date.now();
+          hasWon2048 = !!session.hasWon2048;
+
+          syncTilesDOM();
+          updateHUD();
+          return true;
+        } catch (e) {
+          return false;
+        }
+      }
+
+      function initGame() {
+        localStorage.removeItem(STORAGE_KEYS.ACTIVE_SESSION);
+        grid = [
+          [null, null, null, null],
+          [null, null, null, null],
+          [null, null, null, null],
+          [null, null, null, null]
+        ];
+        score = 0;
+        moves = 0;
+        bestTile = 2;
+        undoStack = [];
+        undosLeft = 3;
+        hasWon2048 = false;
+        keepPlaying = false;
+        isGameOver = false;
+        gameStartTime = Date.now();
+
+        if (currentGameMode === 'daily') {
+          const dailyInfo = getDailySeedInfo();
+          dailyRandom = createSeededRandom(dailyInfo.seed);
+        } else {
+          dailyRandom = null;
+        }
+
+        document.getElementById('match-review-modal').classList.add('hidden');
+        spawnRandomTile();
+        spawnRandomTile();
+        syncTilesDOM();
+        updateHUD();
+      }
+
+      // =========================================================================
+      // 10. REAL LEADERBOARD & CAREER DASHBOARD RENDERING
+      // =========================================================================
+      // =========================================================================
+      // 9.5 CLOUDFLARE D1 DATABASE INTEGRATION (PERSISTENT PLAYER RECORDS)
+      // =========================================================================
+      async function syncPlayerWithDB(name) {
+        if (!name) return;
+        try {
+          const res = await fetch('/api/player?name=' + encodeURIComponent(name) + '&deviceId=' + encodeURIComponent(deviceId));
+          if (!res.ok) return;
+          const data = await res.json();
+          if (data.found && data.player) {
+            profile.highScore = Math.max(profile.highScore || 0, data.player.highScore || 0);
+            profile.highestTile = Math.max(profile.highestTile || 2, data.player.highestTile || 2);
+            profile.gamesPlayed = data.player.gamesPlayed || 0;
+            profile.wins2048 = data.player.wins2048 || 0;
+            profile.totalScore = data.player.totalScore || 0;
+            profile.totalMoves = data.player.totalMoves || 0;
+            
+            if (Array.isArray(data.records) && data.records.length > 0) {
+              const mapped = data.records.map(r => ({
+                id: r.id,
+                playerName: r.player_name,
+                score: r.score,
+                highestTile: r.highest_tile,
+                moves: r.moves,
+                durationSec: r.duration_sec,
+                didWin2048: r.did_win === 1,
+                timestamp: r.created_at,
+                dateStr: r.date_str
+              }));
+              // Merge without duplicates
+              mapped.forEach(nr => {
+                if (!matchRecords.some(er => er.timestamp === nr.timestamp && er.score === nr.score)) {
+                  matchRecords.push(nr);
+                }
+              });
+              matchRecords.sort((a, b) => b.score - a.score);
+            }
+            savePersistentData();
+            updateHUD();
+            renderDashboard();
+            renderLeaderboard();
+          } else {
+            // Register / login player and bind device in Cloudflare D1
+            fetch('/api/player', {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify({ name: name, deviceId: deviceId })
+            }).catch(() => {});
+          }
+        } catch (e) {
+          console.warn('D1 Database sync fallback to local storage:', e);
+        }
+      }
+
+      async function saveRecordToCloudflareDB(record) {
+        try {
+          const res = await fetch('/api/record', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+              playerName: record.playerName,
+              deviceId: deviceId,
+              score: record.score,
+              highestTile: record.highestTile,
+              moves: record.moves,
+              durationSec: record.durationSec,
+              didWin: record.didWin2048
+            })
+          });
+          if (res.ok) {
+            const data = await res.json();
+            if (data.player) {
+              profile.highScore = data.player.highScore;
+              profile.highestTile = data.player.highestTile;
+              profile.gamesPlayed = data.player.gamesPlayed;
+              profile.wins2048 = data.player.wins2048;
+              profile.totalScore = data.player.totalScore;
+              profile.totalMoves = data.player.totalMoves;
+              savePersistentData();
+              renderDashboard();
+              updateHUD();
+            }
+            // Refresh global rankings from database
+            fetchLeaderboardFromDB();
+          }
+        } catch (e) {
+          console.warn('D1 record upload failed, stored locally:', e);
+        }
+      }
+
+      async function fetchLeaderboardFromDB() {
+        try {
+          const url = '/api/leaderboard?filter=' + encodeURIComponent(activeLbFilter) + '&name=' + encodeURIComponent(profile.name) + '&deviceId=' + encodeURIComponent(deviceId);
+          const res = await fetch(url);
+          if (!res.ok) return false;
+          const data = await res.json();
+          if (data.success && Array.isArray(data.runs)) {
+            renderLeaderboardRows(data.runs);
+            const quickLbEl = document.getElementById('quick-lb-text');
+            if (data.topOverall && data.topOverall.highScore > 0) {
+              quickLbEl.textContent = 'Rank #1: ' + data.topOverall.name + ' (' + data.topOverall.highScore.toLocaleString() + ' pts, ' + data.topOverall.highestTile + ' tile)';
+            } else {
+              quickLbEl.textContent = 'No recorded games yet — Play & set Rank #1!';
+            }
+            return true;
+          }
+        } catch (e) {
+          console.warn('DB Leaderboard fetch failed, falling back to local:', e);
+        }
+        return false;
+      }
+
+      function renderLeaderboardRows(runs) {
+        const tbody = document.getElementById('leaderboard-table-body');
+        const emptyState = document.getElementById('lb-empty-state');
+        tbody.innerHTML = '';
+
+        if (!runs || runs.length === 0) {
+          emptyState.classList.remove('hidden');
+          return;
+        }
+        emptyState.classList.add('hidden');
+
+        runs.slice(0, 50).forEach((run, idx) => {
+          const tr = document.createElement('tr');
+          const isMe = (run.playerName || '').toLowerCase() === profile.name.toLowerCase();
+          tr.className = isMe ? 'bg-[#edc22e]/10 font-bold' : 'hover:bg-white/5';
+
+          let rankBadge = '<span class="text-[#cdc1b4] font-mono">' + (idx + 1) + '</span>';
+          if (idx === 0) rankBadge = '🥇';
+          else if (idx === 1) rankBadge = '🥈';
+          else if (idx === 2) rankBadge = '🥉';
+
+          const tileStyle = TILE_STYLES[run.highestTile] || { bg: '#edc22e', text: '#fff' };
+
+          tr.innerHTML = `
+            <td class="py-2 px-2 text-center">${rankBadge}</td>
+            <td class="py-2 px-3">
+              <div class="flex items-center gap-1.5">
+                <span class="text-white ${isMe ? 'text-[#edc22e]' : ''}">${run.playerName}</span>
+                ${isMe ? '<span class="text-[9px] px-1 rounded bg-[#edc22e]/20 text-[#edc22e]">YOU</span>' : ''}
+              </div>
+              <div class="text-[10px] text-[#8e857d]">${run.dateStr || 'Verified Run'}</div>
+            </td>
+            <td class="py-2 px-2 text-center">
+              <span class="px-1.5 py-0.5 rounded text-[11px] font-black inline-block" style="background:${tileStyle.bg}; color:${tileStyle.text}">
+                ${run.highestTile}
+              </span>
+            </td>
+            <td class="py-2 px-2 text-right text-[#cdc1b4] font-mono">${(run.moves || 0).toLocaleString()}</td>
+            <td class="py-2 px-3 text-right font-black text-white font-mono">${run.score.toLocaleString()}</td>
+          `;
+          tbody.appendChild(tr);
+        });
+      }
+
+      async function renderLeaderboard() {
+        const dbSuccess = await fetchLeaderboardFromDB();
+        if (dbSuccess) return;
+
+        // Fallback to local records if offline or connecting
+        const tbody = document.getElementById('leaderboard-table-body');
+        const emptyState = document.getElementById('lb-empty-state');
+        tbody.innerHTML = '';
+
+        let filtered = [...matchRecords];
+        if (activeLbFilter === 'mine') {
+          filtered = filtered.filter(r => r.playerName === profile.name);
+        } else if (activeLbFilter === 'today') {
+          const oneDayAgo = Date.now() - 24 * 60 * 60 * 1000;
+          filtered = filtered.filter(r => r.timestamp >= oneDayAgo);
+        }
+
+        if (activeLbFilter !== 'mine') {
+          // Keep only the highest scoring run per player
+          const bestByPlayer = new Map();
+          for (const run of filtered) {
+            const key = (run.playerName || '').toLowerCase();
+            const existing = bestByPlayer.get(key);
+            if (!existing || run.score > existing.score || (run.score === existing.score && (run.highestTile || 0) > (existing.highestTile || 0))) {
+              bestByPlayer.set(key, run);
+            }
+          }
+          filtered = Array.from(bestByPlayer.values());
+        }
+
+        filtered.sort((a, b) => b.score - a.score || (b.highestTile || 0) - (a.highestTile || 0));
+
+        if (filtered.length === 0) {
+          emptyState.classList.remove('hidden');
+          return;
+        }
+        emptyState.classList.add('hidden');
+
+        filtered.slice(0, 30).forEach((run, idx) => {
+          const tr = document.createElement('tr');
+          const isMe = run.playerName === profile.name;
+          tr.className = isMe ? 'bg-[#edc22e]/10 font-bold' : 'hover:bg-white/5';
+
+          let rankBadge = `<span class="text-[#cdc1b4] font-mono">${idx + 1}</span>`;
+          if (idx === 0) rankBadge = '🥇';
+          else if (idx === 1) rankBadge = '🥈';
+          else if (idx === 2) rankBadge = '🥉';
+
+          const tileStyle = TILE_STYLES[run.highestTile] || { bg: '#edc22e', text: '#fff' };
+
+          tr.innerHTML = `
+            <td class="py-2 px-2 text-center">${rankBadge}</td>
+            <td class="py-2 px-3">
+              <div class="flex items-center gap-1.5">
+                <span class="text-white ${isMe ? 'text-[#edc22e]' : ''}">${run.playerName}</span>
+                ${isMe ? '<span class="text-[9px] px-1 rounded bg-[#edc22e]/20 text-[#edc22e]">YOU</span>' : ''}
+              </div>
+              <div class="text-[10px] text-[#8e857d]">${run.dateStr || 'Just now'}</div>
+            </td>
+            <td class="py-2 px-2 text-center">
+              <span class="px-1.5 py-0.5 rounded text-[11px] font-black inline-block" style="background:${tileStyle.bg}; color:${tileStyle.text}">
+                ${run.highestTile}
+              </span>
+            </td>
+            <td class="py-2 px-2 text-right text-[#cdc1b4] font-mono">${(run.moves || 0).toLocaleString()}</td>
+            <td class="py-2 px-3 text-right font-black text-white font-mono">${run.score.toLocaleString()}</td>
+          `;
+          tbody.appendChild(tr);
+        });
+      }
+
+      function renderDashboard() {
+        const myRuns = matchRecords.filter(r => (r.playerName || '').toLowerCase() === profile.name.toLowerCase());
+        
+        let highScore = Math.max(profile.highScore || 0, 0);
+        let maxTile = Math.max(profile.highestTile || 2, 2);
+        let gamesPlayed = Math.max(profile.gamesPlayed || 0, myRuns.length);
+        let wins = Math.max(profile.wins2048 || 0, 0);
+        let totalScore = Math.max(profile.totalScore || 0, 0);
+        let totalMoves = Math.max(profile.totalMoves || 0, 0);
+
+        myRuns.forEach(r => {
+          if (r.score > highScore) highScore = r.score;
+          if (r.highestTile > maxTile) maxTile = r.highestTile;
+          if (r.didWin2048 || r.highestTile >= 2048) wins++;
+          totalScore += r.score;
+          totalMoves += (r.moves || 0);
+        });
+
+        const avgScore = gamesPlayed > 0 ? Math.round(totalScore / gamesPlayed) : 0;
+
+        document.getElementById('dash-high-score').textContent = highScore.toLocaleString();
+        document.getElementById('dash-games-played').textContent = gamesPlayed.toLocaleString();
+        document.getElementById('dash-wins-count').textContent = wins.toLocaleString();
+        document.getElementById('dash-avg-score').textContent = avgScore.toLocaleString();
+        document.getElementById('dash-total-moves').textContent = totalMoves.toLocaleString();
+
+        const maxTileBadge = document.getElementById('dash-max-tile-badge');
+        maxTileBadge.textContent = maxTile;
+        const style = TILE_STYLES[maxTile] || { bg: '#eee4da', text: '#776e65' };
+        maxTileBadge.style.backgroundColor = style.bg;
+        maxTileBadge.style.color = style.text;
+
+        // Render Tile Milestones Gallery
+        const gallery = document.getElementById('tile-milestone-gallery');
+        gallery.innerHTML = '';
+        [128, 256, 512, 1024, 2048, 4096].forEach(val => {
+          const unlocked = maxTile >= val;
+          const tStyle = TILE_STYLES[val];
+          const div = document.createElement('div');
+          div.className = `flex-1 p-1 rounded-lg text-center transition-all ${unlocked ? 'opacity-100 shadow' : 'opacity-25 grayscale'}`;
+          div.style.backgroundColor = unlocked ? tStyle.bg : '#3a322c';
+          div.innerHTML = `
+            <div class="text-[9px] font-black" style="color: ${unlocked ? tStyle.text : '#888'}">${val}</div>
+            <div class="text-[8px] font-extrabold">${unlocked ? '✓' : '🔒'}</div>
+          `;
+          gallery.appendChild(div);
+        });
+      }
+
+      // =========================================================================
+      // 11. TAB SWITCHING (Matching User Screenshot Layout)
+      // =========================================================================
+      const tabViews = {
+        game: document.getElementById('tab-view-game'),
+        leaderboard: document.getElementById('tab-view-leaderboard')
+      };
+
+      const tabButtons = {
+        game: document.getElementById('tab-btn-game'),
+        leaderboard: document.getElementById('tab-btn-leaderboard')
+      };
+
+      const mainScroll = document.getElementById('main-scroll-container');
+
+      function switchTab(tabKey) {
+        if (!tabViews[tabKey]) tabKey = 'game';
+
+        Object.keys(tabViews).forEach(key => {
+          const isTarget = key === tabKey;
+          if (tabViews[key]) {
+            tabViews[key].classList.toggle('hidden', !isTarget);
+          }
+
+          if (tabButtons[key]) {
+            if (isTarget) {
+              tabButtons[key].classList.add('active-tab');
+            } else {
+              tabButtons[key].classList.remove('active-tab');
+            }
+          }
+        });
+
+        // When in Game tab, maintain whole screen only game (no scrolling)
+        if (tabKey === 'game') {
+          mainScroll.classList.add('overflow-hidden');
+          mainScroll.classList.remove('overflow-y-auto');
+        } else {
+          mainScroll.classList.remove('overflow-hidden');
+          mainScroll.classList.add('overflow-y-auto');
+          mainScroll.scrollTo({ top: 0, behavior: 'instant' });
+        }
+
+        if (tabKey === 'leaderboard') {
+          renderLeaderboard();
+          renderDashboard();
+        }
+      }
+
+      // Attach Bottom Tab Listeners (Game & Leaderboard)
+      tabButtons.game.addEventListener('click', () => switchTab('game'));
+      tabButtons.leaderboard.addEventListener('click', () => switchTab('leaderboard'));
+
+      // Logo click returns to Game view
+      document.getElementById('nav-logo-btn').addEventListener('click', () => switchTab('game'));
+
+      // Action buttons returning to game
+      document.querySelectorAll('.btn-goto-game').forEach(btn => {
+        btn.addEventListener('click', () => switchTab('game'));
+      });
+      const backToGameBtn = document.getElementById('back-to-game-btn');
+      if (backToGameBtn) backToGameBtn.addEventListener('click', () => switchTab('game'));
+      const quickLbBtn = document.getElementById('quick-to-leaderboard-btn');
+      if (quickLbBtn) quickLbBtn.addEventListener('click', () => switchTab('leaderboard'));
+
+      // Deep linking via URL query param (?tab=leaderboard)
+      try {
+        const urlParams = new URLSearchParams(window.location.search);
+        if (urlParams.get('tab') === 'leaderboard') {
+          switchTab('leaderboard');
+        }
+      } catch (e) {}
+
+      // =========================================================================
+      // 12. SOUND TOGGLE CONTROLLERS
+      // =========================================================================
+      const bottomSoundBtn = document.getElementById('bottom-sound-toggle-btn');
+
+      function updateSoundBtnUI() {
+        bottomSoundBtn.textContent = settings.sound ? '🔊' : '🔇';
+      }
+
+      bottomSoundBtn.addEventListener('click', () => {
+        settings.sound = !settings.sound;
+        savePersistentData();
+        updateSoundBtnUI();
+        if (settings.sound) ensureAudio();
+      });
+
+      // =========================================================================
+      // 13. D-PAD & TOUCH INPUT CONTROLLERS
+      // =========================================================================
+      const dpadToggleBtn = document.getElementById('dpad-toggle-btn');
+      const dpadContainer = document.getElementById('mobile-dpad-container');
+
+      function updateDpadVisibility() {
+        if (settings.showDpad) {
+          dpadContainer.classList.remove('hidden');
+          dpadToggleBtn.classList.add('bg-[#edc22e]', 'text-[#3c3a32]');
+        } else {
+          dpadContainer.classList.add('hidden');
+          dpadToggleBtn.classList.remove('bg-[#edc22e]', 'text-[#3c3a32]');
+        }
+      }
+
+      dpadToggleBtn.addEventListener('click', () => {
+        settings.showDpad = !settings.showDpad;
+        savePersistentData();
+        updateDpadVisibility();
+      });
+
+      document.getElementById('dpad-up').addEventListener('click', () => move('up'));
+      document.getElementById('dpad-down').addEventListener('click', () => move('down'));
+      document.getElementById('dpad-left').addEventListener('click', () => move('left'));
+      document.getElementById('dpad-right').addEventListener('click', () => move('right'));
+
+      // =========================================================================
+      // 13. UNIFIED TOUCH & MOUSE SWIPE INPUT SYSTEM
+      // =========================================================================
+      const boardContainer = document.getElementById('board-container');
+      let dragStartX = 0;
+      let dragStartY = 0;
+      let isDragging = false;
+      let hasSwiped = false;
+      const SWIPE_THRESHOLD = 20;
+
+      function startSwipe(x, y) {
+        if (isGameOver) return;
+        dragStartX = x;
+        dragStartY = y;
+        isDragging = true;
+        hasSwiped = false;
+        boardContainer.classList.add('is-dragging');
+      }
+
+      function processSwipeMove(x, y) {
+        if (!isDragging || hasSwiped || isGameOver) return;
+        const dx = x - dragStartX;
+        const dy = y - dragStartY;
+        const absX = Math.abs(dx);
+        const absY = Math.abs(dy);
+
+        if (Math.max(absX, absY) >= SWIPE_THRESHOLD) {
+          hasSwiped = true;
+          if (absX > absY) {
+            move(dx > 0 ? 'right' : 'left');
+          } else {
+            move(dy > 0 ? 'down' : 'up');
+          }
+        }
+      }
+
+      function endSwipe(x, y) {
+        if (!isDragging) return;
+        if (!hasSwiped && !isGameOver && typeof x === 'number' && typeof y === 'number') {
+          const dx = x - dragStartX;
+          const dy = y - dragStartY;
+          const absX = Math.abs(dx);
+          const absY = Math.abs(dy);
+          if (Math.max(absX, absY) >= 15) {
+            if (absX > absY) {
+              move(dx > 0 ? 'right' : 'left');
+            } else {
+              move(dy > 0 ? 'down' : 'up');
+            }
+          }
+        }
+        isDragging = false;
+        hasSwiped = false;
+        boardContainer.classList.remove('is-dragging');
+      }
+
+      // Pointer Events (Primary: Mouse Drag, Modern Touch, Stylus)
+      boardContainer.addEventListener('pointerdown', evt => {
+        if (evt.target.closest('#match-review-modal') || evt.target.closest('button')) {
+          return;
+        }
+        if (evt.button === 0 || evt.pointerType === 'touch') {
+          startSwipe(evt.clientX, evt.clientY);
+          try {
+            boardContainer.setPointerCapture(evt.pointerId);
+          } catch (e) {}
+        }
+      });
+
+      boardContainer.addEventListener('pointermove', evt => {
+        processSwipeMove(evt.clientX, evt.clientY);
+      });
+
+      boardContainer.addEventListener('pointerup', evt => {
+        endSwipe(evt.clientX, evt.clientY);
+        try {
+          boardContainer.releasePointerCapture(evt.pointerId);
+        } catch (e) {}
+      });
+
+      boardContainer.addEventListener('pointercancel', evt => {
+        endSwipe();
+        try {
+          boardContainer.releasePointerCapture(evt.pointerId);
+        } catch (e) {}
+      });
+
+      // Window level pointer/mouse release safeguards
+      window.addEventListener('pointerup', evt => {
+        if (isDragging) endSwipe(evt.clientX, evt.clientY);
+      });
+      window.addEventListener('mouseup', evt => {
+        if (isDragging) endSwipe(evt.clientX, evt.clientY);
+      });
+
+      // Touch Events Fallback (iOS WebKit / older mobile devices)
+      boardContainer.addEventListener('touchstart', evt => {
+        if (evt.target.closest('#match-review-modal') || evt.target.closest('button')) {
+          return;
+        }
+        if (evt.touches.length > 0) {
+          startSwipe(evt.touches[0].clientX, evt.touches[0].clientY);
+        }
+      }, { passive: true });
+
+      boardContainer.addEventListener('touchmove', evt => {
+        if (evt.touches.length > 0) {
+          processSwipeMove(evt.touches[0].clientX, evt.touches[0].clientY);
+        }
+      }, { passive: true });
+
+      boardContainer.addEventListener('touchend', evt => {
+        if (evt.changedTouches.length > 0) {
+          endSwipe(evt.changedTouches[0].clientX, evt.changedTouches[0].clientY);
+        } else {
+          endSwipe();
+        }
+      }, { passive: true });
+
+      boardContainer.addEventListener('touchcancel', () => {
+        endSwipe();
+      }, { passive: true });
+
+      // Keyboard Arrow & WASD Navigation
+      window.addEventListener('keydown', evt => {
+        // Ignore if user modal is open
+        if (!document.getElementById('username-modal').classList.contains('hidden')) return;
+
+        const key = evt.key;
+        if (key === 'ArrowUp' || key === 'w' || key === 'W') {
+          evt.preventDefault();
+          move('up');
+        } else if (key === 'ArrowDown' || key === 's' || key === 'S') {
+          evt.preventDefault();
+          move('down');
+        } else if (key === 'ArrowLeft' || key === 'a' || key === 'A') {
+          evt.preventDefault();
+          move('left');
+        } else if (key === 'ArrowRight' || key === 'd' || key === 'D') {
+          evt.preventDefault();
+          move('right');
+        }
+      });
+
+      // =========================================================================
+      // REWARDED AD UNDO LOGIC & MODAL CONTROLLERS (TASK 3)
+      // =========================================================================
+      const rewardedUndoModal = document.getElementById('rewarded-undo-modal');
+      const claimRewardedUndoBtn = document.getElementById('claim-rewarded-undo-btn');
+      const cancelRewardedUndoBtn = document.getElementById('cancel-rewarded-undo-btn');
+      const claimRewardedBtnText = document.getElementById('claim-rewarded-btn-text');
+
+      function openRewardedUndoModal() {
+        if (rewardedUndoModal) rewardedUndoModal.classList.remove('hidden');
+      }
+
+      function closeRewardedUndoModal() {
+        if (rewardedUndoModal) rewardedUndoModal.classList.add('hidden');
+      }
+
+      if (cancelRewardedUndoBtn) {
+        cancelRewardedUndoBtn.addEventListener('click', closeRewardedUndoModal);
+      }
+
+      function triggerRewardedAd(onRewardGranted, onAdClosed) {
+        if (window.rewardedAdApi && typeof window.rewardedAdApi.show === 'function') {
+          window.rewardedAdApi.show()
+            .then(result => {
+              if (result && result.rewardGranted) {
+                onRewardGranted();
+              } else if (onAdClosed) {
+                onAdClosed();
+              }
+            })
+            .catch(err => {
+              console.warn('[Rewarded Ad] Network error, applying fallback grant:', err);
+              onRewardGranted();
+            });
+        } else {
+          // Clean fallback stub until the ad network script is approved
+          console.log('[Rewarded Ad Stub] Simulating rewarded ad callback...');
+          if (claimRewardedBtnText) claimRewardedBtnText.textContent = 'Loading Sponsor Clip...';
+          setTimeout(() => {
+            if (claimRewardedBtnText) claimRewardedBtnText.textContent = 'Get +3 Extra Undos';
+            onRewardGranted();
+          }, 450);
+        }
+      }
+
+      if (claimRewardedUndoBtn) {
+        claimRewardedUndoBtn.addEventListener('click', () => {
+          triggerRewardedAd(() => {
+            undosLeft += 3;
+            document.getElementById('undo-left-count').textContent = undosLeft;
+            trackGAEvent('rewarded_undo_granted', { new_undos_total: undosLeft, score: score });
+            saveActiveSession();
+            closeRewardedUndoModal();
+          }, () => {
+            closeRewardedUndoModal();
+          });
+        });
+      }
+
+      // Undo & Restart Buttons
+      document.getElementById('undo-move-btn').addEventListener('click', () => {
+        if (isGameOver) return;
+        if (undosLeft <= 0) {
+          openRewardedUndoModal();
+          return;
+        }
+        if (undoStack.length === 0) return;
+        const snap = undoStack.pop();
+        tileLayerEl.innerHTML = '';
+        grid = [
+          [null, null, null, null],
+          [null, null, null, null],
+          [null, null, null, null],
+          [null, null, null, null]
+        ];
+        for (let r = 0; r < 4; r++) {
+          for (let c = 0; c < 4; c++) {
+            const v = snap.gridValues[r][c];
+            if (v > 0) {
+              grid[r][c] = { id: nextTileId++, val: v, r, c, isNew: false, isMerged: false };
+            }
+          }
+        }
+        score = snap.score;
+        moves = snap.moves;
+        bestTile = getHighestTile();
+        undosLeft--;
+        trackGAEvent('undo_used', { undos_left: undosLeft, moves: moves });
+        syncTilesDOM();
+        updateHUD();
+      });
+
+      document.getElementById('restart-game-btn').addEventListener('click', () => {
+        if (moves > 2 && !isGameOver) {
+          recordFinishedGame(false, 'Game restarted by player');
+        }
+        initGame();
+      });
+
+      const playAgainBtn = document.getElementById('play-again-btn');
+      const keepGoingBtn = document.getElementById('keep-going-btn');
+      const reviewModal = document.getElementById('match-review-modal');
+
+      window.handlePlayAgainClick = function(e) { handlePlayAgain(e); };
+      window.handleKeepGoingClick = function(e) { handleKeepGoing(e); };
+
+      function handlePlayAgain(e) {
+        if (e) {
+          e.preventDefault();
+          e.stopPropagation();
+        }
+        reviewModal.classList.add('hidden');
+        initGame();
+      }
+
+      playAgainBtn.addEventListener('click', handlePlayAgain);
+      playAgainBtn.addEventListener('pointerdown', e => e.stopPropagation());
+      playAgainBtn.addEventListener('touchstart', e => e.stopPropagation(), { passive: false });
+
+      function handleKeepGoing(e) {
+        if (e) {
+          e.preventDefault();
+          e.stopPropagation();
+        }
+        keepPlaying = true;
+        isGameOver = false;
+        reviewModal.classList.add('hidden');
+      }
+
+      keepGoingBtn.addEventListener('click', handleKeepGoing);
+      keepGoingBtn.addEventListener('pointerdown', e => e.stopPropagation());
+      keepGoingBtn.addEventListener('touchstart', e => e.stopPropagation(), { passive: false });
+
+      // =========================================================================
+      // 14. PROFILE NAME & RESET MODALS
+      // =========================================================================
+      const userModal = document.getElementById('username-modal');
+      const nameInput = document.getElementById('profile-name-input');
+      const headerUserBtn = document.getElementById('header-user-btn');
+      const editProfileBtn = document.getElementById('edit-profile-btn');
+      const closeUserModalBtn = document.getElementById('close-user-modal-btn');
+      const randomNameBtn = document.getElementById('random-name-btn');
+      const profileNameForm = document.getElementById('profile-name-form');
+
+      function openNameModal() {
+        nameInput.value = profile.name;
+        userModal.classList.remove('hidden');
+        nameInput.focus();
+      }
+
+      headerUserBtn.addEventListener('click', openNameModal);
+      editProfileBtn.addEventListener('click', openNameModal);
+      closeUserModalBtn.addEventListener('click', () => userModal.classList.add('hidden'));
+
+      randomNameBtn.addEventListener('click', () => {
+        const rand = RANDOM_NAMES[Math.floor(Math.random() * RANDOM_NAMES.length)] + Math.floor(10 + Math.random() * 89);
+        nameInput.value = rand;
+      });
+
+      profileNameForm.addEventListener('submit', evt => {
+        evt.preventDefault();
+        const newName = (nameInput.value || '').trim();
+        if (newName) {
+          profile.name = newName;
+          savePersistentData();
+          updateHUD();
+          syncPlayerWithDB(newName);
+        }
+        userModal.classList.add('hidden');
+      });
+
+      const resetModal = document.getElementById('confirm-reset-modal');
+      document.getElementById('clear-history-prompt-btn').addEventListener('click', () => {
+        resetModal.classList.remove('hidden');
+      });
+      document.getElementById('cancel-reset-btn').addEventListener('click', () => {
+        resetModal.classList.add('hidden');
+      });
+      document.getElementById('confirm-reset-btn').addEventListener('click', async () => {
+        matchRecords = [];
+        profile.highScore = 0;
+        profile.highestTile = 2;
+        profile.gamesPlayed = 0;
+        profile.wins2048 = 0;
+        profile.totalScore = 0;
+        profile.totalMoves = 0;
+        savePersistentData();
+        localStorage.removeItem(STORAGE_KEYS.RECORDS);
+        localStorage.removeItem(STORAGE_KEYS.ACTIVE_SESSION);
+        resetModal.classList.add('hidden');
+
+        renderLeaderboard();
+        renderDashboard();
+        updateHUD();
+      });
+
+      document.getElementById('export-json-btn').addEventListener('click', () => {
+        const dataStr = 'data:text/json;charset=utf-8,' + encodeURIComponent(JSON.stringify({
+          profile: profile,
+          records: matchRecords,
+          exportedAt: new Date().toISOString()
+        }, null, 2));
+        const downloadAnchor = document.createElement('a');
+        downloadAnchor.setAttribute('href', dataStr);
+        downloadAnchor.setAttribute('download', `2048_stats_${profile.name}_${new Date().toISOString().slice(0, 10)}.json`);
+        document.body.appendChild(downloadAnchor);
+        downloadAnchor.click();
+        downloadAnchor.remove();
+      });
+
+      // Filter sub-tabs
+      const lbFilterAll = document.getElementById('lb-filter-all');
+      const lbFilterToday = document.getElementById('lb-filter-today');
+      const lbFilterMine = document.getElementById('lb-filter-mine');
+
+      function setLbFilter(filter) {
+        activeLbFilter = filter;
+        [lbFilterToday, lbFilterAll, lbFilterMine].forEach(btn => {
+          btn.className = 'px-3 py-1.5 rounded-md text-xs font-bold text-[#cdc1b4] hover:text-white transition-all';
+        });
+        if (filter === 'today') lbFilterToday.className = 'px-3 py-1.5 rounded-md text-xs font-black bg-[#edc22e] text-[#3c3a32] shadow-xs';
+        if (filter === 'all') lbFilterAll.className = 'px-3 py-1.5 rounded-md text-xs font-black bg-[#edc22e] text-[#3c3a32] shadow-xs';
+        if (filter === 'mine') lbFilterMine.className = 'px-3 py-1.5 rounded-md text-xs font-black bg-[#8f7a66] text-white shadow-xs';
+        renderLeaderboard();
+      }
+
+      lbFilterAll.addEventListener('click', () => setLbFilter('all'));
+      lbFilterToday.addEventListener('click', () => setLbFilter('today'));
+      lbFilterMine.addEventListener('click', () => setLbFilter('mine'));
+
+      // Handle Clean URL Route Selection, Embed Mode & Daily Mode
+      function initRoute() {
+        const urlParams = new URLSearchParams(window.location.search);
+        if (urlParams.get('embed') === '1') {
+          const navbar = document.getElementById('bottom-navbar');
+          if (navbar) navbar.style.display = 'none';
+        }
+        if (urlParams.get('mode') === 'daily') {
+          setGameMode('daily');
+        }
+        if (urlParams.get('tab') === 'leaderboard') {
+          switchTab('leaderboard');
+        } else {
+          switchTab('game');
+        }
+        if (window.location.hash) {
+          history.replaceState(null, '', window.location.pathname + window.location.search);
+        }
+      }
+
+      function setGameMode(mode) {
+        currentGameMode = mode;
+        const classicBtn = document.getElementById('mode-btn-classic');
+        const dailyBtn = document.getElementById('mode-btn-daily');
+        const dailyInfo = getDailySeedInfo();
+
+        if (mode === 'daily') {
+          if (classicBtn) {
+            classicBtn.classList.remove('bg-[#bbada0]', 'text-white', 'shadow-sm');
+            classicBtn.classList.add('text-[#cdc1b4]');
+          }
+          if (dailyBtn) {
+            dailyBtn.classList.add('bg-[#edc22e]', 'text-[#3c3a32]', 'shadow-sm');
+            dailyBtn.classList.remove('text-[#cdc1b4]');
+            dailyBtn.innerHTML = '<span>📅</span> <span>Daily #' + dailyInfo.dayNumber + '</span>';
+          }
+        } else {
+          if (classicBtn) {
+            classicBtn.classList.add('bg-[#bbada0]', 'text-white', 'shadow-sm');
+            classicBtn.classList.remove('text-[#cdc1b4]');
+          }
+          if (dailyBtn) {
+            dailyBtn.classList.remove('bg-[#edc22e]', 'text-[#3c3a32]', 'shadow-sm');
+            dailyBtn.classList.add('text-[#cdc1b4]');
+          }
+        }
+
+        trackedMilestones.clear();
+        initGame();
+      }
+
+      // Mode Switcher Listeners
+      const classicBtnEl = document.getElementById('mode-btn-classic');
+      const dailyBtnEl = document.getElementById('mode-btn-daily');
+      if (classicBtnEl) classicBtnEl.addEventListener('click', () => setGameMode('classic'));
+      if (dailyBtnEl) dailyBtnEl.addEventListener('click', () => setGameMode('daily'));
+
+// =========================================================================
+      // SHAREABLE DAILY CHALLENGE & SCORE GRID CARD (TASK 4)
+      // =========================================================================
+      const shareScoreGridBtn = document.getElementById('share-score-grid-btn');
+      const shareScoreLabel = document.getElementById('share-score-label');
+
+      function generateEmojiScoreGrid() {
+        const isDaily = currentGameMode === 'daily';
+        const dailyInfo = getDailySeedInfo();
+        const topTile = getHighestTile();
+
+        // Spoiler-free emoji representation based on tile value tiers
+        const emojiMap = (val) => {
+          if (!val || val === 0) return '⬛';
+          if (val <= 4) return '⬜';
+          if (val <= 16) return '🟧';
+          if (val <= 64) return '🟥';
+          if (val <= 512) return '🟪';
+          if (val <= 2048) return '🟨';
+          return '🟩';
+        };
+
+        const gridRows = [];
+        for (let r = 0; r < 4; r++) {
+          let row = '';
+          for (let c = 0; c < 4; c++) {
+            const cell = grid[r][c];
+            row += emojiMap(cell ? cell.val : 0);
+          }
+          gridRows.push(row);
+        }
+
+        const titleText = isDaily 
+          ? `2048 Daily Challenge #${dailyInfo.dayNumber} 📅`
+          : `2048 Score Grid 🎮`;
+        const statsLine = `Score: ${score.toLocaleString()} | Tile: ${topTile} | Moves: ${moves.toLocaleString()}`;
+
+        return `${titleText}\n${statsLine}\n\n${gridRows.join('\n')}\n\nPlay today's board at https://play2048online.site`;
+      }
+
+      async function copyScoreGridToClipboard() {
+        const textToCopy = generateEmojiScoreGrid();
+        let copied = false;
+
+        if (navigator.clipboard && window.isSecureContext) {
+          try {
+            await navigator.clipboard.writeText(textToCopy);
+            copied = true;
+          } catch (e) {
+            copied = false;
+          }
+        }
+
+        if (!copied) {
+          try {
+            const ta = document.createElement('textarea');
+            ta.value = textToCopy;
+            ta.style.position = 'fixed';
+            ta.style.left = '-9999px';
+            document.body.appendChild(ta);
+            ta.focus();
+            ta.select();
+            copied = document.execCommand('copy');
+            document.body.removeChild(ta);
+          } catch (e) {
+            copied = false;
+          }
+        }
+
+        if (shareScoreLabel) {
+          shareScoreLabel.textContent = copied ? 'Copied to Clipboard! ✓' : 'Failed to Copy';
+          setTimeout(() => {
+            shareScoreLabel.textContent = 'Copy Score Grid / Share Challenge';
+          }, 2500);
+        }
+
+        trackGAEvent('share_challenge_copied', {
+          mode: currentGameMode,
+          score: score,
+          best_tile: getHighestTile(),
+          moves: moves
+        });
+      }
+
+      if (shareScoreGridBtn) {
+        shareScoreGridBtn.addEventListener('click', (e) => {
+          e.preventDefault();
+          e.stopPropagation();
+          copyScoreGridToClipboard();
+        });
+        shareScoreGridBtn.addEventListener('pointerdown', e => e.stopPropagation());
+        shareScoreGridBtn.addEventListener('touchstart', e => e.stopPropagation(), { passive: false });
+      }
+
+      
+
+            // Service Worker Registration for PWA Offline Play
+      if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+          navigator.serviceWorker.register('/sw.js').catch(() => {});
+        });
+      }
+
+      // Native PWA Install Prompt Listener
+      let deferredPwaPrompt = null;
+      window.addEventListener('beforeinstallprompt', evt => {
+        evt.preventDefault();
+        deferredPwaPrompt = evt;
+        const pwaBtn = document.getElementById('pwa-install-btn');
+        if (pwaBtn) pwaBtn.classList.remove('hidden');
+      });
+
+      const pwaBtn = document.getElementById('pwa-install-btn');
+      if (pwaBtn) {
+        pwaBtn.addEventListener('click', () => {
+          if (deferredPwaPrompt) {
+            deferredPwaPrompt.prompt();
+            deferredPwaPrompt.userChoice.then(choice => {
+              if (choice.outcome === 'accepted') {
+                trackGAEvent('pwa_installed');
+              }
+              deferredPwaPrompt = null;
+              pwaBtn.classList.add('hidden');
+            });
+          }
+        });
+      }
+
+      // =========================================================================
+      // 15. INITIALIZATION
+      // =========================================================================
+      window.addEventListener('load', () => {
+        loadPersistentData();
+        updateDpadVisibility();
+        updateSoundBtnUI();
+        updateHUD();
+        renderLeaderboard();
+        renderDashboard();
+        if (!restoreActiveSession()) {
+          initGame();
+        }
+        initRoute();
+        syncPlayerWithDB(profile.name);
+      });
+
+      window.addEventListener('resize', () => {
+        syncTilesDOM();
+      });
+
+    })();
+  </script>
+</body>
+</html>

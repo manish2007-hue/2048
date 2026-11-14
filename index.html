@@ -12,7 +12,7 @@
   </script>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
-  <title>Play 2048 Online Free — Official 2048 Game &amp; Live Leaderboard</title>
+  <title>Play 2048 Online Free – Classic 4x4 &amp; Daily Challenge (No Ads Popup)</title>
   <!-- Favicon & App Icons -->
   <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
   <link rel="alternate icon" href="/favicon.ico" />
@@ -20,7 +20,7 @@
   <link rel="manifest" href="/manifest.webmanifest" />
   
   <!-- On-Page SEO Meta Tags -->
-  <meta name="description" content="Play the official 2048 puzzle game online for free. Features real player leaderboards, personal career stats, mobile touch controls, undo moves, and proven strategy guides." />
+  <meta name="description" content="Play 2048 online for free with no ads popup. Features Classic 4x4, Daily Challenge, live global leaderboard, 3 undo moves, and proven strategy." />
   <meta name="keywords" content="2048, play 2048, 2048 online, 2048 game, play 2048 online, 2048 unblocked, 2048 leaderboard, 2048 strategy, 2048 tile, gabriele cirulli 2048, 2048 puzzle, number puzzle game, sliding tile game, 2048 tips and tricks, 2048 high score, 2048 corner strategy, 2048 free online game, brain puzzle game, math game online, 2048 no ads, 2048 mobile game, number merge game, tile merge puzzle, 2048 game online free no download" />
   <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
   <meta name="author" content="2048 Online Platform" />
@@ -30,8 +30,8 @@
   <!-- Open Graph / Facebook Meta Tags -->
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="2048 Online" />
-  <meta property="og:title" content="Play 2048 Online Free — Official 2048 Game &amp; Live Leaderboard" />
-  <meta property="og:description" content="Slide numbered tiles, reach the 2048 tile, and compete on the live leaderboard. Ad-free, mobile-friendly with responsive touch swipe and haptic feedback." />
+  <meta property="og:title" content="Play 2048 Online Free – Classic 4x4 &amp; Daily Challenge (No Ads Popup)" />
+  <meta property="og:description" content="Play 2048 online for free with no ads popup. Features Classic 4x4, Daily Challenge, live global leaderboard, 3 undo moves, and proven strategy." />
   <meta property="og:url" content="https://play2048online.site/" />
   <meta property="og:image" content="https://play2048online.site/og-image-2048.png" />
   <meta property="og:image:width" content="1200" />
@@ -40,8 +40,8 @@
 
   <!-- Twitter Card Meta Tags -->
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Play 2048 Online Free — Official 2048 Game &amp; Live Leaderboard" />
-  <meta name="twitter:description" content="Enjoy classic 2048 with verified leaderboards, instant undo, statistics tracking, and corner anchor strategy guide." />
+  <meta name="twitter:title" content="Play 2048 Online Free – Classic 4x4 &amp; Daily Challenge (No Ads Popup)" />
+  <meta name="twitter:description" content="Play 2048 online for free with no ads popup. Features Classic 4x4, Daily Challenge, live global leaderboard, 3 undo moves, and proven strategy." />
   <meta name="twitter:image" content="https://play2048online.site/og-image-2048.png" />
 
   <!-- Schema.org JSON-LD Structured Data Graph -->
@@ -471,7 +471,7 @@
       
       <!-- Primary Viewport Game Board Area -->
       <div class="w-full max-w-lg min-h-[calc(100dvh-3rem)] flex flex-col items-center justify-between p-2 sm:p-3 shrink-0">
-      <h1 class="sr-only">Play 2048 Online Free — Official Number Sliding Puzzle Game &amp; Live Leaderboard</h1>
+      <h1 class="sr-only">Play 2048 Online Free – Classic 4x4 &amp; Daily Challenge (No Ads Popup)</h1>
 
       <!-- TOP GAME HUD BAR -->
       <div class="w-full max-w-[420px] flex items-center justify-between gap-2 shrink-0 pt-0.5">
@@ -569,6 +569,12 @@
               <strong id="review-duration-text" class="font-bold text-[#ede0c8]">0s</strong>
             </div>
           </div>
+
+          <!-- Share Score Grid / Daily Challenge Card Button -->
+          <button id="share-score-grid-btn" type="button" class="w-full max-w-[260px] py-2 px-3 rounded-lg bg-emerald-600 hover:bg-emerald-500 text-white font-black text-xs uppercase tracking-wider shadow transition-all active:scale-95 flex items-center justify-center gap-1.5 mb-2 cursor-pointer" title="Copy score grid and challenge link">
+            <span>📋</span>
+            <span id="share-score-label">Copy Score Grid / Share Challenge</span>
+          </button>
 
           <div class="flex items-center gap-2 w-full max-w-[260px]">
             <button id="keep-going-btn" onclick="window.handleKeepGoingClick && window.handleKeepGoingClick(event)" type="button" class="hidden flex-1 py-2 rounded-lg bg-[#8f7a66] hover:bg-[#9f8b77] text-white font-black text-xs uppercase tracking-wider shadow transition-all active:scale-95 cursor-pointer">
@@ -703,12 +709,27 @@
           <div>&copy; 2026 <a href="/" class="text-white font-bold hover:text-[#edc22e]">2048 Online</a>. Built with MIT Open Source Heritage.</div>
           <nav aria-label="Site Links" class="flex flex-wrap items-center gap-x-4 gap-y-1">
             <a href="/how-to-play" class="hover:text-[#edc22e] transition-colors">How to Play</a>
-            <a href="/2048-unblocked" class="hover:text-[#edc22e] transition-colors">2048 Unblocked</a>
-            <a href="/about-us" class="hover:text-[#edc22e] transition-colors">About Us</a>
-            <a href="/contact-us" class="hover:text-[#edc22e] transition-colors">Contact</a>
-            <a href="/privacy-policy" class="hover:text-[#edc22e] transition-colors">Privacy Policy</a>
+            <a href="/unblocked" class="hover:text-[#edc22e] transition-colors">2048 Unblocked</a>
+            <a href="/about" class="hover:text-[#edc22e] transition-colors">About Us</a>
+            <a href="/contact" class="hover:text-[#edc22e] transition-colors">Contact</a>
+            <a href="/privacy" class="hover:text-[#edc22e] transition-colors">Privacy Policy</a>
             <a href="/terms" class="hover:text-[#edc22e] transition-colors">Terms</a>
           </nav>
+
+  <!-- =========================================================================
+       ZERO-CLS DISPLAY AD CONTAINER (TASK 3)
+       Min-height: 90px desktop, 50px mobile. Styled in #1f1b18 / #2a2420.
+       Positioned below the bottom navigation bar so CLS = 0 and swipe gestures are never blocked.
+  ========================================================================= -->
+  <aside id="bottom-ad-container" class="w-full shrink-0 min-h-[50px] md:min-h-[90px] h-[50px] md:h-[90px] bg-[#1f1b18] border-t border-[#2a2420] flex items-center justify-center relative overflow-hidden select-none z-20" aria-label="Sponsored Advertisement">
+    <div class="w-full max-w-[728px] h-full flex flex-col items-center justify-center px-2 text-center">
+      <span class="text-[8px] sm:text-[9px] uppercase tracking-widest text-[#8e857d]/60 font-semibold mb-0.5">Advertisement</span>
+      <div id="ad-slot-responsive-banner" class="w-full flex-1 max-h-[35px] md:max-h-[70px] border border-dashed border-[#bbada0]/15 rounded-md flex items-center justify-center bg-[#2a2420]/50 text-[10px] sm:text-xs text-[#cdc1b4]/40 font-mono">
+        <span>Responsive Display Ad Slot (Zero CLS)</span>
+      </div>
+    </div>
+  </aside>
+
         </div>
         <p class="text-[11px] text-[#cdc1b4]/70">
           Original 2048 game conceptualized by Gabriele Cirulli based on 1024 by Veewo Studio and Threes by Sirvo. This edition is independently maintained with zero fake scores, cloud persistence, and mobile optimizations.
@@ -880,13 +901,44 @@
        BOTTOM NAVIGATION BAR (Matches User Screenshot Structure)
        [Logo] [Game] [Leaderboard] [About] [How to Play] [Contact] ... [Privacy] [Terms] [🔊]
   ========================================================================= -->
+  
+  <!-- ==================== REWARDED AD UNDO MODAL (TASK 3) ==================== -->
+  <div id="rewarded-undo-modal" class="hidden fixed inset-0 bg-black/80 backdrop-blur-sm flex items-center justify-center p-4 z-50 select-none">
+    <div class="bg-[#2a2420] border border-[#bbada0]/30 rounded-2xl max-w-sm w-full p-5 space-y-4 shadow-2xl text-center text-white">
+      <div class="w-12 h-12 mx-auto rounded-full bg-[#edc22e]/20 border border-[#edc22e]/40 flex items-center justify-center text-2xl">
+        🎁
+      </div>
+      <div class="space-y-1">
+        <h3 class="text-base sm:text-lg font-black text-white">Out of Undo Moves!</h3>
+        <p class="text-xs text-[#cdc1b4] leading-relaxed">
+          Watch a quick sponsor clip to get <strong>+3 Extra Undos</strong> and keep your high-score run alive!
+        </p>
+      </div>
+
+      <div class="bg-[#1f1b18] border border-[#bbada0]/20 rounded-xl p-3 flex items-center justify-between text-xs">
+        <span class="text-[#cdc1b4]">Undos Left:</span>
+        <span class="font-extrabold text-[#f67c5f]">0 Left</span>
+      </div>
+
+      <div class="space-y-2 pt-1">
+        <button id="claim-rewarded-undo-btn" type="button" class="w-full py-2.5 px-4 rounded-xl bg-[#edc22e] hover:bg-[#e5b822] text-[#3c3a32] font-black text-xs uppercase tracking-wider shadow-lg transition-all active:scale-95 flex items-center justify-center gap-1.5 cursor-pointer">
+          <span>🎬</span>
+          <span id="claim-rewarded-btn-text">Get +3 Extra Undos</span>
+        </button>
+        <button id="cancel-rewarded-undo-btn" type="button" class="w-full py-2 px-3 rounded-lg text-xs font-bold text-[#cdc1b4] hover:text-white transition-colors cursor-pointer">
+          No Thanks, Keep Playing
+        </button>
+      </div>
+    </div>
+  </div>
+
   <nav id="bottom-navbar" class="w-full bg-[#181a1d] border-t border-[#31353d] px-2 sm:px-4 h-12 shrink-0 z-30 flex items-center justify-between select-none">
     
     <!-- Left Group: Proper 2048 Logo & Primary Tabs -->
     <div class="flex items-center gap-1 sm:gap-2 overflow-x-auto no-scrollbar py-1">
       
       <!-- PROPER 2048 LOGO (Clickable: returns to Game) -->
-      <button id="nav-logo-btn" type="button" class="flex items-center gap-1.5 pr-2 py-1 cursor-pointer group focus:outline-none shrink-0" title="2048 Home">
+      <a href="/" id="nav-logo-btn" class="flex items-center gap-1.5 pr-2 py-1 cursor-pointer group focus:outline-none shrink-0" title="Play 2048 Online Home">
         <!-- 2x2 Mini Board Emblem -->
         <div class="w-7 h-7 sm:w-8 sm:h-8 rounded-lg bg-[#bbada0] p-1 grid grid-cols-2 grid-rows-2 gap-0.5 shadow shrink-0 group-hover:scale-105 transition-transform">
           <div class="rounded-[2.5px] bg-[#eee4da] flex items-center justify-center font-black text-[7.5px] sm:text-[8px] text-[#776e65] leading-none">2</div>
@@ -901,20 +953,16 @@
           <span class="text-[#f67c5f]">4</span>
           <span class="text-[#edc22e]">8</span>
         </div>
-      </button>
+      </a>
 
       <!-- Tab 1: Game (Active by default) -->
-      <button id="tab-btn-game" type="button" class="bottom-tab-btn active-tab px-2.5 sm:px-3 py-1.5 rounded-lg text-xs font-black flex items-center gap-1 shrink-0">
-        <span>Game</span>
-      </button>
+      <a href="/" id="tab-btn-game" class="bottom-tab-btn active-tab px-2.5 sm:px-3 py-1.5 rounded-lg text-xs font-black flex items-center gap-1 shrink-0"><span>Game</span></a>
 
       <!-- Tab 2: Leaderboard -->
-      <button id="tab-btn-leaderboard" type="button" class="bottom-tab-btn px-2 sm:px-2.5 py-1.5 rounded-lg text-xs font-bold flex items-center gap-1 shrink-0">
-        <span>Leaderboard</span>
-      </button>
+      <a href="/leaderboard" id="tab-btn-leaderboard" class="bottom-tab-btn px-2 sm:px-2.5 py-1.5 rounded-lg text-xs font-bold flex items-center gap-1 shrink-0"><span>Leaderboard</span></a>
 
       <!-- Tab 3: About (Opens dedicated /about-us page) -->
-      <a href="/about-us" id="tab-btn-about" class="bottom-tab-btn px-2 sm:px-2.5 py-1.5 rounded-lg text-xs font-bold flex items-center gap-1 shrink-0">
+      <a href="/about" id="tab-btn-about" class="bottom-tab-btn px-2 sm:px-2.5 py-1.5 rounded-lg text-xs font-bold flex items-center gap-1 shrink-0">
         <span>About</span>
       </a>
 
@@ -924,12 +972,12 @@
       </a>
 
       <!-- Tab 5: Unblocked -->
-      <a href="/2048-unblocked" id="tab-btn-unblocked" class="bottom-tab-btn px-2 sm:px-2.5 py-1.5 rounded-lg text-xs font-bold flex items-center gap-1 shrink-0">
+      <a href="/unblocked" id="tab-btn-unblocked" class="bottom-tab-btn px-2 sm:px-2.5 py-1.5 rounded-lg text-xs font-bold flex items-center gap-1 shrink-0">
         <span>Unblocked</span>
       </a>
 
       <!-- Tab 5: Contact (Opens dedicated /contact-us page) -->
-      <a href="/contact-us" id="tab-btn-contact" class="bottom-tab-btn px-2 sm:px-2.5 py-1.5 rounded-lg text-xs font-bold flex items-center gap-1 shrink-0">
+      <a href="/contact" id="tab-btn-contact" class="bottom-tab-btn px-2 sm:px-2.5 py-1.5 rounded-lg text-xs font-bold flex items-center gap-1 shrink-0">
         <span>Contact</span>
       </a>
 
@@ -938,7 +986,7 @@
     <!-- Right Group: Legal Links & Audio Button (Matches Screenshot) -->
     <div class="flex items-center gap-1.5 sm:gap-2.5 shrink-0 pl-1 sm:pl-2">
       <!-- Privacy Policy Tab (Opens dedicated /privacy-policy page) -->
-      <a href="/privacy-policy" id="tab-btn-privacy" class="bottom-tab-btn text-xs font-medium py-1 px-1.5 shrink-0 hidden md:inline-block">
+      <a href="/privacy" id="tab-btn-privacy" class="bottom-tab-btn text-xs font-medium py-1 px-1.5 shrink-0 hidden md:inline-block">
         Privacy Policy
       </a>
 
@@ -2169,9 +2217,73 @@
         }
       });
 
+      // =========================================================================
+      // REWARDED AD UNDO LOGIC & MODAL CONTROLLERS (TASK 3)
+      // =========================================================================
+      const rewardedUndoModal = document.getElementById('rewarded-undo-modal');
+      const claimRewardedUndoBtn = document.getElementById('claim-rewarded-undo-btn');
+      const cancelRewardedUndoBtn = document.getElementById('cancel-rewarded-undo-btn');
+      const claimRewardedBtnText = document.getElementById('claim-rewarded-btn-text');
+
+      function openRewardedUndoModal() {
+        if (rewardedUndoModal) rewardedUndoModal.classList.remove('hidden');
+      }
+
+      function closeRewardedUndoModal() {
+        if (rewardedUndoModal) rewardedUndoModal.classList.add('hidden');
+      }
+
+      if (cancelRewardedUndoBtn) {
+        cancelRewardedUndoBtn.addEventListener('click', closeRewardedUndoModal);
+      }
+
+      function triggerRewardedAd(onRewardGranted, onAdClosed) {
+        if (window.rewardedAdApi && typeof window.rewardedAdApi.show === 'function') {
+          window.rewardedAdApi.show()
+            .then(result => {
+              if (result && result.rewardGranted) {
+                onRewardGranted();
+              } else if (onAdClosed) {
+                onAdClosed();
+              }
+            })
+            .catch(err => {
+              console.warn('[Rewarded Ad] Network error, applying fallback grant:', err);
+              onRewardGranted();
+            });
+        } else {
+          // Clean fallback stub until the ad network script is approved
+          console.log('[Rewarded Ad Stub] Simulating rewarded ad callback...');
+          if (claimRewardedBtnText) claimRewardedBtnText.textContent = 'Loading Sponsor Clip...';
+          setTimeout(() => {
+            if (claimRewardedBtnText) claimRewardedBtnText.textContent = 'Get +3 Extra Undos';
+            onRewardGranted();
+          }, 450);
+        }
+      }
+
+      if (claimRewardedUndoBtn) {
+        claimRewardedUndoBtn.addEventListener('click', () => {
+          triggerRewardedAd(() => {
+            undosLeft += 3;
+            document.getElementById('undo-left-count').textContent = undosLeft;
+            trackGAEvent('rewarded_undo_granted', { new_undos_total: undosLeft, score: score });
+            saveActiveSession();
+            closeRewardedUndoModal();
+          }, () => {
+            closeRewardedUndoModal();
+          });
+        });
+      }
+
       // Undo & Restart Buttons
       document.getElementById('undo-move-btn').addEventListener('click', () => {
-        if (isGameOver || undosLeft <= 0 || undoStack.length === 0) return;
+        if (isGameOver) return;
+        if (undosLeft <= 0) {
+          openRewardedUndoModal();
+          return;
+        }
+        if (undoStack.length === 0) return;
         const snap = undoStack.pop();
         tileLayerEl.innerHTML = '';
         grid = [
@@ -2392,7 +2504,103 @@
       if (classicBtnEl) classicBtnEl.addEventListener('click', () => setGameMode('classic'));
       if (dailyBtnEl) dailyBtnEl.addEventListener('click', () => setGameMode('daily'));
 
-      // Service Worker Registration for PWA Offline Play
+// =========================================================================
+      // SHAREABLE DAILY CHALLENGE & SCORE GRID CARD (TASK 4)
+      // =========================================================================
+      const shareScoreGridBtn = document.getElementById('share-score-grid-btn');
+      const shareScoreLabel = document.getElementById('share-score-label');
+
+      function generateEmojiScoreGrid() {
+        const isDaily = currentGameMode === 'daily';
+        const dailyInfo = getDailySeedInfo();
+        const topTile = getHighestTile();
+
+        // Spoiler-free emoji representation based on tile value tiers
+        const emojiMap = (val) => {
+          if (!val || val === 0) return '⬛';
+          if (val <= 4) return '⬜';
+          if (val <= 16) return '🟧';
+          if (val <= 64) return '🟥';
+          if (val <= 512) return '🟪';
+          if (val <= 2048) return '🟨';
+          return '🟩';
+        };
+
+        const gridRows = [];
+        for (let r = 0; r < 4; r++) {
+          let row = '';
+          for (let c = 0; c < 4; c++) {
+            const cell = grid[r][c];
+            row += emojiMap(cell ? cell.val : 0);
+          }
+          gridRows.push(row);
+        }
+
+        const titleText = isDaily 
+          ? `2048 Daily Challenge #${dailyInfo.dayNumber} 📅`
+          : `2048 Score Grid 🎮`;
+        const statsLine = `Score: ${score.toLocaleString()} | Tile: ${topTile} | Moves: ${moves.toLocaleString()}`;
+
+        return `${titleText}\n${statsLine}\n\n${gridRows.join('\n')}\n\nPlay today's board at https://play2048online.site`;
+      }
+
+      async function copyScoreGridToClipboard() {
+        const textToCopy = generateEmojiScoreGrid();
+        let copied = false;
+
+        if (navigator.clipboard && window.isSecureContext) {
+          try {
+            await navigator.clipboard.writeText(textToCopy);
+            copied = true;
+          } catch (e) {
+            copied = false;
+          }
+        }
+
+        if (!copied) {
+          try {
+            const ta = document.createElement('textarea');
+            ta.value = textToCopy;
+            ta.style.position = 'fixed';
+            ta.style.left = '-9999px';
+            document.body.appendChild(ta);
+            ta.focus();
+            ta.select();
+            copied = document.execCommand('copy');
+            document.body.removeChild(ta);
+          } catch (e) {
+            copied = false;
+          }
+        }
+
+        if (shareScoreLabel) {
+          shareScoreLabel.textContent = copied ? 'Copied to Clipboard! ✓' : 'Failed to Copy';
+          setTimeout(() => {
+            shareScoreLabel.textContent = 'Copy Score Grid / Share Challenge';
+          }, 2500);
+        }
+
+        trackGAEvent('share_challenge_copied', {
+          mode: currentGameMode,
+          score: score,
+          best_tile: getHighestTile(),
+          moves: moves
+        });
+      }
+
+      if (shareScoreGridBtn) {
+        shareScoreGridBtn.addEventListener('click', (e) => {
+          e.preventDefault();
+          e.stopPropagation();
+          copyScoreGridToClipboard();
+        });
+        shareScoreGridBtn.addEventListener('pointerdown', e => e.stopPropagation());
+        shareScoreGridBtn.addEventListener('touchstart', e => e.stopPropagation(), { passive: false });
+      }
+
+      
+
+            // Service Worker Registration for PWA Offline Play
       if ('serviceWorker' in navigator) {
         window.addEventListener('load', () => {
           navigator.serviceWorker.register('/sw.js').catch(() => {});
